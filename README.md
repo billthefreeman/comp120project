@@ -34,17 +34,18 @@ The date and time when this incident was closed because it is found out bogus.
 **incident urgency:**
 To determine the Incident’s urgency, reported or others want to modify the incident urgency can choose the highest relevant category below. Priority of an incident is determined by its urgency. 
 (Reference: http://wiki.en.itprocessmaps.com/index.php/Checklist_Incident_Priority)
- |Category    | Description|
---------     | ---|
-|High(H) | The damage caused by the Incident increases rapidly; Work that cannot be completed by staff is highly time sensitive; A minor Incident can be prevented from becoming a major Incident by acting immediately.|
-Medium(M)  | The damage caused by the Incident increases considerably over time.|
+
+Category    | Description
+--------     | ---
+High(H) | The damage caused by the Incident increases rapidly; Work that cannot be completed by staff is highly time sensitive; A minor Incident can be prevented from becoming a major Incident by acting immediately.
+Medium(M)  | The damage caused by the Incident increases considerably over time.
 Low(L)     | The damage caused by the Incident only marginally increases over time; Work that cannot be completed by staff is not time sensitive.
 
 
 **incident impact:**
 This section establishes categories of impact. To determine the Incident’s impact, reported or others want to modify the incident urgency can choose the highest relevant category below. Priority of an incident is determined by its impact.
-(Reference: 
-http://wiki.en.itprocessmaps.com/index.php/Checklist_Incident_Priority)
+(Reference: http://wiki.en.itprocessmaps.com/index.php/Checklist_Incident_Priority)
+
  Category    | Description
 --------     | ---
 High(H) | A large number of staff are affected and/or not able to do their job; The financial impact of the Incident is (for example) likely to exceed $10,000; The damage to the reputation of the institution is likely to be high; Someone has been injured.
