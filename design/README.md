@@ -50,7 +50,6 @@ The date and time when this incident was solved.
 **closed date and time:**
 The date and time when this incident was closed because it is found out bogus.
  
->>>>>>> c25b73889e702fed673ec2675bfb0f47d485b794
 **incident urgency:**
 To determine the Incident’s urgency, reported or others want to modify the incident urgency can choose the highest relevant category below. Priority of an incident is determined by its urgency. 
 (Reference: http://wiki.en.itprocessmaps.com/index.php/Checklist_Incident_Priority)
@@ -66,17 +65,11 @@ Low(L)     | The damage caused by the Incident only marginally increases over ti
 This section establishes categories of impact. To determine the Incident’s impact, reported or others want to modify the incident urgency can choose the highest relevant category below. Priority of an incident is determined by its impact.
 (Reference: http://wiki.en.itprocessmaps.com/index.php/Checklist_Incident_Priority)
 
-<<<<<<< HEAD
-Category    | Description
-=======
  Category    | Description
->>>>>>> c25b73889e702fed673ec2675bfb0f47d485b794
 --------     | ---
 High(H) | A large number of staff are affected and/or not able to do their job; The financial impact of the Incident is (for example) likely to exceed $10,000; The damage to the reputation of the institution is likely to be high; Someone has been injured.
 Medium(M)    | A moderate number of staff are affected and/or not able to do their job properly; The financial impact of the Incident is (for example) likely to exceed   but will not be more than $10,000; The damage to the reputation of the institution is likely to be moderate.
 Low(L)     | A minimal number of staff are affected and/or able to deliver an acceptable service but this requires extra effort; The financial impact of the Incident is (for example) likely to be less than $1,000; The damage to the reputation of the institution is likely to be minimal.
-
-<<<<<<< HEAD
 
 **type of incident_id:**
 reference the id in table type of incident, which link the type name to a type id.
@@ -139,8 +132,6 @@ status_id: The unique numeric identifier for the incident status, which will not
  
 status_name: selectable status name are as follows: reported, processing, reassigned, solved and closed.
  
- 
->>>>>>> c25b73889e702fed673ec2675bfb0f47d485b794
 ####**Type**
 This represents all selectable types of an incident.
 Incidents with different types will be viewed by audiance in different departments and handled by employees in different groups. (See later chapter)
@@ -151,7 +142,6 @@ type_name: default type names are: Building Renovation, Emergency Response, Envi
 
 ####**People**
 Every person in Operations Services is represented by one Person object. Each person has a unique person_id. Table People also contains information of first/last names, phone numbers, emails and group_ids. Class People has two abstract subclasses: Reporter and Assignee. A person can behave as both reporter and assignee in different cases.
-<<<<<<< HEAD
 
 ####**Reporter**
 A Reporter represents a person who reports the incident. Each incident can have only on reporter, but it is possible for a reporter (person) to report many incidents.
@@ -161,8 +151,6 @@ An Assignee represents a person who will handle the incident. Every incident wil
 
 ####**Group**
 Every employee belongs to a Group.  A reported incident will be assigned to one or more groups of person in Environmental Health & Safety Department depending on its Type. For example, slip-trip-and-fall will be assigned to Buildings and Facilities Group. If an incident has no specific type, it will be sent to Front Desk Staff group and will be reassigned to another group.
-
-=======
  
 ####**Reporter**
 A Reporter represents a person who reports the incident. Each incident can have only on reporter, but it is possible for a reporter (person) to report many incidents.
@@ -172,8 +160,7 @@ An Assignee represents a person who will handle the incident. Every incident wil
  
 ####**Group**
 Every employee belongs to a Group.  A reported incident will be assigned to one or more groups of person in Environmental Health & Safety Department depending on its Type. For example, slip-trip-and-fall will be assigned to Buildings and Facilities Group. If an incident has no specific type, it will be sent to Front Desk Staff group and will be reassigned to another group.
- 
->>>>>>> c25b73889e702fed673ec2675bfb0f47d485b794
+
 ####**Department**
 There are Departments under Operations Services: Dining, Energy & Facilities, Environmental Health & Safety, Housing, Mail & Print, Sustainability, Events Management, Sustainability, and Transportation. Employees in different Department have different privileges to view incidents. For example, employees in Transportation department cannot view the incidents about exposed power outlet in a building.
 Life-and death incidents will be exposed to all the departments.
