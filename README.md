@@ -75,14 +75,14 @@ text field for assignees to make some description on the process of handling the
 incident_audit table is used to keep track of the modifications of incidents.  For every change, regardless of what kind (update or insert), we will create a record in the audit table. The audit table will have an extra field "dt" that determines when the change occurred. When an incident is inserted or updated in the incident table, trigger will be used to insert a corresponding audit row into this table.
  
  
-**Status**
+####**Status**
 This represents all selectable statuses of an incident.
 status_id: The unique numeric identifier for the incident status, which will not change for the lifetime of the incident status.
  
 status_name: selectable status name are as follows: reported, processing, reassigned, solved and closed.
  
  
-**Type**
+####**Type**
 This represents all selectable types of an incident.
 Incidents with different types will be viewed by audiance in different departments and handled by employees in different groups. (See later chapter)
 
@@ -90,18 +90,18 @@ type_of_incident_id: The unique numeric identifier for the incident type, which 
 
 type_name: default type names are: Building Renovation, Emergency Response, Environmental Compliance, Environmental Public Health, Fire Safety, Construction Safety, Occupational Safety, Biosafety, Chemical Safety, General Lab Safety, Radiation Protection.
 
-**People**
+####**People**
 Every person in Operations Services is represented by one Person object. Each person has a unique person_id. Table People also contains information of first/last names, phone numbers, emails and group_ids. Class People has two abstract subclasses: Reporter and Assignee. A person can behave as both reporter and assignee in different cases.
  
-**Reporter**
+####**Reporter**
 A Reporter represents a person who reports the incident. Each incident can have only on reporter, but it is possible for a reporter (person) to report many incidents.
  
-**Assignee**
+####**Assignee**
 An Assignee represents a person who will handle the incident. Every incident will be processed by one assignee at a time. If the assignee cannot solve the problem, the incident will be reassigned to another group (status of incidents will be changed to reassigned). Another employee will be assigned to solve this incident and become the new Assignee of this incident.
  
-**Group**
+####**Group**
 Every employee belongs to a Group.  A reported incident will be assigned to one or more groups of person in Environmental Health & Safety Department depending on its Type. For example, slip-trip-and-fall will be assigned to Buildings and Facilities Group. If an incident has no specific type, it will be sent to Front Desk Staff group and will be reassigned to another group.
  
-**Department **
+####**Department**
 There are Departments under Operations Services: Dining, Energy & Facilities, Environmental Health & Safety, Housing, Mail & Print, Sustainability, Events Management, Sustainability, and Transportation. Employees in different Department have different privileges to view incidents. For example, employees in Transportation department cannot view the incidents about exposed power outlet in a building.
 Life-and death incidents will be exposed to all the departments.
