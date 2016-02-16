@@ -1,0 +1,263 @@
+<style>
+    body {
+      padding-top: 50px;
+    }
+    .starter-template {
+      padding: 40px 15px;
+      text-align: center;
+    }
+    .form-margin{
+        margin-top: 30px;
+        
+    }
+    .top-align{
+        margin: 10px;
+        margin-bottom: 30px;
+        
+    }
+    .label{
+        vertical-align: top;
+        padding-left: 14%;
+        padding-right: 14%;
+    }
+    form{
+        /*border: 1px solid #999;
+        border: inset 1px solid #333;*/
+        margin: 20px;
+        border-radius: 15px;
+        background: -webkit-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+        background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+        background: linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        padding: 6%;
+    }
+    .emergency{
+        color: red;
+        font-weight: bold;
+        margin: 4px;
+    }
+    .button{
+         margin-left: auto;
+         margin-right: auto;
+    }
+    .left_col{
+        margin-top: 30px
+    }
+
+    table, tr, td {
+      border: 1px solid black;
+      background-color: #f1f1c1;
+    }
+
+    select {
+      border:1px solid #ccc;  
+     
+    } 
+
+</style>
+        
+        <div class="row">
+            <div class="container form-margin">
+               
+                <div class="col-md-3">
+                    <ul class="list-group left_col" >
+                        <li class="list-group-item text-primary">
+                            <h3 class="emergency">Emergency?</h3>
+                        </li>
+                        <li class="list-group-item">Please Call Customer Service at xxx-xxx-xxxx</li>
+                    </ul>
+                </div>
+              
+                <div class="col-md-9 ">
+                    <%= form_for @incident, :html =>{ :class => "fcol-md-11" } do |f| %>
+
+                      <% if @incident.errors.any? %>
+                        <div id="error_expl" class="panel panel-danger">
+                          <div class="panel-heading">
+                            <h3 class="panel-title"><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h3>
+                          </div>
+                          <div class="panel-body">
+                            <ul>
+                            <% @incident.errors.full_messages.each do |msg| %>
+                              <li><%= msg %></li>
+                            <% end %>
+                            </ul>
+                          </div>
+                        </div>
+                      <% end %>
+
+                        <h2 class="top-align"><span class="label label-default">Reporter Information</span></h2>
+                        <fieldset class="text-info" style="margin-bottom: 5%; margin-top: -2%;">
+                            <div class="row">
+                                <div class="form-group col-md-7">
+                                    <label class="control-label" >* Reporter Name</label>
+                                    <div id="slc" class="col-lg-10">
+                                      <%= f.select(:reporter_id , options_for_select(Reporter.all.map{|c|[c.user_name , c.id]},f.object.reporter_id), {:include_blank => 'Select Reporter'},{:class => 'col-lg-10 form-control'})%>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                            <div class="row">
+                                <div class="form-group  col-md-6 col-sm-12">
+                                    <label class="control-label">Phone</label>
+                                    <input type="text" class="form-control"  placeholder="e.g. xxx-xxx-xxxx">
+                                </div>
+                                <div class="form-group  col-md-6 col-sm-12">
+                                    <label class="control-label" >Email</label>
+                                    <input type="text" class="form-control"  placeholder="e.g. jobs@gmail.cpm">
+                                </div>
+                            </div>
+                        </fieldset>
+                    
+                    
+                        <h2 class="top-align"><span class="label label-default">Incidents Information</span></h2>
+                        <fieldset class="text-info" style="margin-bottom: 5%; margin-top: -2%;">
+                            <div class="row">
+                                <div class="form-group col-md-8">
+                                    <label class="control-label">*Location</label>
+                                    <%= f.text_field :location, :class => 'form-control' ,:placeholder => '123, xxxx street'%>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-8">
+                                    <label class="control-label">*Severity</label>
+                                    <button id="info" type="button" class="btn btn-info btn-xs" data-toggle="popover" title="Severity description" 
+                                    data-content="Incident Urgency:
+                                                  &lt;table&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;Category&lt;/td&gt;
+                                                      &lt;td&gt;Description&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;High(H)&lt;/td&gt;
+                                                      &lt;td&gt;The damage caused by the Incident increases rapidly.&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;Medium(M)&lt;/td&gt;
+                                                      &lt;td&gt;The damage caused by the Incident increases considerably over time.&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;Low(L)&lt;/td&gt;
+                                                      &lt;td&gt;The damage caused by the Incident only marginally increases over time.&lt;/td&gt;
+                                                    &lt;/tr&gt;  
+                                                  &lt;/table&gt;
+
+                                                  Incident Impact:
+                                                  &lt;table&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;Category&lt;/td&gt;
+                                                      &lt;td&gt;Description&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;High(H)&lt;/td&gt;
+                                                      &lt;td&gt;A large number of staff are affected and/or not able to do their job.&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;Medium(M)&lt;/td&gt;
+                                                      &lt;td&gt;TA moderate number of staff are affected and/or not able to do their job properly.&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;Low(L)&lt;/td&gt;
+                                                      &lt;td&gt;A minimal number of staff are affected and/or able to deliver an acceptable service but this requires extra effort.&lt;/td&gt;
+                                                    &lt;/tr&gt;  
+                                                  &lt;/table&gt;
+                                                 Incident Severity:&lt;br/&gt;
+                                                    &lt;table&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td rowspan=&quot;2&quot; colspan=&quot;4&quot;&gt;&lt;/td&gt;
+                                                      &lt;td colspan=&quot;3&quot;&gt;Impact&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;H&lt;/td&gt;
+                                                      &lt;td&gt;M&lt;/td&gt;
+                                                      &lt;td&gt;N&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td rowspan=&quot;3&quot; colspan=&quot;3&quot;&gt;Urgency&lt;/td&gt;
+                                                      &lt;td&gt;H&lt;/td&gt;
+                                                      &lt;td&gt;1&lt;/td&gt;
+                                                      &lt;td&gt;2&lt;/td&gt;
+                                                      &lt;td&gt;3&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;M&lt;/td&gt;
+                                                      &lt;td&gt;2&lt;/td&gt;
+                                                      &lt;td&gt;3&lt;/td&gt;
+                                                      &lt;td&gt;4&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                    &lt;tr&gt;
+                                                      &lt;td&gt;L&lt;/td&gt;
+                                                      &lt;td&gt;3&lt;/td&gt;
+                                                      &lt;td&gt;4&lt;/td&gt;
+                                                      &lt;td&gt;5&lt;/td&gt;
+                                                    &lt;/tr&gt;
+                                                  &lt;/table&gt;">?</button>
+                                    <div id="slc" class="col-lg-10">
+                                      <%= f.select( :severity,options_for_select([['1.Critical',1],['2.Major',2],['3.Moderate',3],['4.Minor',4],['5.Cosmetic',5]]),{:include_blank => 'Select Severity'},{:class => 'form-control'}) %>
+                                    </div>
+                                </div>
+                                   
+                            </div>
+                            
+                            <div class="row">
+                                <div class="form-group  col-md-6 col-sm-12">
+                                    <label class="control-label">*Category</label>
+                                        <div class="col-lg-10">
+                                          <% cates_array = Cate.all.map { |c| [c.cate_name, c.id] } %>
+                                          <%= f.select(:cate_id, options_for_select(Cate.all.map { |c| [c.cate_name, c.id]},f.object.reporter_id),
+                                          {:include_blank => 'Select Category'},{:onChange => 'javascript:doit();', :class => 'form-control'})%>
+                                        </div>
+                                </div>
+
+
+                                <div class="form-group  col-md-6 col-sm-12">
+                                    <label class="control-label" id ="a1" name ="a1" style ="display:none">Other Category:</label>
+                                    <%= f.text_field :other_cate_description, 
+                                    :class => 'form-control',:style => 'display:none'%>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group  col-md-10 col-sm-12">
+                                    <label class="control-label" >Incident Description</label>
+                                    <%= f.text_area :incident_description, :class => 'form-control',:id => 'comment', :rows => 3 %>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group  col-md-10 col-sm-12">
+                                    <label class="control-label" >Image</label>
+                                    <%= f.file_field :cover%>
+                                </div>
+                            </div>
+                        </fieldset>
+                   
+
+                    <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                        <%= f.submit nil, :class => 'btn btn-primary submit' %>
+                        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                                      incidents_path, :class => 'btn btn-default' %>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+            <ul class="pager"></ul>
+        </div>
+      <%end%>
+
+  <script type="text/javascript">
+    $(function () {
+    $('[data-toggle="popover"]').popover({html : true});
+    })
+  
+    function getID(obj){return document.getElementById(obj);} 
+    function show(objid) {getID(objid).style.display='inline';} 
+    function hidden(objid) {getID(objid).style.display='none';} 
+    function doit(){ 
+      console.log("do doit");
+      var sel_val=getID('incident_cate_id').value; 
+      if (sel_val != 7) {hidden('a1');hidden('incident_other_cate_description'); console.log("do hidden");} 
+      else {show('a1');show('incident_other_cate_description'); console.log("do show");} 
+    } 
+</script>

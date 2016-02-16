@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  status_id: 1
+  report_date_time: 2016-01-30 00:41:21
+  processed_date_time: 2016-01-30 00:41:21
+  solved_date_time: 2016-01-30 00:41:21
+  closed_date_time: 2016-01-30 00:41:21
+  severity: 1
+  cate_id: 1
+  other_cate_description: MyString
+  incident_description: MyText
+  reporter_id: 1
+
+two:
+  location: MyString
+  status_id: 1
+  report_date_time: 2016-01-30 00:41:21
+  processed_date_time: 2016-01-30 00:41:21
+  solved_date_time: 2016-01-30 00:41:21
+  closed_date_time: 2016-01-30 00:41:21
+  severity: 1
+  cate_id: 1
+  other_cate_description: MyString
+  incident_description: MyText
+  reporter_id: 1

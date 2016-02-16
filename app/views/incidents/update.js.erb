@@ -1,0 +1,7 @@
+var sel_val = $('incident_reporter_id').value;
+console.log(sel_val);
+if (sel_val) {
+    $('department_text').value = '<%= Reporter.find(2).group.department.department_name%>';
+    $('group_text').value = '<%= Reporter.find(2).group.group_name%>';
+}
+      
