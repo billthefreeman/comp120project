@@ -29,10 +29,10 @@ class AddRows < ActiveRecord::Migration
 		Group.create(:group_name => "Laboratories", :department_id => 3)
 		Group.create(:group_name => "Training", :department_id => 3)
 
-		People.create(:user_name => "Fanying",:group_id => 1,:phone=>"12345678",:email=>"123@tufts.edu")
-		People.create(:user_name => "Yan",:group_id => 2,:phone=>"23456781",:email=>"234@tufts.edu")
-		People.create(:user_name => "Min",:group_id => 3,:phone=>"34567812",:email=>"345@tufts.edu")
-		People.create(:user_name => "Feiyu",:group_id => 4,:phone=>"45678123",:email=>"456@tufts.edu")
+		Person.create(:user_name => "Fanying",:group_id => 1,:phone=>"12345678",:email=>"123@tufts.edu")
+		Person.create(:user_name => "Yan",:group_id => 2,:phone=>"23456781",:email=>"234@tufts.edu")
+		Person.create(:user_name => "Min",:group_id => 3,:phone=>"34567812",:email=>"345@tufts.edu")
+		Person.create(:user_name => "Feiyu",:group_id => 4,:phone=>"45678123",:email=>"456@tufts.edu")
 
 		Incident.create(:location =>"Halligan",:reporter_id=>1,:cate_id=>4,:severity=>3,:status_id=>2)
 		Incident.create(:location =>"Anderson",:reporter_id=>2,:cate_id=>5,:severity=>5,:status_id=>3)
@@ -41,13 +41,5 @@ class AddRows < ActiveRecord::Migration
 		Incident.create(:location =>"Tisch",:reporter_id=>1,:cate_id=>1,:severity=>3,:status_id=>4)
 		Incident.create(:location =>"Barnum",:reporter_id=>3,:cate_id=>6,:severity=>2,:status_id=>3)
 		Incident.create(:location =>"Braker",:reporter_id=>2,:cate_id=>7,:severity=>5,:status_id=>2)
-	end
-
-	def self.down
-	  
-	  Status.delete_all
-	  Cate.delete_all
-	  Department.delete_all
-	  Group.delete_all
 	end
 end

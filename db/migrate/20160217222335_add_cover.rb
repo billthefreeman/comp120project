@@ -1,4 +1,4 @@
-class AddCoverToIncident < ActiveRecord::Migration
+class AddCover < ActiveRecord::Migration
    def self.up
     add_attachment :incidents, :cover
   end
