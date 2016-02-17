@@ -1,7 +1,8 @@
 class Incident < ActiveRecord::Base
   belongs_to :status  
   belongs_to :cate
-  belongs_to :reporter
+  belongs_to :reporter, :class_name => "Person", :foreign_key => :reporter_id
+  belongs_to :assignee, :class_name => "Person", :foreign_key => :assignee_id
   validates :location, :severity, :cate_id, :reporter_id, presence: true
   validates :other_cate_description, presence: true, :if => :other_cate?
   has_attached_file :cover ,
@@ -14,6 +15,6 @@ class Incident < ActiveRecord::Base
     validates_attachment_content_type :cover , content_type: /\Aimage\/.*\Z/
 
   def other_cate?
-    cate_id == 7
+    cate_id == Cate.last.id
   end
 end

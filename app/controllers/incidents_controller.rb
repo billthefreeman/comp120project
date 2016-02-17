@@ -8,9 +8,12 @@ class IncidentsController < ApplicationController
   end
 
   def update_group 
-    reporter = Reporter.find(params[:reporter_id])
+    reporter = Person.find(params[:reporter_id])
     @reporter_id = reporter.id
     @group = reporter.group.group_name
+    @department = reporter.group.department.department_name
+    @phone = reporter.phone
+    @email = reporter.email
   end
 
   # GET /incidents/1

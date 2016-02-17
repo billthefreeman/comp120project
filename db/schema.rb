@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215230726) do
+ActiveRecord::Schema.define(version: 20160217214159) do
 
   create_table "cates", force: :cascade do |t|
     t.string   "cate_name",  limit: 255
@@ -34,37 +34,25 @@ ActiveRecord::Schema.define(version: 20160215230726) do
 
   create_table "incidents", force: :cascade do |t|
     t.string   "location",               limit: 255
-    t.integer  "status_id",              limit: 4,     default: 1
-    t.datetime "report_date_time"
+    t.integer  "status_id",              limit: 4,   default: 1
     t.datetime "processed_date_time"
     t.datetime "solved_date_time"
-    t.datetime "closed_date_time"
     t.integer  "severity",               limit: 4
     t.integer  "cate_id",                limit: 4
     t.string   "other_cate_description", limit: 255
-    t.text     "incident_description",   limit: 65535
+    t.string   "incident_description",   limit: 255
     t.integer  "reporter_id",            limit: 4
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.integer  "assignee_id",            limit: 4
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.string   "cover_file_name",        limit: 255
     t.string   "cover_content_type",     limit: 255
     t.integer  "cover_file_size",        limit: 4
     t.datetime "cover_updated_at"
+    t.datetime "closed_date_time"
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "first_name",   limit: 255
-    t.string   "last_name",    limit: 255
-    t.string   "user_name",    limit: 255
-    t.string   "phone",        limit: 255
-    t.string   "second_phone", limit: 255
-    t.string   "email",        limit: 255
-    t.integer  "group_id",     limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "reporters", force: :cascade do |t|
     t.string   "first_name",   limit: 255
     t.string   "last_name",    limit: 255
     t.string   "user_name",    limit: 255

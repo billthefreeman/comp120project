@@ -47,6 +47,12 @@
       <%end%></dd>
   <dt><strong>Reporter:</strong></dt>
   <dd><%= @incident.reporter.user_name %></dd>
+  <dt><strong>Assignee:</strong></dt>
+  <dd><%if @incident.assignee_id == nil %>
+      Not available
+      <%else%>
+      <%= @incident.assignee.user_name%> 
+      <%end%></dd>
   <dt><strong>Image:</strong></dt>
   <dd><%= image_tag @incident.cover.url(:icon) , :width => 150 , :height => 150%></dd>
 </dl>

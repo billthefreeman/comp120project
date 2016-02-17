@@ -18,7 +18,7 @@ class IncidentsControllerTest < ActionController::TestCase
 
   test "should create incident" do
     assert_difference('Incident.count') do
-      post :create, incident: { cate_id: @incident.cate_id, closed_date_time: @incident.closed_date_time, incident_description: @incident.incident_description, location: @incident.location, other_cate_description: @incident.other_cate_description, processed_date_time: @incident.processed_date_time, report_date_time: @incident.report_date_time, reporter_id: @incident.reporter_id, severity: @incident.severity, solved_date_time: @incident.solved_date_time, status_id: @incident.status_id }
+      post :create, incident: { assignee_id: @incident.assignee_id, cate_id: @incident.cate_id, incident_description: @incident.incident_description, location: @incident.location, other_category_description: @incident.other_category_description, processed_date_time: @incident.processed_date_time, report_date_time: @incident.report_date_time, reporter_id: @incident.reporter_id, severity: @incident.severity, solved_date_time: @incident.solved_date_time, status_id: @incident.status_id }
     end
 
     assert_redirected_to incident_path(assigns(:incident))
@@ -35,7 +35,7 @@ class IncidentsControllerTest < ActionController::TestCase
   end
 
   test "should update incident" do
-    patch :update, id: @incident, incident: { cate_id: @incident.cate_id, closed_date_time: @incident.closed_date_time, incident_description: @incident.incident_description, location: @incident.location, other_cate_description: @incident.other_cate_description, processed_date_time: @incident.processed_date_time, report_date_time: @incident.report_date_time, reporter_id: @incident.reporter_id, severity: @incident.severity, solved_date_time: @incident.solved_date_time, status_id: @incident.status_id }
+    patch :update, id: @incident, incident: { assignee_id: @incident.assignee_id, cate_id: @incident.cate_id, incident_description: @incident.incident_description, location: @incident.location, other_category_description: @incident.other_category_description, processed_date_time: @incident.processed_date_time, report_date_time: @incident.report_date_time, reporter_id: @incident.reporter_id, severity: @incident.severity, solved_date_time: @incident.solved_date_time, status_id: @incident.status_id }
     assert_redirected_to incident_path(assigns(:incident))
   end
 
