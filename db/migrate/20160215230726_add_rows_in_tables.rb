@@ -1,9 +1,9 @@
 class AddRowsInTables < ActiveRecord::Migration
 	def self.up
-		Reporter.create(:user_name => "Fanying")
-		Reporter.create(:user_name => "Yan")
-		Reporter.create(:user_name => "Min")
-		Reporter.create(:user_name => "Feiyu")
+		Reporter.create(:user_name => "Fanying",:group_id => 1)
+		Reporter.create(:user_name => "Yan",:group_id => 2)
+		Reporter.create(:user_name => "Min",:group_id => 3)
+		Reporter.create(:user_name => "Feiyu",:group_id => 4)
 
 		Status.create(:status_name => "reported")
 		Status.create(:status_name => "processing")

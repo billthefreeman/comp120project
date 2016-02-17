@@ -92,9 +92,17 @@
                                 <div class="form-group col-md-7">
                                     <label class="control-label" >* Reporter Name</label>
                                     <div id="slc" class="col-lg-10">
-                                      <%= f.select(:reporter_id , options_for_select(Reporter.all.map{|c|[c.user_name , c.id]},f.object.reporter_id), {:include_blank => 'Select Reporter'},{:class => 'col-lg-10 form-control'})%>
+                                      <%= f.select(:reporter_id , options_for_select(Reporter.all.map{|c|[c.user_name , c.id]},f.object.reporter_id),{:class => 'col-lg-10 form-control'})%>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group  col-md-6 col-sm-12">
+                                    <label class="control-label">Group</label>
+                                    <input id="groupDiv" type="text" class="form-control"  value="<%= Reporter.first.group.group_name%>">
+                                </div>
+                                
                             </div>
                           
                             <div class="row">
@@ -259,5 +267,17 @@
       var sel_val=getID('incident_cate_id').value; 
       if (sel_val != 7) {hidden('a1');hidden('incident_other_cate_description'); console.log("do hidden");} 
       else {show('a1');show('incident_other_cate_description'); console.log("do show");} 
-    } 
+    }
+
+    $(document).ready(function() {
+      $('#incident_reporter_id').change(function() {
+        $.ajax({
+          url: "<%= update_group_path %>",
+          data: {
+            reporter_id : $('#incident_reporter_id').val()
+          },
+          dataType: "script"
+        });
+      });
+    });
 </script>

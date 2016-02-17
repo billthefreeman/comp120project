@@ -5,7 +5,12 @@ class IncidentsController < ApplicationController
   # GET /incidents.json
   def index
     @incidents = @paginate = Incident.includes(:cate).order('id DESC').paginate(:page => params[:page], :per_page => 5)
-    
+  end
+
+  def update_group 
+    reporter = Reporter.find(params[:reporter_id])
+    @reporter_id = reporter.id
+    @group = reporter.group.group_name
   end
 
   # GET /incidents/1
