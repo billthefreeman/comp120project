@@ -233,15 +233,15 @@
         </div>
        <% puts case incident.severity%>
             <%when 1%>
-              <div class="timeline-body" style="background-color:rgba(255,0,0,0.8)">
+              <div class="timeline-body" style="background-color:rgba(255,50,0,0.9)">
             <%when 2%>
-              <div class="timeline-body" style="background-color:rgba(255,0,0,0.6)">
+              <div class="timeline-body" style="background-color:rgba(255,102,0,0.7)">
             <%when 3%>
-              <div class="timeline-body" style="background-color:rgba(255,0,0,0.4)">
+              <div class="timeline-body" style="background-color:rgba(255,255,0,0.5)">
             <%when 4%>
-              <div class="timeline-body" style="background-color:rgba(255,0,0,0.2)">
+              <div class="timeline-body" style="background-color:rgba(0,158,255,0.3)">
             <%when 5%>
-              <div class="timeline-body" style="background-color:rgba(255,0,0,0.1)">
+              <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
           <% end %>
             <b>Severity: </b><%= incident.severity %><br>
             <b>Category: </b><%= incident.cate.cate_name %><br>
