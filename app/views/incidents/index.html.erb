@@ -160,33 +160,33 @@
   </div>
 
 
-
   <div class="row">
-    <div style="float: left; width: 50%; height: 100%; background-color: #8bb8ef;">
-      <div style="margin-left: 10%;"> Total 
-        <font color="blue">
-          <b>reported</b>
-        </font> 
-        </font> incidents: <%= Incident.where(:status => 1).count%>
+    <div style="float: left; width: 50%; height: 100%;">
+      <div style="margin-left: 5%; float: left;"> 
+        <button class="btn btn-primary" type="button">
+          Total Reported Incidents:<span class="badge"><%= Incident.where(:status => 1).count%></span>
+        </button>   
       </div>
-      <div style="margin-left: 10%;"> Total 
-        <font color="red">
-          <b>processing</b>
-        </font> incidents: <%= Incident.where(:status => 2).count%>
+
+      <div style="margin-left: 5%;float: left;"> 
+        <button class="btn btn-danger" type="button">
+          Total Processing Incidents:<span class="badge"><%= Incident.where(:status => 2).count%></span>
+        </button>
       </div>
+
     </div>
 
-    <div style="float: left; width: 50%; height: 100%; background-color: #d1d1d1;">
-      <div style="margin-left: 10%;"> Total 
-        <font color="green">
-          <b>solved</b>
-        </font> 
-        </font> incidents: <%= Incident.where(:status => 3).count%>
+    <div style="float: left; width: 50%; height: 100%;">
+      <div style="margin-left: 5%;float: left;"> 
+        <button class="btn btn-success" type="button">
+          Total Solved Incidents:<span class="badge"><%= Incident.where(:status => 3).count%></span>
+        </button>   
       </div>
-      <div style="margin-left: 10%;"> Total 
-        <font color="grey">
-          <b>closed</b>
-        </font> incidents: <%= Incident.where(:status => 4).count%>
+
+      <div style="margin-left: 5%;float: left;"> 
+        <button class="btn btn-default" type="button">
+          Total Closed Incidents:<span class="badge"><%= Incident.where(:status => 4).count%></span>
+        </button>
       </div>
     </div>
 
@@ -308,15 +308,4 @@
     <% end %>
   </ul>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
