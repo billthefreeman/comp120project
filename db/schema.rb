@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217214159) do
+ActiveRecord::Schema.define(version: 20160217450948) do
 
   create_table "cates", force: :cascade do |t|
     t.string   "cate_name",  limit: 255
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160217214159) do
   create_table "incidents", force: :cascade do |t|
     t.string   "location",               limit: 255
     t.integer  "status_id",              limit: 4,   default: 1
+    t.datetime "closed_date_time"
     t.datetime "processed_date_time"
     t.datetime "solved_date_time"
     t.integer  "severity",               limit: 4
@@ -49,7 +50,6 @@ ActiveRecord::Schema.define(version: 20160217214159) do
     t.string   "cover_content_type",     limit: 255
     t.integer  "cover_file_size",        limit: 4
     t.datetime "cover_updated_at"
-    t.datetime "closed_date_time"
   end
 
   create_table "people", force: :cascade do |t|
