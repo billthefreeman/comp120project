@@ -17,7 +17,7 @@ b) learn how to use the framework, figure out what route, model view, controller
 c) learn how to integrate boostrap in 
 d) implement the "pretty version" of the timeline based on incidents' severity and status
 e) implement the detailed feature of incidents report form 
-e.g. how to show a text box when chose "other" in category, how to autofill department, group, phone and email when selected a name.
+e.g. how to show a text box when chose "other" in category
 
 ####**6. Why you chose the Ruby web framework that your team used?**
 Our group chose to use Ruby on Rails, because:

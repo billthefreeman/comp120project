@@ -6454,3 +6454,8 @@ Processing by IncidentsController#index as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
   Rendered incidents/index.html.erb within layouts/application (20.6ms)
 Completed 200 OK in 61ms (Views: 56.8ms | ActiveRecord: 3.0ms)
+  [1m[36mCate Load (0.8ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.3ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'chemical' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('chemical', '2016-02-22 21:46:04', '2016-02-22 21:46:04')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
