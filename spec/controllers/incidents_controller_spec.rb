@@ -123,13 +123,12 @@ describe IncidentsController, :type => :controller do
 			    group = create(:group, group_name: 'group1', department_id: department.id)
 			    reporter = create(:person, user_name: 'fanying', group_id: group.id)
 	  			post :create, 
-	        			incident: build(:incident,
-	        					  location: 'anderson',
-			        			  reporter_id: reporter.id, 
-			        			  cate_id: cate1.id,
-			        			  status_id: status.id,
-			        			  severity: 5
-			        			  ).attributes
+	        			incident: { 
+							   :location => 'Library2',
+							   :cate_id => cate1.id, 
+							   :severity => 4,
+							   :status_id => status.id,
+							   :reporter_id => reporter.id}
 	  			expect(response).to redirect_to('/incidents')
 	  		end
 	  	end

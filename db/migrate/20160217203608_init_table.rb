@@ -15,6 +15,7 @@ class InitTable < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    
   	create_table "people", force: :cascade do |t|
 	    t.string   "first_name",   limit: 255
 	    t.string   "last_name",    limit: 255

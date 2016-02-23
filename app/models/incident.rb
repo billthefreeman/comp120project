@@ -18,7 +18,7 @@ class Incident < ActiveRecord::Base
 
   def other_cate?
     if cate_id != nil
-      if Cate.last.id != nil
+      if Cate.last != nil
         return cate_id == Cate.last.id
       end
     end

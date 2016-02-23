@@ -6459,3 +6459,1157 @@ Completed 200 OK in 61ms (Views: 56.8ms | ActiveRecord: 3.0ms)
   [1m[35mCate Exists (0.3ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'chemical' LIMIT 1
   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('chemical', '2016-02-22 21:46:04', '2016-02-22 21:46:04')[0m
   [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (10.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160217203608)
+  [1m[35m (7.8ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11), `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (7.4ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (11.8ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (9.2ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217203608')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddDefaultVal (20160217222254)
+  [1m[36m (9.0ms)[0m  [1mALTER TABLE `incidents` CHANGE `status_id` `status_id` int(11) DEFAULT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217222254')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddCover (20160217222335)
+  [1m[36m (15.4ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_name` varchar(255)[0m
+  [1m[35m (11.3ms)[0m  ALTER TABLE `incidents` ADD `cover_content_type` varchar(255)
+  [1m[36m (11.2ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_size` int(11)[0m
+  [1m[35m (12.4ms)[0m  ALTER TABLE `incidents` ADD `cover_updated_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217222335')
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddRows (20160217450948)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'reported' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('reported', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'processing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('processing', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'solved' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('solved', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'closed' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('closed', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Animals and Animal Safety' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Animals and Animal Safety', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Asbestos' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Asbestos', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Biological Agents' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Biological Agents', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Bloodborne Pathogens' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Bloodborne Pathogens', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Chemical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Chemical', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Confined Space' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Confined Space', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cold', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Construction' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Construction', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cranes and Hoists' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cranes and Hoists', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Driving' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Driving', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Dust' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Dust', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Electrical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Electrical', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Ergonomics' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Ergonomics', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Fire' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Fire', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Hazardous Waste' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Hazardous Waste', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Heat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Heat', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Indoor Air Quality' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Indoor Air Quality', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lab Safety' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lab Safety', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lead' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lead', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Medical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Medical', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Mold' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Mold', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Oil and Gas' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Oil and Gas', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Radiation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Radiation', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Scaffolding' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Scaffolding', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Training', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Unknown' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Unknown', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Dining' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Dining', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Energy and Facilities' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Energy and Facilities', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Environmental Health and Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Environmental Health and Safety', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Housing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Housing', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Mail and Print' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Mail and Print', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Events Management' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Events Management', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability, and Transportation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability, and Transportation', '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Buildings and Facilities' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Buildings and Facilities', 3, '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Construction Support' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Construction Support', 3, '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Environmental Management' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Environmental Management', 3, '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Laboratories' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Laboratories', 3, '2016-02-22 22:41:19', '2016-02-22 22:41:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Training', 3, '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Fanying' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '123@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Ye', 'Fanying', 1, '12345678', '123@tufts.edu', '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Yan' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '234@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Huo', 'Yan', 2, '23456781', '234@tufts.edu', '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Min' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '345@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Bu', 'Min', 3, '34567812', '345@tufts.edu', '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.3ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 4 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Feiyu' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '456@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Lu', 'Feiyu', 4, '45678123', '456@tufts.edu', '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 4 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Halligan', 1, 4, 3, 2, '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 5 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Anderson', 2, 5, 5, 3, '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Lane', 1, 2, 1, '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Dowling', 3, 3, 4, '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Tisch', 1, 1, 3, 4, '2016-02-22 22:41:19', '2016-02-22 22:41:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 6 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Barnum', 3, 6, 2, 3, '2016-02-22 22:41:20', '2016-02-22 22:41:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Braker', 2, 7, 5, 2, '2016-02-22 22:41:20', '2016-02-22 22:41:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217450948')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'cates'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cates`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'departments'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `departments`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'groups'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'incidents'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `incidents`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'people'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `people`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'statuses'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.4ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'chemical' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('chemical', '2016-02-22 22:52:01', '2016-02-22 22:52:01')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mDROP DATABASE IF EXISTS `mvp_test`[0m
+  [1m[35m (0.3ms)[0m  CREATE DATABASE `mvp_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (10.1ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (8.6ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (12.6ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (8.8ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11) DEFAULT 1, `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `cover_file_name` varchar(255), `cover_content_type` varchar(255), `cover_file_size` int(11), `cover_updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (7.1ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (7.7ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (7.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (9.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160217450948')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160217203608')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160217222254')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160217222335')[0m
+
+
+Started GET "/" for ::1 at 2016-02-22 23:38:36 -0500
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.5.1) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.5.1) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (65.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (133.5ms)
+  [1m[36m (32.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (17.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160217203608)
+  [1m[35m (8.8ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11), `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (9.3ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (10.8ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (10.7ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (9.1ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (9.4ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217203608')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddDefaultVal (20160217222254)
+  [1m[36m (6.2ms)[0m  [1mALTER TABLE `incidents` CHANGE `status_id` `status_id` int(11) DEFAULT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217222254')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddCover (20160217222335)
+  [1m[36m (12.0ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_name` varchar(255)[0m
+  [1m[35m (13.9ms)[0m  ALTER TABLE `incidents` ADD `cover_content_type` varchar(255)
+  [1m[36m (11.4ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_size` int(11)[0m
+  [1m[35m (10.1ms)[0m  ALTER TABLE `incidents` ADD `cover_updated_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217222335')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddRows (20160217450948)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (4.0ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'reported' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('reported', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'processing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('processing', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'solved' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('solved', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'closed' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('closed', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Animals and Animal Safety' LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Animals and Animal Safety', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Asbestos' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Asbestos', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Biological Agents' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Biological Agents', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Bloodborne Pathogens' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Bloodborne Pathogens', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Chemical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Chemical', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Confined Space' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Confined Space', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cold', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Construction' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Construction', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cranes and Hoists' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cranes and Hoists', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Driving' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Driving', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Dust' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Dust', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Electrical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Electrical', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Ergonomics' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Ergonomics', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Fire' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Fire', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Hazardous Waste' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Hazardous Waste', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Heat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Heat', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Indoor Air Quality' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Indoor Air Quality', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lab Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lab Safety', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lead' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lead', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Medical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Medical', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Mold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Mold', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Oil and Gas' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Oil and Gas', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Radiation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Radiation', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Scaffolding' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Scaffolding', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Training', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Unknown' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Unknown', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Dining' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Dining', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Energy and Facilities' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Energy and Facilities', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Environmental Health and Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Environmental Health and Safety', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Housing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Housing', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Mail and Print' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Mail and Print', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Events Management' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Events Management', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability, and Transportation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability, and Transportation', '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Buildings and Facilities' LIMIT 1[0m
+  [1m[35mDepartment Load (0.7ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Buildings and Facilities', 3, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.4ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Construction Support' LIMIT 1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Construction Support', 3, '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Environmental Management' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Environmental Management', 3, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.3ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Laboratories' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Laboratories', 3, '2016-02-23 04:39:32', '2016-02-23 04:39:32')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Training', 3, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.3ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Fanying' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '123@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Ye', 'Fanying', 1, '12345678', '123@tufts.edu', '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Yan' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '234@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Huo', 'Yan', 2, '23456781', '234@tufts.edu', '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Min' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '345@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Bu', 'Min', 3, '34567812', '345@tufts.edu', '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 4 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Feiyu' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '456@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Lu', 'Feiyu', 4, '45678123', '456@tufts.edu', '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 4 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Halligan', 1, 4, 3, 2, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 5 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Anderson', 2, 5, 5, 3, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Lane', 1, 2, 1, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Dowling', 3, 3, 4, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Tisch', 1, 1, 3, 4, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 6 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Barnum', 3, 6, 2, 3, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Braker', 2, 7, 5, 2, '2016-02-23 04:39:32', '2016-02-23 04:39:32')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217450948')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'cates'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cates`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'departments'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `departments`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'groups'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'incidents'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `incidents`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'people'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `people`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'statuses'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
+  [1m[36m (6.0ms)[0m  [1mDROP DATABASE IF EXISTS `mvp_test`[0m
+  [1m[35m (0.5ms)[0m  CREATE DATABASE `mvp_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (8.4ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (10.2ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (8.4ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11) DEFAULT 1, `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `cover_file_name` varchar(255), `cover_content_type` varchar(255), `cover_file_size` int(11), `cover_updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (7.3ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (8.9ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (11.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160217450948')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160217203608')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160217222254')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160217222335')[0m
+
+
+Started GET "/" for ::1 at 2016-02-22 23:52:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (3.6ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (94.8ms)
+Completed 200 OK in 717ms (Views: 689.7ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/assets/favicon-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.ico" for ::1 at 2016-02-22 23:52:37 -0500
+
+
+Started GET "/" for ::1 at 2016-02-22 23:53:04 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.5ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.6ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.6ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.9ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.5ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.5ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 83ms (Views: 75.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/application.self-d1465204dcdc9b352ba36bcf701cbaf515af5959eb26c1341c16feade9088e0c.css?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-22 23:53:05 -0500
+
+
+Started GET "/incidents/new" for ::1 at 2016-02-22 23:53:09 -0500
+Processing by IncidentsController#new as HTML
+  [1m[35mPerson Load (0.3ms)[0m  SELECT `people`.* FROM `people`
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people`  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `people`.* FROM `people`  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people`  ORDER BY `people`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people`  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mCate Load (0.6ms)[0m  SELECT `cates`.* FROM `cates`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  Rendered incidents/_form.html.erb (56.0ms)
+  Rendered incidents/new.html.erb within layouts/application (63.6ms)
+Completed 200 OK in 114ms (Views: 109.3ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/incidents" for ::1 at 2016-02-22 23:53:14 -0500
+Processing by IncidentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z9RRs+vkTxtYTojuTCMvzqIMR4xXL0ldNP+Sx4hs5LztZ9bITLibaFFegOHiVjA8IU1cc47jMHBMNjjJYoWWnQ==", "incident"=>{"reporter_id"=>"1", "location"=>"", "severity"=>"", "cate_id"=>"", "other_cate_description"=>"", "incident_description"=>""}, "commit"=>"Create Incident"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT `people`.* FROM `people`
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people`  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mGroup Load (0.3ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people`  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people`  ORDER BY `people`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people`  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT `cates`.* FROM `cates`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  Rendered incidents/_form.html.erb (21.1ms)
+  Rendered incidents/new.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 73ms (Views: 61.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/incidents" for ::1 at 2016-02-22 23:53:18 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.4ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 60ms (Views: 55.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/incidents/7" for ::1 at 2016-02-22 23:53:20 -0500
+Processing by IncidentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 7 LIMIT 1[0m
+  [1m[35mStatus Load (0.7ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCate Load (0.5ms)[0m  [1mSELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  Rendered incidents/show.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 49ms (Views: 45.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/incidents" for ::1 at 2016-02-22 23:53:26 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.7ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 64ms (Views: 58.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/incidents" for ::1 at 2016-02-22 23:53:42 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.2ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 72ms (Views: 67.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/application.self-d1465204dcdc9b352ba36bcf701cbaf515af5959eb26c1341c16feade9088e0c.css?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-02-22 23:53:42 -0500
+
+
+Started GET "/incidents" for ::1 at 2016-02-22 23:54:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (113.4ms)
+Completed 200 OK in 485ms (Views: 457.7ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/assets/application.self-d1465204dcdc9b352ba36bcf701cbaf515af5959eb26c1341c16feade9088e0c.css?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-22 23:54:26 -0500
