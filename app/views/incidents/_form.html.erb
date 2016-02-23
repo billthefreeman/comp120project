@@ -270,7 +270,7 @@
     function doit(){ 
       console.log("do doit");
       var sel_val=getID('incident_cate_id').value; 
-      if (sel_val != 7) {hidden('a1');hidden('incident_other_cate_description'); console.log("do hidden");} 
+      if (sel_val != "<%=Cate.last.id%>") {hidden('a1');hidden('incident_other_cate_description'); console.log("do hidden");} 
       else {show('a1');show('incident_other_cate_description'); console.log("do show");} 
     }
 
