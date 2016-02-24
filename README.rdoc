@@ -1,4 +1,16 @@
 == README
+1. https://comp120team8reporter.herokuapp.com/
+
+2. We chose to use Rspec as test framework. Compared with unit test, it is more descriptive and more English-like. The writing of the tests is more intuitive as well as the output from running the tests.
+
+3. our test files are in the folder 'spec', to run the test, type 'rspec' in the command line.
+
+
+
+
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
