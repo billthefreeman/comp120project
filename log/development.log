@@ -9554,3 +9554,1487 @@ WHERE fk.referenced_column_name is not null
 [0m
   [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
 >>>>>>> a619f64b458e68d745adb32c943c8c154751e4f7
+
+
+Started GET "/" for ::1 at 2016-02-23 22:48:33 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.6ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.5ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (123.7ms)
+Completed 200 OK in 608ms (Views: 575.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-23 22:48:34 -0500
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-23 22:48:34 -0500
+  [1m[36m (31.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (20.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160217203608)
+  [1m[35m (10.2ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11), `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (10.6ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (12.5ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (13.4ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (11.7ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (14.6ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217203608')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddDefaultVal (20160217222254)
+  [1m[36m (8.6ms)[0m  [1mALTER TABLE `incidents` CHANGE `status_id` `status_id` int(11) DEFAULT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217222254')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to AddCover (20160217222335)
+  [1m[36m (14.3ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_name` varchar(255)[0m
+  [1m[35m (18.7ms)[0m  ALTER TABLE `incidents` ADD `cover_content_type` varchar(255)
+  [1m[36m (12.2ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_size` int(11)[0m
+  [1m[35m (12.0ms)[0m  ALTER TABLE `incidents` ADD `cover_updated_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217222335')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddRows (20160217450948)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (1.7ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'reported' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('reported', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'processing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('processing', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'solved' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('solved', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'closed' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('closed', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Animals and Animal Safety' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Animals and Animal Safety', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Asbestos' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Asbestos', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Biological Agents' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Biological Agents', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Bloodborne Pathogens' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Bloodborne Pathogens', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Chemical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Chemical', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Confined Space' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Confined Space', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cold', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Construction' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Construction', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cranes and Hoists' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cranes and Hoists', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Driving' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Driving', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Dust' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Dust', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Electrical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Electrical', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Ergonomics' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Ergonomics', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Fire' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Fire', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Hazardous Waste' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Hazardous Waste', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Heat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Heat', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Indoor Air Quality' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Indoor Air Quality', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lab Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lab Safety', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lead' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lead', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Medical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Medical', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Mold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Mold', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Oil and Gas' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Oil and Gas', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Radiation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Radiation', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Scaffolding' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Scaffolding', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Training', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Unknown' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Unknown', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Dining' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Dining', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Energy and Facilities' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Energy and Facilities', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Environmental Health and Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Environmental Health and Safety', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Housing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Housing', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Mail and Print' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Mail and Print', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Events Management' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Events Management', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability, and Transportation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability, and Transportation', '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Buildings and Facilities' LIMIT 1[0m
+  [1m[35mDepartment Load (4.5ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Buildings and Facilities', 3, '2016-02-24 17:06:19', '2016-02-24 17:06:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Construction Support' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Construction Support', 3, '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Environmental Management' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Environmental Management', 3, '2016-02-24 17:06:19', '2016-02-24 17:06:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Laboratories' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Laboratories', 3, '2016-02-24 17:06:19', '2016-02-24 17:06:19')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Training', 3, '2016-02-24 17:06:19', '2016-02-24 17:06:19')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.3ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Fanying' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '123@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Ye', 'Fanying', 1, '12345678', '123@tufts.edu', '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Yan' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '234@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Huo', 'Yan', 2, '23456781', '234@tufts.edu', '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Min' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '345@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Bu', 'Min', 3, '34567812', '345@tufts.edu', '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 4 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Feiyu' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '456@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Lu', 'Feiyu', 4, '45678123', '456@tufts.edu', '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 4 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Halligan', 1, 4, 3, 2, '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 5 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Anderson', 2, 5, 5, 3, '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Lane', 1, 2, 1, '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Dowling', 3, 3, 4, '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Tisch', 1, 1, 3, 4, '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 6 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Barnum', 3, 6, 2, 3, '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Braker', 2, 7, 5, 2, '2016-02-24 17:06:20', '2016-02-24 17:06:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217450948')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'cates'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cates`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'departments'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `departments`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'groups'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'incidents'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `incidents`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'people'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `people`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'statuses'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
+  [1m[36m (11.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (13.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160217203608)
+  [1m[35m (10.8ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11), `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (12.7ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (14.0ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (10.2ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (11.2ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (10.5ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217203608')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddDefaultVal (20160217222254)
+  [1m[36m (9.2ms)[0m  [1mALTER TABLE `incidents` CHANGE `status_id` `status_id` int(11) DEFAULT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217222254')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddCover (20160217222335)
+  [1m[36m (14.1ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_name` varchar(255)[0m
+  [1m[35m (14.2ms)[0m  ALTER TABLE `incidents` ADD `cover_content_type` varchar(255)
+  [1m[36m (14.4ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_size` int(11)[0m
+  [1m[35m (13.2ms)[0m  ALTER TABLE `incidents` ADD `cover_updated_at` datetime
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217222335')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddRows (20160217450948)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'reported' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('reported', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'processing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('processing', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'solved' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('solved', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'closed' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('closed', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Animals and Animal Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Animals and Animal Safety', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  BEGIN
+  [1m[36mCate Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Asbestos' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Asbestos', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Biological Agents' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Biological Agents', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Bloodborne Pathogens' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Bloodborne Pathogens', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Chemical' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Chemical', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Confined Space' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Confined Space', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cold', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Construction' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Construction', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cranes and Hoists' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cranes and Hoists', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Driving' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Driving', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Dust' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Dust', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Electrical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Electrical', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Ergonomics' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Ergonomics', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Fire' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Fire', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Hazardous Waste' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Hazardous Waste', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Heat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Heat', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Indoor Air Quality' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Indoor Air Quality', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lab Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lab Safety', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lead' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lead', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Medical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Medical', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Mold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Mold', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Oil and Gas' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Oil and Gas', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Radiation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Radiation', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Scaffolding' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Scaffolding', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Training', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Unknown' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Unknown', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Dining' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Dining', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Energy and Facilities' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Energy and Facilities', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Environmental Health and Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Environmental Health and Safety', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Housing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Housing', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Mail and Print' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Mail and Print', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Events Management' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Events Management', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability, and Transportation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability, and Transportation', '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Buildings and Facilities' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Buildings and Facilities', 3, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Construction Support' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Construction Support', 3, '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Environmental Management' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Environmental Management', 3, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Laboratories' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Laboratories', 3, '2016-02-24 17:07:01', '2016-02-24 17:07:01')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Training', 3, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mPerson Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Fanying' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '123@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Ye', 'Fanying', 1, '12345678', '123@tufts.edu', '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1
+  [1m[36mPerson Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Yan' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '234@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Huo', 'Yan', 2, '23456781', '234@tufts.edu', '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Min' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '345@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Bu', 'Min', 3, '34567812', '345@tufts.edu', '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 4 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Feiyu' LIMIT 1[0m
+  [1m[35mPerson Exists (0.1ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '456@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Lu', 'Feiyu', 4, '45678123', '456@tufts.edu', '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 4 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Halligan', 1, 4, 3, 2, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 5 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Anderson', 2, 5, 5, 3, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.1ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Lane', 1, 2, 1, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Dowling', 3, 3, 4, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.1ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Tisch', 1, 1, 3, 4, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 6 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Barnum', 3, 6, 2, 3, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Braker', 2, 7, 5, 2, '2016-02-24 17:07:01', '2016-02-24 17:07:01')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217450948')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'cates'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cates`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'departments'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `departments`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'groups'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'incidents'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `incidents`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'people'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `people`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'statuses'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'cates'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cates`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'departments'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `departments`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'groups'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'incidents'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `incidents`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'people'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `people`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'statuses'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
+  [1m[36m (10.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (9.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160217203608)
+  [1m[35m (6.8ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11), `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (6.9ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (6.8ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (16.5ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217203608')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Migrating to AddDefaultVal (20160217222254)
+  [1m[36m (5.2ms)[0m  [1mALTER TABLE `incidents` CHANGE `status_id` `status_id` int(11) DEFAULT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217222254')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to AddCover (20160217222335)
+  [1m[36m (12.1ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_name` varchar(255)[0m
+  [1m[35m (10.0ms)[0m  ALTER TABLE `incidents` ADD `cover_content_type` varchar(255)
+  [1m[36m (11.7ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_size` int(11)[0m
+  [1m[35m (10.8ms)[0m  ALTER TABLE `incidents` ADD `cover_updated_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217222335')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddRows (20160217450948)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'reported' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('reported', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'processing' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('processing', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'solved' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('solved', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'closed' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('closed', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Animals and Animal Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Animals and Animal Safety', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Asbestos' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Asbestos', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Biological Agents' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Biological Agents', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Bloodborne Pathogens' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Bloodborne Pathogens', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Chemical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Chemical', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Confined Space' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Confined Space', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cold', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Construction' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Construction', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cranes and Hoists' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cranes and Hoists', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Driving' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Driving', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Dust' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Dust', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Electrical' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Electrical', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Ergonomics' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Ergonomics', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Fire' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Fire', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Hazardous Waste' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Hazardous Waste', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Heat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Heat', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Indoor Air Quality' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Indoor Air Quality', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lab Safety' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lab Safety', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lead' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lead', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Medical' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Medical', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Mold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Mold', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Oil and Gas' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Oil and Gas', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Radiation' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Radiation', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Scaffolding' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Scaffolding', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Training', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Unknown' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Unknown', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Dining' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Dining', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Energy and Facilities' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Energy and Facilities', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Environmental Health and Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Environmental Health and Safety', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Housing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Housing', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Mail and Print' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Mail and Print', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Events Management' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Events Management', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability, and Transportation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability, and Transportation', '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Buildings and Facilities' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Buildings and Facilities', 3, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.3ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Construction Support' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Construction Support', 3, '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Environmental Management' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Environmental Management', 3, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Laboratories' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Laboratories', 3, '2016-02-24 17:09:15', '2016-02-24 17:09:15')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Training', 3, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Fanying' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '123@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Ye', 'Fanying', 1, '12345678', '123@tufts.edu', '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Yan' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '234@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Huo', 'Yan', 2, '23456781', '234@tufts.edu', '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Min' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '345@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Bu', 'Min', 3, '34567812', '345@tufts.edu', '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 4 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Feiyu' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '456@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Lu', 'Feiyu', 4, '45678123', '456@tufts.edu', '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 4 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Halligan', 1, 4, 3, 2, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 5 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Anderson', 2, 5, 5, 3, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Lane', 1, 2, 1, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.1ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Dowling', 3, 3, 4, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Tisch', 1, 1, 3, 4, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 6 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Barnum', 3, 6, 2, 3, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Braker', 2, 7, 5, 2, '2016-02-24 17:09:15', '2016-02-24 17:09:15')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217450948')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'cates'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cates`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'departments'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `departments`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'groups'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'incidents'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `incidents`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'people'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `people`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'statuses'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
+  [1m[36m (8.4ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (10.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160217203608)
+  [1m[35m (7.9ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11), `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (7.2ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (11.9ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (6.7ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (9.5ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217203608')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddDefaultVal (20160217222254)
+  [1m[36m (7.9ms)[0m  [1mALTER TABLE `incidents` CHANGE `status_id` `status_id` int(11) DEFAULT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217222254')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddCover (20160217222335)
+  [1m[36m (13.2ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_name` varchar(255)[0m
+  [1m[35m (13.8ms)[0m  ALTER TABLE `incidents` ADD `cover_content_type` varchar(255)
+  [1m[36m (9.3ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_size` int(11)[0m
+  [1m[35m (13.8ms)[0m  ALTER TABLE `incidents` ADD `cover_updated_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217222335')
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddRows (20160217450948)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'reported' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('reported', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'processing' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('processing', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'solved' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('solved', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'closed' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('closed', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Animals and Animal Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Animals and Animal Safety', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Asbestos' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Asbestos', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mCate Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Biological Agents' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Biological Agents', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Bloodborne Pathogens' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Bloodborne Pathogens', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Chemical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Chemical', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Confined Space' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Confined Space', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cold' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cold', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Construction' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Construction', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cranes and Hoists' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cranes and Hoists', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Driving' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Driving', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Dust' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Dust', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Electrical' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Electrical', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Ergonomics' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Ergonomics', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Fire' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Fire', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Hazardous Waste' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Hazardous Waste', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Heat' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Heat', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Indoor Air Quality' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Indoor Air Quality', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lab Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lab Safety', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lead' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lead', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Medical' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Medical', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Mold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Mold', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Oil and Gas' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Oil and Gas', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Radiation' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Radiation', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Scaffolding' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Scaffolding', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Training', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Unknown' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Unknown', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Dining' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Dining', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Energy and Facilities' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Energy and Facilities', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Environmental Health and Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Environmental Health and Safety', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Housing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Housing', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Mail and Print' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Mail and Print', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Events Management' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Events Management', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability, and Transportation' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability, and Transportation', '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Buildings and Facilities' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Buildings and Facilities', 3, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.3ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Construction Support' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Construction Support', 3, '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Environmental Management' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Environmental Management', 3, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Laboratories' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Laboratories', 3, '2016-02-24 17:42:20', '2016-02-24 17:42:20')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Training', 3, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.4ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Fanying' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '123@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Ye', 'Fanying', 1, '12345678', '123@tufts.edu', '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Yan' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '234@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Huo', 'Yan', 2, '23456781', '234@tufts.edu', '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Min' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '345@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Bu', 'Min', 3, '34567812', '345@tufts.edu', '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 4 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Feiyu' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '456@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES ('Lu', 'Feiyu', 4, '45678123', '456@tufts.edu', '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 4 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Halligan', 1, 4, 3, 2, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 5 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Anderson', 2, 5, 5, 3, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.1ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Lane', 1, 2, 1, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.1ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.1ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Dowling', 3, 3, 4, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Tisch', 1, 1, 3, 4, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 6 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Barnum', 3, 6, 2, 3, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Braker', 2, 7, 5, 2, '2016-02-24 17:42:20', '2016-02-24 17:42:20')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217450948')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'cates'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cates`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'departments'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `departments`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'groups'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'incidents'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `incidents`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'people'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `people`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'statuses'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
