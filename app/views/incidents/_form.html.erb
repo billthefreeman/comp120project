@@ -100,12 +100,12 @@
                             <div class="row">
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label">Group</label>
-                                    <input id="groupDiv" type="text" class="form-control"  value="<%= Person.first.group.group_name%>">
+                                    <input id="groupDiv" type="text" class="form-control">
                                 </div>
 
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label">Department</label>
-                                    <input id="departmentDiv" type="text" class="form-control"  value="<%= Person.first.group.department.department_name%>">
+                                    <input id="departmentDiv" type="text" class="form-control" >
                                 </div>
                                 
                             </div>
@@ -113,11 +113,11 @@
                             <div class="row">
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label">Phone</label>
-                                    <input id="phoneDiv" type="text" class="form-control"  value="<%= Person.first.phone%>">
+                                    <input id="phoneDiv" type="text" class="form-control" >
                                 </div>
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label" >Email</label>
-                                    <input id="emailDiv" type="text" class="form-control"  value="<%= Person.first.email%>">
+                                    <input id="emailDiv" type="text" class="form-control">
                                 </div>
                             </div>
                         </fieldset>
@@ -270,7 +270,7 @@
     function doit(){ 
       console.log("do doit");
       var sel_val=getID('incident_cate_id').value; 
-      if (sel_val != 7) {hidden('a1');hidden('incident_other_cate_description'); console.log("do hidden");} 
+      if (sel_val != "<%=Cate.last.id%>") {hidden('a1');hidden('incident_other_cate_description'); console.log("do hidden");} 
       else {show('a1');show('incident_other_cate_description'); console.log("do show");} 
     }
 

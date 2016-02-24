@@ -50,8 +50,15 @@ class IncidentsController < ApplicationController
   # PATCH/PUT /incidents/1.json
   def update
     @incident = Incident.find(params[:id])
-    @incident.update(incident_params)
-    redirect_to :action => :index
+    respond_to do |format|
+      if @incident.update(incident_params)
+        format.html { redirect_to :action => :index}
+        format.json { render :show, status: :created, location: @artile }
+      else
+        format.html { render :new }
+        format.json { render json: @incident.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /incidents/1

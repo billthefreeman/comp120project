@@ -1,3 +1,7 @@
+####**0. Ruby version and Gemset Name:**
+Ruby version: ruby 2.3.0
+Gemset Name: group8
+
 ####**1. All Ruby packages that are used:**
 'will_paginate' for pagination
 'paperclip' for easy file attachment management
