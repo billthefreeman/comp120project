@@ -5,9 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-group :production do 
-	Status.create(:status_name => "reported")
+case Rails.env
+when "production"
+   Status.create(:status_name => "reported")
 	Status.create(:status_name => "processing")
 	Status.create(:status_name => "solved")
 	Status.create(:status_name => "closed")
