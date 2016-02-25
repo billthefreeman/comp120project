@@ -5,6 +5,18 @@
 
 3. our test files are in the folder 'spec', to run the test, type 'rspec' in the command line.
 
+4. scale the application:
+Currently, we are using Heroku free dyno for deployment. The free tier only has 512 MB RAM and the database storage is trivial.
+The hardware will have difficulties handling 15,000 unique visits per day. For example, assuming there are on-peak and off-peak time of visiting.
+For peak hours, there could be 6000 visits per hour or 100 visits per second. Then the scalability should be taken into consideration to deal
+with the concurrency issue.
+
+However, first we need to optimize the use of existing resources, e.g. making fewer HTTP requests for each visit, tuning the database, etc.
+
+For scalability, we can either scale horizontally (scale out, use more dynos) or scale vertically(scale up, use bigger dynos).
+It's simple to do both with Heroku. We can also adopt a hybrid way according to the operation of the application.
+
+
 
 
 
