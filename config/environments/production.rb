@@ -86,4 +86,6 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  config.static_cache_control = "public, max-age=31536000"
 end
