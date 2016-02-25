@@ -1,5 +1,6 @@
 == README
 1. live URL:https://comp120team8reporter.herokuapp.com/
+
    heroku git: https://git.heroku.com/comp120team8reporter.git
 
 2. We chose to use Rspec as test framework. Compared with unit test, it is more descriptive and more English-like. The writing of the tests is more intuitive as well as the output from running the tests.
