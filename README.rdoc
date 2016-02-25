@@ -5,12 +5,12 @@
 2. We chose to use Rspec as test framework. Compared with unit test, it is more descriptive and more English-like. The writing of the tests is more intuitive as well as the output from running the tests.
 
 3. Our test files are in the folder 'spec', to run the test, type 'rspec' in the command line.
-You will see the following test results shown on you screen:
+   You will see the following test results shown on you screen:
 
-..........................................................
-64 examples, 0 failures
+   ..........................................................
+   64 examples, 0 failures
 
-That means our mvp passes all the 64 test. If you want more information, type 'rspec --format documentation', then more details about the test results will be shown on the screen.
+   That means our mvp passes all the 64 test. If you want more information, type 'rspec --format documentation', then more details about the test results will be shown on the screen.
 
 4. scale the application:
 Currently, we are using Heroku free dyno for deployment. The free tier only has 512 MB RAM and the database storage is trivial.
