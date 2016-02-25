@@ -5,6 +5,7 @@ class IncidentsController < ApplicationController
   # GET /incidents.json
   def index
     @incidents = @paginate = Incident.includes(:cate).order('id DESC').paginate(:page => params[:page], :per_page => 5)
+    expires_in 3.minutes, :public => true
   end
 
   def update_group 
@@ -29,6 +30,7 @@ class IncidentsController < ApplicationController
   # GET /incidents/1/edit
   def edit
     @incident = Incident.find(params[:id])
+    expires_in 3.minutes, :public => true
   end
 
   # POST /incidents
