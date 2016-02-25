@@ -11094,3 +11094,1175 @@ Processing by IncidentsController#new as HTML
   Rendered incidents/_form.html.erb (38.6ms)
   Rendered incidents/new.html.erb within layouts/application (51.2ms)
 Completed 200 OK in 100ms (Views: 98.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-02-25 16:54:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (126.7ms)
+Completed 200 OK in 508ms (Views: 484.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/vendor/assets/stylesheets/bootstrap/bootstrap.scss" for ::1 at 2016-02-25 16:54:09 -0500
+
+ActionController::RoutingError (No route matches [GET] "/vendor/assets/stylesheets/bootstrap/bootstrap.scss"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (14.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (158.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (140.4ms)
+
+
+Started GET "/" for ::1 at 2016-02-25 16:55:16 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.5ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.8ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 95ms (Views: 89.1ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/bootstrap.scss" for ::1 at 2016-02-25 16:55:16 -0500
+
+ActionController::RoutingError (No route matches [GET] "/bootstrap.scss"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (115.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (59.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (134.6ms)
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 16:55:17 -0500
+
+
+Started GET "/" for ::1 at 2016-02-25 16:56:49 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.4ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 159ms (Views: 154.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/bootstrap.scss" for ::1 at 2016-02-25 16:56:50 -0500
+
+ActionController::RoutingError (No route matches [GET] "/bootstrap.scss"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (89.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (4.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (61.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (206.1ms)
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/application.self-bc856f7198eeba27dbebf5c5e836f46d463463160a99986965bd2a47343502d9.css?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/main.scss" for ::1 at 2016-02-25 16:56:50 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-25 16:56:52 -0500
+
+
+Started GET "/fonts/glyphicons-halflings-regular.woff" for ::1 at 2016-02-25 16:56:52 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.woff"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (129.5ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.ttf" for ::1 at 2016-02-25 16:56:53 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.ttf"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (83.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (56.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (128.4ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.svg" for ::1 at 2016-02-25 16:56:53 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.svg"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (82.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (73.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (129.2ms)
+
+
+Started GET "/" for ::1 at 2016-02-25 16:57:03 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 63ms (Views: 58.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/bootstrap.scss" for ::1 at 2016-02-25 16:57:03 -0500
+
+ActionController::RoutingError (No route matches [GET] "/bootstrap.scss"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (4.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (78.9ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (180.2ms)
+
+
+Started GET "/assets/application.self-bc856f7198eeba27dbebf5c5e836f46d463463160a99986965bd2a47343502d9.css?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/main.scss" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-25 16:57:04 -0500
+
+
+Started GET "/fonts/glyphicons-halflings-regular.woff" for ::1 at 2016-02-25 16:57:04 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.woff"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (95.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (65.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (143.9ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.ttf" for ::1 at 2016-02-25 16:57:04 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.ttf"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (106.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (50.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (119.5ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.svg" for ::1 at 2016-02-25 16:57:05 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.svg"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/yefanying/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (77.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (55.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (2.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (111.6ms)
+
+
+Started GET "/" for ::1 at 2016-02-25 16:58:29 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.6ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 73ms (Views: 67.9ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-25 16:58:29 -0500
+
+
+Started GET "/" for ::1 at 2016-02-25 17:02:23 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 65ms (Views: 59.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-25 17:02:23 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-25 17:02:24 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-25 17:02:24 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-25 17:02:24 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-25 17:02:24 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 17:02:24 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-25 17:02:24 -0500
+
+
+Started GET "/" for ::1 at 2016-02-25 17:06:53 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.2ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 71ms (Views: 66.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-08f6e94a49ab0a922ef14d42862fcfb04b20b7fb57d3d2d3c868522cab811d6b.js?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-ffef5831dcf7a4d43a9620f0786e3be0130548db46f747ca2a904ac5a863fd18.js?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/bootstrap/jquery-2.2.0.min.self-836344bf9124ea71db9206ae9e0c5ece9ab51b4125341a256871e48181b411fe.js?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-198806da8d1c06616d7e9d7be92d96eadca8159640a7dc21eb3121cb2b8a215a.js?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-5db2d16d5e04db4950c1aebd2496045acf0c3cc889e5ad0647589fbc85d463e6.js?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-cd540439aa8dbb7db30618794daa83f0dd6bb0f84a763bd1b2bc69449be68712.js?body=1" for ::1 at 2016-02-25 17:06:53 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-52433fba05f8c09386efdfd67dc876623a9f630e72cdebc232c5de7e8f9789b5.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/bootstrap/button.self-a5a9eae6660da739d4ae35473360346363ddd4af777c77d4cef8d01771bf25a2.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-d51cbeaf7f5ada1eb58a677ebeae512e315a02f545d5c7b252e7a79202913b32.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-0c6ebea816a743abc763e631df1641c3400ff38e647776d0faba7d31b414ce4f.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-2b3f3fdebdb4f9ee9737d99cfc4cf2dc2ba54c83f2164c7836ef0b4d81f34b1f.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-36391474d61036c11b65bbb21b5847f57e6b195d8cb278b669accb3ac73e9626.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-7496072b8c0dd40f5d88076e7e3788487ec5b0aa9f9a04e71434194cb6250f08.js?body=1" for ::1 at 2016-02-25 17:06:54 -0500
+
+
+Started GET "/incidents/7" for ::1 at 2016-02-25 17:07:10 -0500
+Processing by IncidentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 7 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCate Load (0.4ms)[0m  [1mSELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  Rendered incidents/show.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 50ms (Views: 48.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/incidents" for ::1 at 2016-02-25 17:07:12 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.8ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.4ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.5ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 66ms (Views: 60.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/incidents/new" for ::1 at 2016-02-25 17:08:31 -0500
+Processing by IncidentsController#new as HTML
+  [1m[35mPerson Load (0.3ms)[0m  SELECT `people`.* FROM `people`
+  [1m[36mCate Load (0.6ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `cates`.* FROM `cates`
+  [1m[36mCate Load (0.4ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  Rendered incidents/_form.html.erb (18.5ms)
+  Rendered incidents/new.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 59ms (Views: 57.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/incidents/new" for ::1 at 2016-02-25 17:08:42 -0500
+Processing by IncidentsController#new as HTML
+  [1m[35mPerson Load (0.4ms)[0m  SELECT `people`.* FROM `people`
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `cates`.* FROM `cates`
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  Rendered incidents/_form.html.erb (8.4ms)
+  Rendered incidents/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-25 17:08:42 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 17:08:42 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 17:08:42 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-25 17:08:42 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 17:08:42 -0500
+
+
+Started GET "/update_group?reporter_id=3&_=1456438122789" for ::1 at 2016-02-25 17:08:51 -0500
+Processing by IncidentsController#update_group as JS
+  Parameters: {"reporter_id"=>"3", "_"=>"1456438122789"}
+  [1m[35mPerson Load (1.9ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mGroup Load (0.3ms)[0m  [1mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  Rendered incidents/update_group.js.erb (0.5ms)
+Completed 200 OK in 67ms (Views: 21.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/incidents/new" for ::1 at 2016-02-25 17:08:53 -0500
+Processing by IncidentsController#new as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT `people`.* FROM `people`[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  Rendered incidents/_form.html.erb (9.6ms)
+  Rendered incidents/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-25 17:08:53 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 17:08:53 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 17:08:53 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 17:08:53 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-25 17:08:53 -0500
+
+
+Started GET "/incidents/new" for ::1 at 2016-02-25 17:08:59 -0500
+Processing by IncidentsController#new as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT `people`.* FROM `people`[0m
+  [1m[35mCate Load (0.5ms)[0m  SELECT `cates`.* FROM `cates`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  Rendered incidents/_form.html.erb (10.9ms)
+  Rendered incidents/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-25 17:08:59 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 17:08:59 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 17:08:59 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-25 17:08:59 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 17:08:59 -0500
+
+
+Started GET "/update_group?reporter_id=4&_=1456438139788" for ::1 at 2016-02-25 17:09:01 -0500
+Processing by IncidentsController#update_group as JS
+  Parameters: {"reporter_id"=>"4", "_"=>"1456438139788"}
+  [1m[36mPerson Load (0.9ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 4 LIMIT 1[0m
+  [1m[35mGroup Load (0.4ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 4 LIMIT 1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  Rendered incidents/update_group.js.erb (0.1ms)
+Completed 200 OK in 23ms (Views: 17.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/incidents/new" for ::1 at 2016-02-25 17:09:20 -0500
+Processing by IncidentsController#new as HTML
+  [1m[35mPerson Load (0.4ms)[0m  SELECT `people`.* FROM `people`
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `cates`.* FROM `cates`
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  Rendered incidents/_form.html.erb (6.3ms)
+  Rendered incidents/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 93ms (Views: 91.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 17:09:20 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 17:09:20 -0500
+
+
+Started GET "/assets/application.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.css?body=1" for ::1 at 2016-02-25 17:09:20 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-25 17:09:20 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-25 17:09:20 -0500
+
+
+Started GET "/update_group?reporter_id=2&_=1456438160515" for ::1 at 2016-02-25 17:09:22 -0500
+Processing by IncidentsController#update_group as JS
+  Parameters: {"reporter_id"=>"2", "_"=>"1456438160515"}
+  [1m[35mPerson Load (0.5ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mGroup Load (0.7ms)[0m  [1mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  Rendered incidents/update_group.js.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 18.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/incidents" for ::1 at 2016-02-25 17:09:32 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.5ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.4ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.5ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 50ms (Views: 43.2ms | ActiveRecord: 5.7ms)
