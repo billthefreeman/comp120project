@@ -1,12 +1,10 @@
 == README
-1. live URL: https://comp120team8reporter.herokuapp.com/
-    heroku git: https://git.heroku.com/comp120team8reporter.git
+1. live URL:https://comp120team8reporter.herokuapp.com/
+   heroku git: https://git.heroku.com/comp120team8reporter.git
 
-2. We chose to use Rspec as test framework. 
-Compared with other test methods (e.g. unit test), it is more descriptive and more English-like. The writing of the tests is more intuitive as well as the output from running the tests. We did model tests, controller tests and view tests.
+2. We chose to use Rspec as test framework. Compared with unit test, it is more descriptive and more English-like. The writing of the tests is more intuitive as well as the output from running the tests.
 
-3. How to run the test:
-Our test files are in the folder 'spec', to run the test, type 'rspec' in the command line.
+3. Our test files are in the folder 'spec', to run the test, type 'rspec' in the command line.
 You will see the following test results shown on you screen:
 
 ..........................................................
@@ -26,3 +24,36 @@ For scalability, we can either scale horizontally (scale out, use more dynos) or
 It's simple to do both with Heroku. We can also adopt a hybrid way according to the operation of the application.
 
 
+
+
+
+
+
+
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
