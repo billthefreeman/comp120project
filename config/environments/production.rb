@@ -23,13 +23,13 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.serve_static_files = true
-
+  config.assets.compress = true
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -88,9 +88,5 @@ Rails.application.configure do
   }
 
   config.static_cache_control = "public, max-age=31536000"
-  config.action_controller.asset_host = 'code.jquery.com'
-  config.action_controller.asset_host = 'maxcdn.bootstrapcdn.com'
-  config.action_controller.asset_host = 'subtlepatterns2015.subtlepatterns.netdna-cdn.com'
-  config.action_controller.asset_host = 'comp120team8reporter.herokuapp.com'
 
 end
