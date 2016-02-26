@@ -13,9 +13,14 @@ class Incident < ActiveRecord::Base
       cover: "300x300>",
       icon:  "150x150#"
     },
+    s3_headers: {
+      'Cache-Control' => 'max-age=315576000', 
+      'Expires' => 10.years.from_now.httpdate
+    },
     default_url: "/images/missing.png"
+    
     validates_attachment_content_type :cover , content_type: /\Aimage\/.*\Z/
-    :s3_headers => { 'Cache-Control' => 'max-age=315576000', 'Expires' => 10.years.from_now.httpdate }
+
 
   def other_cate?
     if cate_id != nil
