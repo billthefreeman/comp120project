@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 case Rails.env
 when "production"
-   Status.create(:status_name => "reported")
+    Status.create(:status_name => "reported")
 	Status.create(:status_name => "processing")
 	Status.create(:status_name => "solved")
 	Status.create(:status_name => "closed")
