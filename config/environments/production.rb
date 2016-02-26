@@ -88,6 +88,7 @@ Rails.application.configure do
   }
 
   config.static_cache_control = "public, max-age=31536000"
+  config.action_controller.asset_host = 'code.jquery.com'
   config.action_controller.asset_host = 'maxcdn.bootstrapcdn.com'
   config.action_controller.asset_host = 'subtlepatterns2015.subtlepatterns.netdna-cdn.com'
   config.action_controller.asset_host = 'comp120team8reporter.herokuapp.com'
