@@ -55,7 +55,7 @@
       </div>
     </div>
 
-    <div class="container" style="background-image: url('assets/confectionary.png')">
+    <div class="container">
         <%flash.each do |location , msg| %>
         <div class="alert alert-<%= location == :notice ? "success" : "error" %>">
         <%=msg%>
