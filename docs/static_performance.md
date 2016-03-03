@@ -1,5 +1,6 @@
 ####**1. The optimization techniques we used:**
 **1.1 Expiry**   
+
 Purpose: Avoids unnecessary HTTP requests on subsequent page views and static content.
 Implementation: In the show page, we added cache control and expiry headers for incident’s image. Caching images improves the user experience and reduces S3 costs. It improves the user’s experience because web pages load quicker as images are already cached and it reduces S3 costs since you have fewer transfers. In the index page, we have static component: background image which is stored in public folder. Rails uses ActionDispatch::Static to serve /public. This middleware is active when config.serve_static_assets is true. And it takes one argument: the value for the Cache-Control header. After activating the middleware and setting cache control header, all requests to components in public folder are publicly cached with a far future expire. 
 
