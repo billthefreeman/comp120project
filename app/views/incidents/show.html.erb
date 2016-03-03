@@ -11,7 +11,7 @@
   <div style="float: left; width: 70%;">
     <dl class="dl-horizontal">
       <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-      <dd><%= @incident.location %></dd>
+      <dd style="word-break:break-all"><%= @incident.location %></dd>
       <dt><strong><%= model_class.human_attribute_name(:status_id) %>:</strong></dt>
       <dd><%= @incident.status.status_name %></dd>
       <dt><strong><%= model_class.human_attribute_name(:report_date_time) %>:</strong></dt>
@@ -40,13 +40,13 @@
       <dt><strong>Category:</strong></dt>
       <dd><%= @incident.cate.cate_name %></dd>
       <dt><strong>Other category</strong>:</dt>
-      <dd><%if @incident.other_cate_description == nil %>
+      <dd style="word-break:break-all"><%if @incident.other_cate_description == nil %>
           Not available
           <%else%>
           <%= @incident.other_cate_description%> 
           <%end%></dd>
       <dt><strong><%= model_class.human_attribute_name(:incident_description) %>:</strong></dt>
-      <dd><%if @incident.incident_description == "" %>
+      <dd style="word-break:break-all"><%if @incident.incident_description == "" %>
           Not available
           <%else%>
           <%= @incident.incident_description%> 
