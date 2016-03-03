@@ -15717,3 +15717,454 @@ ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
   Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (86.4ms)
+
+
+Started GET "/" for ::1 at 2016-03-03 15:48:28 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (11.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (11.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.7ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (2.0ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (2, 7, 6, 1, 3)[0m
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered incidents/index.html.erb within layouts/application (145.5ms)
+Completed 200 OK in 495ms (Views: 422.1ms | ActiveRecord: 30.8ms)
+
+
+Started GET "/" for ::1 at 2016-03-03 15:48:28 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (2, 7, 6, 1, 3)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered incidents/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 32ms (Views: 25.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2016-03-03 15:48:47 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (2, 7, 6, 1, 3)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered incidents/index.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 38ms (Views: 33.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2016-03-03 15:49:45 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.7ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (2, 7, 6, 1, 3)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.4ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.5ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered incidents/index.html.erb within layouts/application (56.3ms)
+Completed 200 OK in 80ms (Views: 73.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for ::1 at 2016-03-03 15:50:04 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.2ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (2, 7, 6, 1, 3)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.7ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered incidents/index.html.erb within layouts/application (38.1ms)
+Completed 200 OK in 50ms (Views: 44.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for ::1 at 2016-03-03 15:50:12 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (2, 7, 6, 1, 3)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered incidents/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 34ms (Views: 29.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2016-03-03 15:50:18 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.2ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (2, 7, 6, 1, 3)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (1.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered incidents/index.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 39ms (Views: 33.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2016-03-03 15:50:24 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (2, 7, 6, 1, 3)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered incidents/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 31ms (Views: 27.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/incidents/new" for ::1 at 2016-03-03 15:50:31 -0500
+Processing by IncidentsController#new as HTML
+  [1m[35mPerson Load (0.3ms)[0m  SELECT `people`.* FROM `people`
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `cates`.* FROM `cates`
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  Rendered incidents/_form.html.erb (23.7ms)
+  Rendered incidents/new.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/update_group?reporter_id=3&_=1457038231178" for ::1 at 2016-03-03 15:50:33 -0500
+Processing by IncidentsController#update_group as JS
+  Parameters: {"reporter_id"=>"3", "_"=>"1457038231178"}
+  [1m[35mPerson Load (1.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mGroup Load (2.5ms)[0m  [1mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1[0m
+  [1m[35mDepartment Load (1.0ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  Rendered incidents/update_group.js.erb (1.2ms)
+Completed 200 OK in 105ms (Views: 33.9ms | ActiveRecord: 9.7ms)
+
+
+Started POST "/incidents" for ::1 at 2016-03-03 15:50:49 -0500
+Processing by IncidentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qKA0haCx548DP9vDeSg/xKJomsKPY9JRDSSI0Q/3NvcgoTkgRLOHSCtf/SD1TJGi3vi8X/mhNbKzCJ9n6bFwlA==", "incident"=>{"reporter_id"=>"3", "location"=>"dbdcbcsdjjsvhjsdvcjhdsvjccdbjsbcjsdhjcbjsdbcjsbjchsjcbsjhbcjhsbdcjsbjchbsjhbcjhschbscjhbsdcjhbsdjcjhbsdc", "severity"=>"3", "cate_id"=>"9", "other_cate_description"=>"", "incident_description"=>""}, "commit"=>"Create Incident"}
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.4ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 9 LIMIT 1
+  [1m[36mStatus Load (0.5ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.5ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO `incidents` (`reporter_id`, `location`, `severity`, `cate_id`, `other_cate_description`, `incident_description`, `created_at`, `updated_at`) VALUES (3, 'dbdcbcsdjjsvhjsdvcjhdsvjccdbjsbcjsdhjcbjsdbcjsbjchsjcbsjhbcjhsbdcjsbjchbsjhbcjhschbscjhbsdcjhbsdjcjhbsdc', 3, 9, '', '', '2016-03-03 20:50:49', '2016-03-03 20:50:49')[0m
+  [1m[35m (3.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/incidents
+Completed 302 Found in 39ms (ActiveRecord: 15.0ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:50:49 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.4ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  Rendered incidents/index.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 45ms (Views: 40.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:51:14 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  Rendered incidents/index.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 34ms (Views: 29.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:52:47 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  Rendered incidents/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 41ms (Views: 35.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:53:21 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.4ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.4ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  Rendered incidents/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 37ms (Views: 31.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:53:35 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  Rendered incidents/index.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 34ms (Views: 28.8ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:54:33 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  Rendered incidents/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 45ms (Views: 39.7ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:58:36 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.4ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  Rendered incidents/index.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 35ms (Views: 29.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:58:44 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  Rendered incidents/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 35ms (Views: 30.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:58:52 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.6ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  Rendered incidents/index.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 34ms (Views: 29.9ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/incidents" for ::1 at 2016-03-03 15:59:24 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.2ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  Rendered incidents/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 3.5ms)
