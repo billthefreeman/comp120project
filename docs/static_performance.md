@@ -31,38 +31,47 @@ Use a Content Delivery Network: F
 Add Expires headers: F
 Compress component with gzip: B
 Put CSS at top, Put Javascript at buttom, Minify Javascript and CSS: A (but there are several comments about the issues we need to fix)
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/Picture88.png)
 
 1) After using Expiry technic, the grade for Add Expires headers improved to D and the overall performance score improved to 92(A).
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/Picture92.png)
 
 2) After using Content Delivery Network, the grade for Use a Content Delivery Network improved to A, the grade for Add Expires headers improved to A. The the overall performance score improved to 97(A).
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/97.png)
 
 3) There was issue about expired header of our background img. After fixing that and using gzip technic, the grade for Compress component with gzip improved to A and the overall performance score improved to 98(A). 
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/Picture98.png)
 
 4) After putting CSS at the top and put Javascript at the buttom, the overall performance score improved to 99(A).
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/Picture99.png) 
  
 5) Finally, after minifying Javascript and CSS, the overall performance score improved to 100(A). 
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/Picture100.png)
 
 **3.2 PageSpeed Insights:**
 Before optimization, our overall performance score in PageSpeed is 88. 
 
 After optimizaion, the score increases to 89. Although there is only 1 point difference, we eliminated several warnings, such as “Consider Fixing: Enable compression”, “Consider Fixing: Leverage browser caching” and “Minify HTML”. The relatively low score is because we could not “Eliminate render-blocking JavaScript and CSS in above-the-fold content”, which we will discuss in part 4. This is the only issue PageSpeed reported but it took lots of ponits off.
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/pagespeed1.jpg)
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/pagespeed2.jpg)
 
 **3.3 Audits in Google Developer Tools**
 Before optimization, there is a problem with putting css in the document head.
 
 After we did the fifth step in 3.1 and reduced some unused CSS rules, we fixed this problem and got fewer unused CSS rules.
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/before.png)
+
 ![image](https://github.com/FanyingYe/FanyingYe.github.io/raw/master/images/comp120/after.png)
 
 ####**4. The lingering potential performance issues:**
-    PageSpeed reported an issue that “Your page has 2 blocking CSS resources. This causes a delay in rendering your page.” This is due to the following URL in our HTML files:
-https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
-    Our page has to wait for the resource to load before rendering. But we cannot fix it by simply inlining the CSS file, because inlining large data URIs can cause the size of our above-the-fold HTML to be larger, which will slow down page render time. So we decided to leave as it is.
+PageSpeed reported an issue that “Your page has 2 blocking CSS resources. This causes a delay in rendering your page.” This is due to the following URL in our HTML files: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
+Our page has to wait for the resource to load before rendering. But we cannot fix it by simply inlining the CSS file, because inlining large data URIs can cause the size of our above-the-fold HTML to be larger, which will slow down page render time. So we decided to leave as it is.
