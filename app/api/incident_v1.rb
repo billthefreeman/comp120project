@@ -29,6 +29,26 @@ module IncidentV1
 
 		class API < Grape::API
 
+			desc 'Get category by id'
+			params do
+				requires :id , type: Integer , desc: 'category_id'
+			end
+			get '/category/id' do
+				cate = Cate.where(:id => params[:id]).first
+				if cate != nil
+					{
+						status: 200,
+						message: "Category found",
+						category: Cate.find(params[:id])
+					}	
+				else
+					{
+						status: 400,
+						message: "Category can not find",
+					}
+				end
+			end
+
 			desc 'Get group by id'
 			params do
 				requires :id , type: Integer , desc: 'group_id'
