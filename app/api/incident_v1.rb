@@ -26,18 +26,14 @@ module IncidentV1
 
 		class API < Grape::API
 
+			desc "List all Incidents"
 			get '/incident/all' do
-		        desc "List all Incidents"
-		        get do
-		        	Incident.all
-		        end
+		        Incident.all
 		    end
 
+		    desc "List all Users"
 		    get '/user/all' do
-		        desc "List all Users"
-		        get do
-		        	Person.all
-		        end
+		        Person.all
 		    end
 
 			desc 'Get category by id'

@@ -31115,3 +31115,56 @@ Started GET "/v1/doc/category" for ::1 at 2016-03-06 16:28:04 -0500
 
 
 Started GET "/v1/doc/doc" for ::1 at 2016-03-06 16:28:04 -0500
+
+
+Started GET "/v1/incident/all" for ::1 at 2016-03-06 16:31:27 -0500
+
+NoMethodError (undefined method `desc' for #<#<Class:0x007fa7273cc3c0>:0x007fa727372d20>):
+  app/api/incident_v1.rb:30:in `block in <class:API>'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (56.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (116.7ms)
+
+
+Started GET "/v1/incident/all" for ::1 at 2016-03-06 16:32:40 -0500
+  [1m[36mIncident Load (0.4ms)[0m  [1mSELECT `incidents`.* FROM `incidents`[0m
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-06 16:32:44 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-06 16:32:44 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-06 16:32:44 -0500
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-06 16:32:44 -0500
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-06 16:32:44 -0500
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-06 16:32:44 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-06 16:32:44 -0500
+
+
+Started GET "/v1/user/all" for ::1 at 2016-03-06 16:32:49 -0500
+  [1m[35mPerson Load (0.4ms)[0m  SELECT `people`.* FROM `people`
+
+
+Started GET "/v1/incident/all" for ::1 at 2016-03-06 16:32:55 -0500
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents`[0m
