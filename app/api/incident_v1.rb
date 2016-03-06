@@ -29,42 +29,142 @@ module IncidentV1
 
 		class API < Grape::API
 
+			desc 'Get group by id'
+			params do
+				requires :id , type: Integer , desc: 'group_id'
+			end
+			get '/group/id' do
+				group = Group.where(:id => params[:id]).first
+				if group != nil
+					{
+						status: 200,
+						message: "Group found",
+						group: Group.find(params[:id])
+					}	
+				else
+					{
+						status: 400,
+						message: "Group can not find",
+					}
+				end
+			end
+
+			desc 'Get groups in a department by department name'
+			params do
+				requires :department_name , type: String , desc: 'department_name'
+			end
+			get '/department/groups_in_department' do
+				department = Department.where(:department_name => params[:department_name]).first
+				if department != nil
+					{
+						status: 200,
+						message: "Groups incidents found for department",
+						groups: department.groups
+					}	
+				else
+					{
+						status: 400,
+						message: "Department can not find",
+					}
+				end
+			end
+
 			desc 'Get reported incidents by username'
 			params do
 				requires :username , type: String , desc: 'user_name'
 			end
-			get '/info/user_reported_incidents.json' do
-				 reporter = Person.where(:user_name => params[:username]).first
-					if reporter != nil
-						{
-							status: 200,
-							message: "Reported incidents found for user",
-							incidents: Person.where(:user_name => params[:username]).first.reporter
-						}	
-					else
-						{
-							status: 400,
-							message: "User can not find",
-						}
-					end
+			get '/user/user_reported_incidents' do
+				p = Person.where(:user_name => params[:username]).first
+				if p != nil
+					{
+						status: 200,
+						message: "Reported incidents found for user",
+						incidents: p.reporter
+					}	
+				else
+					{
+						status: 400,
+						message: "User can not find",
+					}
+				end
 			end
 
 			desc 'Get assigned incidents by username'
 			params do
 				requires :username , type: String , desc: 'user_name'
 			end
-			get '/info/user_assigned_incidents.json' do
-				reporter = Person.where(:user_name => params[:username]).first
-				if reporter != nil
+			get '/user/user_assigned_incidents' do
+				p = Person.where(:user_name => params[:username]).first
+				if p != nil
 					{
 						status: 200,
 						message: "Assigned incidents found for user",
-						incidents: Person.where(:user_name => params[:username]).first.assignee
+						incidents: p.assignee
 					}	
 				else
 					{
 						status: 400,
 						message: "User can not find",
+					}
+				end
+			end
+
+			desc 'Get incidents by id'
+			params do
+				requires :id , type: Integer , desc: 'incident_id'
+			end
+			get '/incident/id' do
+				incident = Incident.where(:id => params[:id]).first
+				if incident != nil
+					{
+						status: 200,
+						message: "Incident successfully found",
+						incidents: Incident.where(:id => params[:id])
+					}	
+				else
+					{
+						status: 400,
+						message: "Incident can not find",
+					}
+				end
+			end
+
+			desc 'Get incidents by severity'
+			params do
+				requires :severity , type: Integer , desc: 'incident_severity'
+			end
+			get '/incident/incident_severity' do
+				incident = Incident.where(:severity => params[:severity]).first
+				if incident != nil
+					{
+						status: 200,
+						message: "Incident successfully found",
+						incidents: Incident.where(:severity => params[:severity])
+					}	
+				else
+					{
+						status: 400,
+						message: "Incident can not find",
+					}
+				end
+			end
+
+			desc 'Get incidents by category'
+			params do
+				requires :cate_id , type: Integer , desc: 'incident_category'
+			end
+			get '/incident/incident_cate_id' do
+				incident = Incident.where(:cate_id => params[:cate_id]).first
+				if incident != nil
+					{
+						status: 200,
+						message: "Incident successfully found",
+						incidents: Incident.where(:cate_id => params[:cate_id])
+					}	
+				else
+					{
+						status: 400,
+						message: "Incident can not find",
 					}
 				end
 			end

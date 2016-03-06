@@ -25612,3 +25612,375 @@ Started GET "/v1/doc/user" for ::1 at 2016-03-06 10:58:13 -0500
 
 
 Started GET "/v1/doc/incident" for ::1 at 2016-03-06 10:58:13 -0500
+
+
+Started GET "/" for ::1 at 2016-03-06 11:03:42 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (9, 2, 7, 6, 1)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  Rendered incidents/index.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 66ms (Views: 54.3ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/v1/info/user_reported_incidents?username=fanyin" for ::1 at 2016-03-06 11:04:01 -0500
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanyin'  ORDER BY `people`.`id` ASC LIMIT 1
+
+
+Started GET "/v1/info/user_reported_incidents?username=fanying" for ::1 at 2016-03-06 11:04:04 -0500
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1  [["user_name", "fanying"]]
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`reporter_id` = 1[0m
+
+
+Started GET "/v1/info/user_assigned_incidents?username=fanying" for ::1 at 2016-03-06 11:04:16 -0500
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1[0m  [["user_name", "fanying"]]
+  [1m[35mIncident Load (0.3ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`assignee_id` = 1
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-06 11:15:54 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-06 11:15:54 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-06 11:15:54 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-06 11:15:54 -0500
+
+
+Started GET "/v1/incident/1" for ::1 at 2016-03-06 11:16:04 -0500
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 1  ORDER BY `incidents`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 1
+
+
+Started GET "/v1/incident/100" for ::1 at 2016-03-06 11:16:11 -0500
+  [1m[36mIncident Load (0.4ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 100  ORDER BY `incidents`.`id` ASC LIMIT 1[0m
+
+
+Started GET "/v1/incident/2" for ::1 at 2016-03-06 11:16:24 -0500
+  [1m[35mIncident Load (0.4ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 2  ORDER BY `incidents`.`id` ASC LIMIT 1
+  [1m[36mIncident Load (0.4ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 2[0m
+
+
+Started GET "/v1/incident/3" for ::1 at 2016-03-06 11:17:41 -0500
+  [1m[35mIncident Load (0.7ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 3  ORDER BY `incidents`.`id` ASC LIMIT 1
+  [1m[36mIncident Load (0.4ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 3[0m
+
+
+Started GET "/v1/incident/3" for ::1 at 2016-03-06 11:17:41 -0500
+  [1m[35mIncident Load (0.5ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 3  ORDER BY `incidents`.`id` ASC LIMIT 1
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 3[0m
+
+
+Started GET "/v1/incident/5" for ::1 at 2016-03-06 11:17:49 -0500
+  [1m[35mIncident Load (0.5ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 5  ORDER BY `incidents`.`id` ASC LIMIT 1
+  [1m[36mIncident Load (0.8ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 5[0m
+
+
+Started GET "/v1/incident/6" for ::1 at 2016-03-06 11:17:55 -0500
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 6  ORDER BY `incidents`.`id` ASC LIMIT 1
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 6[0m
+
+
+Started GET "/v1/incident/2" for ::1 at 2016-03-06 11:18:56 -0500
+  [1m[35mIncident Load (0.6ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 2  ORDER BY `incidents`.`id` ASC LIMIT 1
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 2[0m
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-06 11:19:34 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-06 11:19:34 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-06 11:19:35 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-06 11:19:35 -0500
+
+
+Started GET "/v1/incident/severity?severity=3" for ::1 at 2016-03-06 11:19:40 -0500
+  [1m[35mIncident Load (1.4ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`severity` = 1
+  [1m[36mIncident Load (0.4ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`severity` = 2[0m
+
+
+Started GET "/v1/user/user_reported_incidents?username=fanying" for ::1 at 2016-03-06 11:21:08 -0500
+  [1m[35mPerson Load (0.8ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1[0m  [["user_name", "fanying"]]
+  [1m[35mIncident Load (0.3ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`reporter_id` = 1
+
+
+Started GET "/v1/incident/cate_id?cate_id=3" for ::1 at 2016-03-06 11:21:47 -0500
+
+
+Started GET "/v1/incident/1" for ::1 at 2016-03-06 11:23:14 -0500
+  [1m[36mIncident Load (0.6ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 1  ORDER BY `incidents`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 1
+
+
+Started GET "/v1/incident/100" for ::1 at 2016-03-06 11:23:21 -0500
+  [1m[36mIncident Load (0.4ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 100  ORDER BY `incidents`.`id` ASC LIMIT 1[0m
+
+
+Started GET "/v1/incident/10" for ::1 at 2016-03-06 11:23:26 -0500
+  [1m[35mIncident Load (0.7ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 10  ORDER BY `incidents`.`id` ASC LIMIT 1
+
+
+Started GET "/v1/incident/6" for ::1 at 2016-03-06 11:23:29 -0500
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 6  ORDER BY `incidents`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (0.5ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`id` = 6
+
+
+Started GET "/v1/incident/severity?severity=2" for ::1 at 2016-03-06 11:23:38 -0500
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-06 11:25:18 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-06 11:25:18 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-06 11:25:18 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-06 11:25:18 -0500
+
+
+Started GET "/v1/incident/incident_severity?severity=2" for ::1 at 2016-03-06 11:25:22 -0500
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`severity` = 2  ORDER BY `incidents`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (0.4ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`severity` = 2
+
+
+Started GET "/v1/incident/incident_cate_id?cate_id=3" for ::1 at 2016-03-06 11:25:40 -0500
+  [1m[36mIncident Load (0.5ms)[0m  [1mSELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`cate_id` = 3  ORDER BY `incidents`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (0.4ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`cate_id` = 3
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 2 LIMIT 1
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mDepartment Load (0.5ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mGroup Load (0.3ms)[0m  [1mSELECT `groups`.* FROM `groups` WHERE `groups`.`department_id` = 3[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 2 LIMIT 1
+  [1m[36mGroup Load (0.8ms)[0m  [1mSELECT `groups`.* FROM `groups` WHERE `groups`.`department_id` = 2[0m
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-06 11:33:28 -0500
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-06 11:33:29 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-06 11:33:29 -0500
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-06 11:33:29 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-06 11:33:29 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-06 11:33:29 -0500
+
+
+Started GET "/v1/department/groups_in_department?department_name=3" for ::1 at 2016-03-06 11:33:38 -0500
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`department_name` = '3'  ORDER BY `departments`.`id` ASC LIMIT 1[0m
+
+
+Started GET "/v1/department/groups_in_department?department_name=Environmental%20Health%20and%20Safety" for ::1 at 2016-03-06 11:34:06 -0500
+  [1m[35mDepartment Load (0.6ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'Environmental Health and Safety'  ORDER BY `departments`.`id` ASC LIMIT 1
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'Environmental Health and Safety'[0m
+
+NoMethodError (undefined method `groups' for #<Department::ActiveRecord_Relation:0x007fa725019900>
+Did you mean?  group
+               group!):
+  app/api/incident_v1.rb:62:in `block in <class:API>'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (67.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (125.3ms)
+
+
+Started GET "/v1/department/groups_in_department?department_name=Energy%20and%20Facilities" for ::1 at 2016-03-06 11:34:29 -0500
+  [1m[35mDepartment Load (0.9ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'Energy and Facilities'  ORDER BY `departments`.`id` ASC LIMIT 1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'Energy and Facilities'[0m
+
+NoMethodError (undefined method `groups' for #<Department::ActiveRecord_Relation:0x007fa721e97a30>
+Did you mean?  group
+               group!):
+  app/api/incident_v1.rb:62:in `block in <class:API>'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (71.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (128.6ms)
+  [1m[35mDepartment Load (6.3ms)[0m  SELECT `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'Energy and Facilities'
+  [1m[36mDepartment Load (1.9ms)[0m  [1mSELECT `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'Energy and Facilities'[0m
+
+
+Started GET "/v1/department/groups_in_department?department_name=Energy%20and%20Facilities" for ::1 at 2016-03-06 11:37:08 -0500
+  [1m[35mDepartment Load (0.5ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'Energy and Facilities'  ORDER BY `departments`.`id` ASC LIMIT 1
+  [1m[36mGroup Load (0.3ms)[0m  [1mSELECT `groups`.* FROM `groups` WHERE `groups`.`department_id` = 2[0m
+
+
+Started GET "/v1/department/groups_in_department?department_name=Environmental%20Health%20and%20Safety" for ::1 at 2016-03-06 11:37:42 -0500
+  [1m[35mDepartment Load (5.0ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'Environmental Health and Safety'  ORDER BY `departments`.`id` ASC LIMIT 1
+  [1m[36mGroup Load (1.6ms)[0m  [1mSELECT `groups`.* FROM `groups` WHERE `groups`.`department_id` = 3[0m
+
+
+Started GET "/v1/department/groups_in_department?department_name=dasd" for ::1 at 2016-03-06 11:37:53 -0500
+  [1m[35mDepartment Load (0.7ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`department_name` = 'dasd'  ORDER BY `departments`.`id` ASC LIMIT 1
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-06 11:37:58 -0500
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-06 11:37:58 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-06 11:37:58 -0500
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-06 11:37:58 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-06 11:37:58 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-06 11:37:58 -0500
+
+
+Started GET "/v1/group/id?id=1" for ::1 at 2016-03-06 11:38:08 -0500
+  [1m[36mGroup Load (0.5ms)[0m  [1mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1  ORDER BY `groups`.`id` ASC LIMIT 1[0m
+  [1m[35mGroup Load (0.7ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+
+
+Started GET "/v1/user/user_reported_incidents?username=fanying" for ::1 at 2016-03-06 11:38:26 -0500
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (1.1ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`reporter_id` = 1
+
+
+Started GET "/v1/user/user_assigned_incidents?username=fanying" for ::1 at 2016-03-06 11:38:39 -0500
+  [1m[36mPerson Load (3.7ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1[0m
+
+NameError (undefined local variable or method `reporter' for #<#<Class:0x007fa7231dcf78>:0x007fa72347eee8>):
+  app/api/incident_v1.rb:98:in `block in <class:API>'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (76.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (135.6ms)
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-06 11:39:48 -0500
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-06 11:39:48 -0500
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-06 11:39:48 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-06 11:39:48 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-06 11:39:48 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-06 11:39:48 -0500
+
+
+Started GET "/v1/user/user_reported_incidents?username=fanying" for ::1 at 2016-03-06 11:39:58 -0500
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1
+
+NameError (undefined local variable or method `reporter' for #<#<Class:0x007fa72332db98>:0x007fa720f4dcf0>):
+  app/api/incident_v1.rb:78:in `block in <class:API>'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (83.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (141.6ms)
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-06 11:40:24 -0500
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-06 11:40:24 -0500
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-06 11:40:24 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-06 11:40:24 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-06 11:40:24 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-06 11:40:24 -0500
+
+
+Started GET "/v1/user/user_reported_incidents?username=fanying" for ::1 at 2016-03-06 11:40:28 -0500
+  [1m[36mPerson Load (0.4ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (0.5ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`reporter_id` = 1
+
+
+Started GET "/v1/user/user_assigned_incidents?username=fanying" for ::1 at 2016-03-06 11:40:39 -0500
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (2.4ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`assignee_id` = 1
+
+
+Started GET "/v1/user/user_assigned_incidents?username=fanying" for ::1 at 2016-03-06 11:40:39 -0500
+  [1m[36mPerson Load (1.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'fanying'  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mIncident Load (0.6ms)[0m  SELECT `incidents`.* FROM `incidents` WHERE `incidents`.`assignee_id` = 1
