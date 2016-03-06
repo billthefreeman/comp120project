@@ -54,10 +54,10 @@ when "production"
 	Group.create(:group_name => "Laboratories", :department_id => 3)
 	Group.create(:group_name => "Training", :department_id => 3)
 
-	Person.create(:last_name => "Ye", :user_name => "Fanying",:group_id => 1,:phone=>"12345678",:email=>"123@tufts.edu")
-	Person.create(:last_name => "Huo",:user_name => "Yan",:group_id => 2,:phone=>"23456781",:email=>"234@tufts.edu")
-	Person.create(:last_name => "Bu",:user_name => "Min",:group_id => 3,:phone=>"34567812",:email=>"345@tufts.edu")
-	Person.create(:last_name => "Lu",:user_name => "Feiyu",:group_id => 4,:phone=>"45678123",:email=>"456@tufts.edu")
+	Person.create(:last_name => "Ye", :user_name => "Fanying",:group_id => 1,:phone=>"12345678",:email=>"123@tufts.edu",:pw=>"Yfy.911220")
+	Person.create(:last_name => "Huo",:user_name => "Yan",:group_id => 2,:phone=>"23456781",:email=>"234@tufts.edu",:pw=>"Yfy.911220")
+	Person.create(:last_name => "Bu",:user_name => "Min",:group_id => 3,:phone=>"34567812",:email=>"345@tufts.edu",:pw=>"Yfy.911220")
+	Person.create(:last_name => "Lu",:user_name => "Feiyu",:group_id => 4,:phone=>"45678123",:email=>"456@tufts.edu",:pw=>"Yfy.911220")
 
 	Incident.create(:location =>"Halligan",:reporter_id=>1,:cate_id=>4,:severity=>3,:status_id=>2)
 	Incident.create(:location =>"Anderson",:reporter_id=>2,:cate_id=>5,:severity=>5,:status_id=>3)

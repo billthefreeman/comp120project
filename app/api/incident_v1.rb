@@ -3,9 +3,6 @@ require 'grape-swagger'
 module IncidentV1
 	module Rule
 		module Entities
-			class Order < Grape::Entity
-				expose :status, documentation: {type: "string", required: true, desc: "status"}
-			end
 
 			class User < Grape::Entity
 				expose :first_name, documentation: {type: "string", required: false}
@@ -29,11 +26,25 @@ module IncidentV1
 
 		class API < Grape::API
 
+			get '/incident/all' do
+		        desc "List all Incidents"
+		        get do
+		        	Incident.all
+		        end
+		    end
+
+		    get '/user/all' do
+		        desc "List all Users"
+		        get do
+		        	Person.all
+		        end
+		    end
+
 			desc 'Get category by id'
 			params do
 				requires :id , type: Integer , desc: 'category_id'
 			end
-			get '/category/id' do
+			get '/category/:id' do
 				cate = Cate.where(:id => params[:id]).first
 				if cate != nil
 					{
@@ -44,7 +55,7 @@ module IncidentV1
 				else
 					{
 						status: 400,
-						message: "Category can not find",
+						message: "Category can not find"
 					}
 				end
 			end
@@ -53,7 +64,7 @@ module IncidentV1
 			params do
 				requires :id , type: Integer , desc: 'group_id'
 			end
-			get '/group/id' do
+			get '/group/:id' do
 				group = Group.where(:id => params[:id]).first
 				if group != nil
 					{
@@ -64,7 +75,7 @@ module IncidentV1
 				else
 					{
 						status: 400,
-						message: "Group can not find",
+						message: "Group can not find"
 					}
 				end
 			end
@@ -82,9 +93,9 @@ module IncidentV1
 						groups: department.groups
 					}	
 				else
-					{
+					{ 
 						status: 400,
-						message: "Department can not find",
+						message: "Department can not find"
 					}
 				end
 			end
@@ -104,7 +115,7 @@ module IncidentV1
 				else
 					{
 						status: 400,
-						message: "User can not find",
+						message: "User can not find"
 					}
 				end
 			end
@@ -124,7 +135,7 @@ module IncidentV1
 				else
 					{
 						status: 400,
-						message: "User can not find",
+						message: "User can not find"
 					}
 				end
 			end
@@ -133,7 +144,7 @@ module IncidentV1
 			params do
 				requires :id , type: Integer , desc: 'incident_id'
 			end
-			get '/incident/id' do
+			get '/incident/:id' do
 				incident = Incident.where(:id => params[:id]).first
 				if incident != nil
 					{
@@ -144,7 +155,7 @@ module IncidentV1
 				else
 					{
 						status: 400,
-						message: "Incident can not find",
+						message: "Incident can not find"
 					}
 				end
 			end
@@ -164,7 +175,7 @@ module IncidentV1
 				else
 					{
 						status: 400,
-						message: "Incident can not find",
+						message: "Incident can not find"
 					}
 				end
 			end
@@ -184,13 +195,13 @@ module IncidentV1
 				else
 					{
 						status: 400,
-						message: "Incident can not find",
+						message: "Incident can not find"
 					}
 				end
 			end
 
 
-			desc 'user_sign_up' do
+			desc 'user sign up' do
 				success Entities::User
 			end
 			params do
@@ -201,6 +212,7 @@ module IncidentV1
 			    optional  :second_phone, type: String, regexp: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
 			    requires  :email,        type: String, regexp: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
 			    requires  :group_id,     type: Integer
+			    requires  :pw,           type: String, regexp: /\A(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}\z/
 			end
 			post '/user/new' do
 				begin
@@ -225,6 +237,17 @@ module IncidentV1
 							message: "Invalid group id"
 						}
 					else
+						Person.create!({
+							:first_name => params[:first_name],
+							:last_name => params[:last_name],
+							:user_name => params[:user_name],
+							:phone => params[:phone],
+							:second_phone => params[:second_phone],
+							:email => params[:email],
+							:group_id => params[:group_id],
+						    :pw => params[:pw]
+						}) 
+
 						return {
 							status: 200,
 							message: "User successfully created",
@@ -234,14 +257,14 @@ module IncidentV1
 							:phone => params[:phone],
 							:second_phone => params[:second_phone],
 							:email => params[:email],
-							:group_id => params[:group_id]}
-							
+							:group_id => params[:group_id],
+							:pw => params[:pw]}		
 						}
 					end
 				end
 			end
 
-			desc 'create_incident' do
+			desc 'create incident' do
 				success Entities::Incident
 			end
 			params do
@@ -274,7 +297,15 @@ module IncidentV1
 							status: 409,
 							message: "Invalid reporter id"
 						}
-					else
+					else 
+						Incident.create!({
+							:location => params[:location],
+							:severity => params[:severity],
+							:cate_id => params[:cate_id],
+							:other_cate_description => params[:other_cate_description],
+							:incident_description => params[:incident_description],
+							:reporter_id => params[:reporter_id]
+						}) 
 						return {
 							status: 200,
 							message: "Incident successfully created",
@@ -288,6 +319,127 @@ module IncidentV1
 					end
 				end
 			end
+
+			desc "update an user information"
+			params do
+				requires  :id,           type: String
+				optional  :first_name,   type: String
+			    requires  :last_name,    type: String
+			    requires  :user_name,    type: String
+			    requires  :phone,        type: String, regexp: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
+			    optional  :second_phone, type: String, regexp: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
+			    requires  :email,        type: String, regexp: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
+			    requires  :group_id,     type: Integer
+			    requires  :pw,           type: String, regexp: /\A(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}\z/
+			end
+			put '/user/:id' do
+				if (Person.where(:user_name => params[:user_name]).first != nil)
+						return {
+							status: 409,
+							message: "User name already taken"
+					}
+				elsif (Person.where(:email => params[:email]).first != nil)
+					return {
+						status: 409,
+						message: "Email already taken"
+					}
+				elsif(params[:phone] == params[:second_phone])
+					return {
+						status: 409,
+						message: "Second phone cannot be same as phone"
+					}
+				elsif (Group.where(:id => params[:group_id]).first == nil)
+					return {
+						status: 409,
+						message: "Invalid group id"
+					}
+				else
+					Person.find(params[:id]).update({
+				    	:first_name => params[:first_name],
+						:last_name => params[:last_name],
+						:user_name => params[:user_name],
+						:phone => params[:phone],
+						:second_phone => params[:second_phone],
+						:email => params[:email],
+						:group_id => params[:group_id],
+					    :pw => params[:pw]
+				  	})
+				  	return {
+						status: 200,
+						message: "User successfully updated",
+						user: {:first_name => params[:first_name],
+						:last_name => params[:last_name],
+						:user_name => params[:user_name],
+						:phone => params[:phone],
+						:second_phone => params[:second_phone],
+						:email => params[:email],
+						:group_id => params[:group_id],
+						:pw => params[:pw]}		
+					}
+				end
+			end
+
+			desc "update an incident information"
+			params do
+				requires  :id,                     type: String
+				requires  :location,               type: String
+			    requires  :severity,               type: Integer
+			    requires  :cate_id,        		   type: Integer
+			    optional  :other_cate_description, type: String
+			    optional  :incident_description,   type: String
+			    requires  :reporter_id,            type: Integer
+			end
+			put '/incident/:id' do
+				if (params[:severity] > 5 or params[:severity] < 1)
+						return {
+							status: 409,
+							message: "Invalid severity"
+						}
+				elsif (Cate.where(:id => params[:cate_id]).first == nil)
+					return {
+						status: 409,
+						message: "Invalid category id"
+					}
+				elsif (Cate.find(params[:cate_id]) == Cate.last && params[:other_cate_description] == nil)
+					return {
+						status: 409,
+						message: "Unknown category must have a category description"
+					}	
+				elsif (Person.where(:id => params[:reporter_id]).first == nil)
+					return {
+						status: 409,
+						message: "Invalid reporter id"
+					}
+				else 
+					Incident.find(params[:id]).update({
+				    	:location => params[:location],
+						:severity => params[:severity],
+						:cate_id => params[:cate_id],
+						:other_cate_description => params[:other_cate_description],
+						:incident_description => params[:incident_description],
+						:reporter_id => params[:reporter_id]
+				  	})
+				  	return {
+						status: 200,
+						message: "User information successfully updated",
+						incident: {:location => params[:location],
+						:severity => params[:severity],
+						:cate_id => params[:cate_id],
+						:other_cate_description => params[:other_cate_description],
+						:incident_description => params[:incident_description],
+						:reporter_id => params[:reporter_id]}		
+					}
+				end
+			end
+
+
+			desc "delete an incident"
+		    params do
+		    	requires :id, type: Integer
+		    end
+		    delete '/incident/:id' do
+		    	Incident.find(params[:id]).destroy!
+	    	end
 		end
 	end
 

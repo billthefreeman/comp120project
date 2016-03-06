@@ -6,8 +6,13 @@ class Person < ActiveRecord::Base
 	validates :last_name, :user_name, :phone, :email, :group_id, presence: true
 	validates :group, presence: true
 	validates :user_name, :email, uniqueness: true
-	validates :phone, :with => /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
+	validates_format_of :phone, :with => /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
 	validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
+	validates_format_of :pw, :with => /\A(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}\z/
+	#Password should contain atleast one integer.
+	#Password should contain atleast one alphabet(either in downcase or upcase).
+	#Password can have special characters from 20 to 7E ascii values.
+	#Password should be minimum of 8 and maximum of 40 cahracters long.
 	validate :second_phone_not_same_as_phone
 
 	def second_phone_not_same_as_phone
