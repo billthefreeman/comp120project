@@ -66,4 +66,6 @@ when "production"
 	Incident.create(:location =>"Tisch",:reporter_id=>1,:cate_id=>1,:severity=>3,:status_id=>4)
 	Incident.create(:location =>"Barnum",:reporter_id=>3,:cate_id=>6,:severity=>2,:status_id=>3)
 	Incident.create(:location =>"Braker",:reporter_id=>2,:cate_id=>7,:severity=>5,:status_id=>2)
+when "development"
+	
 end

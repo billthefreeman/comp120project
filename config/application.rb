@@ -33,7 +33,9 @@ module Mvp
      request_specs: false
      g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
-      
+    
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
   end
 end
 

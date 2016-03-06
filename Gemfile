@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'grape'
+gem 'grape-swagger'
+gem 'grape-entity'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  mount IncidentV1::GrapeAPI => '/v1'
   resources :incidents
   root "incidents#index"
   
