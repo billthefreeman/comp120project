@@ -31168,3 +31168,1035 @@ Started GET "/v1/user/all" for ::1 at 2016-03-06 16:32:49 -0500
 
 Started GET "/v1/incident/all" for ::1 at 2016-03-06 16:32:55 -0500
   [1m[36mIncident Load (0.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents`[0m
+
+
+Started GET "/" for ::1 at 2016-03-06 23:21:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.5.1) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.5.1) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (98.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (202.9ms)
+
+
+Started GET "/" for ::1 at 2016-03-06 23:21:57 -0500
+  [1m[35mActiveRecord::SchemaMigration Load (3.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.5.1) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.5.1) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (126.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddRow (20160306450949)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (7.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'reported' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStatus Exists (0.3ms)[0m  SELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'processing' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'solved' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mStatus Exists (0.2ms)[0m  SELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'closed' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Animals and Animal Safety' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Asbestos' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Biological Agents' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Bloodborne Pathogens' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Chemical' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Confined Space' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cold' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Construction' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cranes and Hoists' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Driving' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Dust' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Electrical' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Ergonomics' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.3ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Fire' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Hazardous Waste' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Heat' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Indoor Air Quality' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lab Safety' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lead' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Medical' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Mold' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Oil and Gas' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Radiation' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Scaffolding' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Exists (0.2ms)[0m  SELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Unknown' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (1.8ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Dining' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDepartment Exists (0.2ms)[0m  SELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Energy and Facilities' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Environmental Health and Safety' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDepartment Exists (0.2ms)[0m  SELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Housing' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Mail and Print' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDepartment Exists (0.2ms)[0m  SELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Events Management' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDepartment Exists (0.2ms)[0m  SELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability, and Transportation' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Buildings and Facilities' LIMIT 1[0m
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Construction Support' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Environmental Management' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Laboratories' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (24.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (18.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160217203608)
+  [1m[35m (11.5ms)[0m  CREATE TABLE `incidents` (`id` int(11) auto_increment PRIMARY KEY, `location` varchar(255), `status_id` int(11), `closed_date_time` datetime, `processed_date_time` datetime, `solved_date_time` datetime, `severity` int(11), `cate_id` int(11), `other_cate_description` varchar(255), `incident_description` varchar(255), `reporter_id` int(11), `assignee_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (11.2ms)[0m  [1mCREATE TABLE `people` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `user_name` varchar(255), `phone` varchar(255), `second_phone` varchar(255), `email` varchar(255), `pw` varchar(255), `group_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (9.6ms)[0m  CREATE TABLE `statuses` (`id` int(11) auto_increment PRIMARY KEY, `status_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE `cates` (`id` int(11) auto_increment PRIMARY KEY, `cate_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (9.9ms)[0m  CREATE TABLE `departments` (`id` int(11) auto_increment PRIMARY KEY, `department_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE `groups` (`id` int(11) auto_increment PRIMARY KEY, `group_name` varchar(255), `department_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217203608')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddDefaultVal (20160217222254)
+  [1m[36m (7.0ms)[0m  [1mALTER TABLE `incidents` CHANGE `status_id` `status_id` int(11) DEFAULT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160217222254')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddCover (20160217222335)
+  [1m[36m (15.1ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_name` varchar(255)[0m
+  [1m[35m (16.6ms)[0m  ALTER TABLE `incidents` ADD `cover_content_type` varchar(255)
+  [1m[36m (12.3ms)[0m  [1mALTER TABLE `incidents` ADD `cover_file_size` int(11)[0m
+  [1m[35m (13.2ms)[0m  ALTER TABLE `incidents` ADD `cover_updated_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160217222335')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddRow (20160306450949)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'reported' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('reported', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'processing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('processing', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'solved' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('solved', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mStatus Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `statuses` WHERE `statuses`.`status_name` = BINARY 'closed' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `statuses` (`status_name`, `created_at`, `updated_at`) VALUES ('closed', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Animals and Animal Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Animals and Animal Safety', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Asbestos' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Asbestos', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Biological Agents' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Biological Agents', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Bloodborne Pathogens' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Bloodborne Pathogens', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Chemical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Chemical', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Confined Space' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Confined Space', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cold', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Construction' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Construction', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Cranes and Hoists' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Cranes and Hoists', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Driving' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Driving', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Dust' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Dust', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Electrical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Electrical', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Ergonomics' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Ergonomics', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Fire' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Fire', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Hazardous Waste' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Hazardous Waste', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Heat' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Heat', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Indoor Air Quality' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Indoor Air Quality', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lab Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lab Safety', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Lead' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Lead', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Medical' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Medical', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Mold' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Mold', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Oil and Gas' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Oil and Gas', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Radiation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Radiation', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Scaffolding' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Scaffolding', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Training', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCate Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `cates` WHERE `cates`.`cate_name` = BINARY 'Unknown' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cates` (`cate_name`, `created_at`, `updated_at`) VALUES ('Unknown', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Dining' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Dining', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Energy and Facilities' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Energy and Facilities', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Environmental Health and Safety' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Environmental Health and Safety', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Housing' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Housing', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Mail and Print' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Mail and Print', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Events Management' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Events Management', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDepartment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `departments` WHERE `departments`.`department_name` = BINARY 'Sustainability, and Transportation' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `departments` (`department_name`, `created_at`, `updated_at`) VALUES ('Sustainability, and Transportation', '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Buildings and Facilities' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Buildings and Facilities', 3, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.3ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Construction Support' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Construction Support', 3, '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Environmental Management' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Environmental Management', 3, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Exists (0.2ms)[0m  SELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Laboratories' LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Laboratories', 3, '2016-03-07 04:24:13', '2016-03-07 04:24:13')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGroup Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `groups` WHERE `groups`.`group_name` = BINARY 'Training' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  `departments`.* FROM `departments` WHERE `departments`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `groups` (`group_name`, `department_id`, `created_at`, `updated_at`) VALUES ('Training', 3, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Fanying' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '123@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `pw`, `created_at`, `updated_at`) VALUES ('Ye', 'Fanying', 1, '1234567888', '123@tufts.edu', 'Yfy.911220', '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Yan' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '234@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `pw`, `created_at`, `updated_at`) VALUES ('Huo', 'Yan', 2, '2345678999', '234@tufts.edu', 'Yfy.911220', '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 3 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Min' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '345@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `pw`, `created_at`, `updated_at`) VALUES ('Bu', 'Min', 3, '3456789000', '345@tufts.edu', 'Yfy.911220', '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.2ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 4 LIMIT 1
+  [1m[36mPerson Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'Feiyu' LIMIT 1[0m
+  [1m[35mPerson Exists (0.2ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '456@tufts.edu' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `group_id`, `phone`, `email`, `pw`, `created_at`, `updated_at`) VALUES ('Lu', 'Feiyu', 4, '4567890111', '456@tufts.edu', 'Yfy.911220', '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 4 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Halligan', 1, 4, 3, 2, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 5 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Anderson', 2, 5, 5, 3, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Lane', 1, 2, 1, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `created_at`, `updated_at`) VALUES ('Dowling', 3, 3, 4, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Tisch', 1, 1, 3, 4, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 6 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Barnum', 3, 6, 2, 3, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1
+  [1m[36mCate Load (0.2ms)[0m  [1mSELECT  `cates`.* FROM `cates`  ORDER BY `cates`.`id` DESC LIMIT 1[0m
+  [1m[35mCate Load (0.2ms)[0m  SELECT  `cates`.* FROM `cates` WHERE `cates`.`id` = 7 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `incidents` (`location`, `reporter_id`, `cate_id`, `severity`, `status_id`, `created_at`, `updated_at`) VALUES ('Braker', 2, 7, 5, 2, '2016-03-07 04:24:13', '2016-03-07 04:24:13')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160306450949')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (1.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'cates'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `cates`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'departments'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `departments`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'groups'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `groups`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'incidents'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `incidents`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'people'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `people`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'mvp_development'
+  AND fk.table_name = 'statuses'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `statuses`
+
+
+Started GET "/" for ::1 at 2016-03-06 23:24:33 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.4ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (143.7ms)
+Completed 200 OK in 834ms (Views: 807.7ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for ::1 at 2016-03-06 23:25:53 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.4ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 52ms (Views: 46.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-06 23:26:03 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/overview" for ::1 at 2016-03-06 23:26:09 -0500
+Processing by ApidocController#overview as HTML
+  Rendered apidoc/overview.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-06 23:26:18 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-06 23:26:44 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-06 23:29:05 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-06 23:29:08 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-06 23:29:11 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-06 23:34:49 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-06 23:35:30 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-06 23:35:44 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-06 23:57:17 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-06 23:58:55 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-06 23:59:07 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-06 23:59:59 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-07 10:36:44 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (11.1ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (3.2ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (2.4ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.6ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (210.1ms)
+Completed 200 OK in 257ms (Views: 122.3ms | ActiveRecord: 117.4ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 10:37:32 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/overview" for ::1 at 2016-03-07 10:40:31 -0500
+Processing by ApidocController#overview as HTML
+  Rendered apidoc/overview.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-07 10:40:35 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:40:43 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/java_example.png" for ::1 at 2016-03-07 10:40:44 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/java_example.png"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (52.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (189.8ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (74.8ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (182.3ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:48:21 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:49:50 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:52:29 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:52:33 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:55:53 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-07 10:56:37 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 111ms (Views: 110.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:57:06 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/overview" for ::1 at 2016-03-07 10:57:21 -0500
+Processing by ApidocController#overview as HTML
+  Rendered apidoc/overview.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:57:36 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 10:57:54 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 10:57:56 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-07 11:09:28 -0500
+
+NameError (uninitialized constant IncidentV1::GrapeAPI):
+  config/routes.rb:3:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.6ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/yanhuo/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (128.2ms)
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-07 11:09:54 -0500
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-07 11:09:54 -0500
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-07 11:09:54 -0500
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-07 11:09:54 -0500
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-07 11:09:54 -0500
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-07 11:09:54 -0500
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-07 11:09:54 -0500
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 11:13:29 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 11:14:44 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/v1/incident/all" for ::1 at 2016-03-07 11:16:29 -0500
+  [1m[36mIncident Load (1.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents`[0m
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 11:27:41 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/overview" for ::1 at 2016-03-07 11:28:55 -0500
+Processing by ApidocController#overview as HTML
+  Rendered apidoc/overview.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-07 11:29:01 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 11:29:11 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 11:30:38 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 11:35:54 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 11:36:02 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 11:38:43 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 10ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 11:41:20 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 12:03:28 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 12:18:30 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 12:30:22 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 12:30:30 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)

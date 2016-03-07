@@ -197,7 +197,7 @@ module IncidentV1
 			end
 
 
-			desc 'user sign up' do
+			desc 'User sign up' do
 				success Entities::User
 			end
 			params do
@@ -260,7 +260,7 @@ module IncidentV1
 				end
 			end
 
-			desc 'create incident' do
+			desc 'Create incident' do
 				success Entities::Incident
 			end
 			params do
@@ -316,7 +316,7 @@ module IncidentV1
 				end
 			end
 
-			desc "update an user information"
+			desc "Update an user information"
 			params do
 				requires  :id,           type: String
 				optional  :first_name,   type: String
@@ -375,7 +375,7 @@ module IncidentV1
 				end
 			end
 
-			desc "update an incident information"
+			desc "Update an incident information"
 			params do
 				requires  :id,                     type: String
 				requires  :location,               type: String

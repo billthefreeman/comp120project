@@ -1,0 +1,168 @@
+<div class="container col-md-10 col-md-offset-1" style="background-image: url('/images/confectionary.png')">
+  	<div class="page-header">
+    	<h1>API DOCS: Reference</h1>
+  	</div>
+
+  	<p> Base URL: http://comp120team8reporter.herokuapp.com/v1
+  	<br>
+
+  	<h4> Incident </h4>
+  	<table>
+	    <tr>
+	        <td>Method</td>
+	        <td>Relative URL</td>
+	        <td>Function</td>
+	        <td>Response/Status Code </td>
+	        <td>Authentication</td>
+	    </tr>
+	    <tr>
+	        <td>GET</td>
+	        <td>/incident/all</td>
+	        <td>List all Incidents</td>
+	        <td>200-success</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>DELETE</td>
+	        <td>/incident/{id}</td>
+	        <td>Delete an incident</td>
+	        <td>200-success 404-incident not found</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>GET</td>
+	        <td>/incident/{id}</td>
+	        <td>Get incidents by id</td>
+	        <td>200-success 400-incident not found</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>PUT</td>
+	        <td>/incident/{id}</td>
+	        <td>update an incident information</td>
+	        <td>200-success 409-invalid input</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>GET</td>
+	        <td>/incident/incident_severity</td>
+	        <td>Get incidents by severity</td>
+	        <td>200-success 400-incident not found</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>GET</td>
+	        <td>/incident/incident_cate_id</td>
+	        <td>Get incidents by category</td>
+	        <td>200-success 400-incident not found</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>POST</td>
+	        <td>/incident/new</td>
+	        <td>Creat an incident</td>
+	        <td>200-success 409-invalid input</td>
+	        <td></td>
+	    </tr>
+	</table>
+
+	<h4> User </h4>
+  	<table>
+	    <tr>
+	        <td>Method</td>
+	        <td>Relative URL</td>
+	        <td>Function</td>
+	        <td>Response/Status Code </td>
+	        <td>Authentication</td>
+	    </tr>
+	    <tr>
+	        <td>GET</td>
+	        <td>/user/all</td>
+	        <td>List all Users</td>
+	        <td>200-success</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>GET</td>
+	        <td>/user/user_reported_incidents</td>
+	        <td>Get reported incidents by username</td>
+	        <td>200-success 400-user not found</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>GET</td>
+	        <td>/user/user_assigned_incidents</td>
+	        <td>Get assigned incidents by username</td>
+	        <td>200-success 400-user not found</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>POST</td>
+	        <td>/user/new</td>
+	        <td>User sign up</td>
+	        <td>200-success 409-confict</td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td>PUT</td>
+	        <td>/user/{id}</td>
+	        <td>Update an user information</td>
+	        <td>200-success 409-conflict</td>
+	        <td></td>
+	    </tr>
+	</table>
+
+	<h4> Group </h4>
+  	<table>
+	    <tr>
+	        <td>Method</td>
+	        <td>Relative URL</td>
+	        <td>Function</td>
+	        <td>Response/Status Code </td>
+	        <td>Authentication</td>
+	    </tr>	    
+	    <tr>
+	        <td>GET</td>
+	        <td>/group/{id}</td>
+	        <td>Get group by id</td>
+	        <td>200-success 400-group not found</td>
+	        <td></td>
+	    </tr>
+	</table>
+
+	<h4> Department </h4>
+  	<table>
+	    <tr>
+	        <td>Method</td>
+	        <td>Relative URL</td>
+	        <td>Function</td>
+	        <td>Response/Status Code </td>
+	        <td>Authentication</td>
+	    </tr>	    
+	    <tr>
+	        <td>GET</td>
+	        <td>/department/groups_in_department</td>
+	        <td>Get groups in a department by department name</td>
+	        <td>200-success 400-department not found</td>
+	        <td></td>
+	    </tr>
+	</table>
+
+	<h4> Category </h4>
+  	<table>
+	    <tr>
+	        <td>Method</td>
+	        <td>Relative URL</td>
+	        <td>Function</td>
+	        <td>Response/Status Code </td>
+	        <td>Authentication</td>
+	    </tr>	    
+	    <tr>
+	        <td>GET</td>
+	        <td>/category/{id}</td>
+	        <td>Get category by id</td>
+	        <td>200-success 400-categary not found</td>
+	        <td></td>
+	    </tr>
+	</table>
+</div>

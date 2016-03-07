@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   root "incidents#index"
   
   get "/update_group" => "incidents#update_group"
+  get 'apidoc/menu'
+  get 'apidoc/overview'
+  get 'apidoc/start'
+  get 'apidoc/sample'
+  get 'apidoc/reference'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

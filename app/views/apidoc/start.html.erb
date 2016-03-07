@@ -1,0 +1,39 @@
+<div class="container col-md-10 col-md-offset-1" style="background-image: url('/images/confectionary.png')">
+  <div class="page-header">
+    <h1>API DOCS: Getting Started</h1>
+  </div>
+
+  <div> 
+      <p> These quickstarts are short, simple guides intended to help you get started using this API. </p>
+      <br>
+
+      <h4> Go to the API page </h4>
+      <p> Click this <%= link_to "link", "http://comp120team8reporter.herokuapp.com/swagger"%> or the link at the footer of the home page or simple go to "http://comp120team8reporter.herokuapp.com/swagger"</p>
+      <img src="/images/doc1.png" width="600" height="180" />
+      <br><br>
+
+      <h4> Choose a class </h4> 
+      <p> For example: choose the Incident class by clicking 'incident', then operations about incidents will be shown.</p>
+      <img src="/images/doc2.png" width="600" height="370" />
+      <br><br>
+
+      <h4> Choose a operation </h4> 
+      <p> For example: choose the POST /incident/new, as it says this operation is used to create a incident.</p>
+      <img src="/images/doc3.png" width="600" height="370" />
+      <br><br>
+
+      <h4> Get response </h4> 
+      <p> Fill the form, choose response content type (now only JSON, more types will be added later) and click 'Try it out!' The response will be shown on the screen, including Curl, Request URL, Response Body, Response Code and Response Headers. If you need Request URL, for example, you can easily copy and paste it.</p>
+      <img src="/images/doc4.png" width="600" height="350" />
+      <br><br>
+
+      <h4> Error Handle </h4> 
+      <p> If a required parameter is missing, the field will change to red.</p>
+      <img src="/images/doc5.png" width="300" height="18" />
+      <p> If something wrong with the input, an error message will be return. For example, if we filled reprter_id with "foo" (which is a wrong type), the Response Body will return an error message "reporter_id is invalid" and the Response Code is 400.</p>
+      <img src="/images/doc6.png" width="600" height="270" />
+
+
+  </div>
+
+</div>
