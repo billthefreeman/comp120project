@@ -12,6 +12,7 @@
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
+	        <td>Required Params</td>
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>
@@ -19,6 +20,7 @@
 	        <td>GET</td>
 	        <td>/incident/all</td>
 	        <td>List all Incidents</td>
+	        <td></td>
 	        <td>200-success</td>
 	        <td></td>
 	    </tr>
@@ -26,6 +28,7 @@
 	        <td>DELETE</td>
 	        <td>/incident/{id}</td>
 	        <td>Delete an incident</td>
+	        <td>id (integer)</td>
 	        <td>200-success 404-incident not found</td>
 	        <td></td>
 	    </tr>
@@ -33,6 +36,7 @@
 	        <td>GET</td>
 	        <td>/incident/{id}</td>
 	        <td>Get incidents by id</td>
+	        <td>id (integer)</td>
 	        <td>200-success 400-incident not found</td>
 	        <td></td>
 	    </tr>
@@ -40,6 +44,7 @@
 	        <td>PUT</td>
 	        <td>/incident/{id}</td>
 	        <td>update an incident information</td>
+	        <td>id (integer), location (string), severity (integer), cate_id (integer), reporter_id (integer)</td>
 	        <td>200-success 409-invalid input</td>
 	        <td></td>
 	    </tr>
@@ -47,6 +52,7 @@
 	        <td>GET</td>
 	        <td>/incident/incident_severity</td>
 	        <td>Get incidents by severity</td>
+	        <td>severity (integer)</td>
 	        <td>200-success 400-incident not found</td>
 	        <td></td>
 	    </tr>
@@ -54,6 +60,7 @@
 	        <td>GET</td>
 	        <td>/incident/incident_cate_id</td>
 	        <td>Get incidents by category</td>
+	        <td>cate_id (integer)</td>
 	        <td>200-success 400-incident not found</td>
 	        <td></td>
 	    </tr>
@@ -61,10 +68,12 @@
 	        <td>POST</td>
 	        <td>/incident/new</td>
 	        <td>Creat an incident</td>
+	        <td>location (string), severity (integer), cate_id (integer), reporter_id (integer)</td>
 	        <td>200-success 409-invalid input</td>
 	        <td></td>
 	    </tr>
 	</table>
+	<br>
 
 	<h4> User </h4>
   	<table>
@@ -72,6 +81,7 @@
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
+	        <td>Required Params</td>
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>
@@ -79,6 +89,7 @@
 	        <td>GET</td>
 	        <td>/user/all</td>
 	        <td>List all Users</td>
+	        <td></td>
 	        <td>200-success</td>
 	        <td></td>
 	    </tr>
@@ -86,6 +97,7 @@
 	        <td>GET</td>
 	        <td>/user/user_reported_incidents</td>
 	        <td>Get reported incidents by username</td>
+	        <td>username (string)</td>
 	        <td>200-success 400-user not found</td>
 	        <td></td>
 	    </tr>
@@ -93,6 +105,7 @@
 	        <td>GET</td>
 	        <td>/user/user_assigned_incidents</td>
 	        <td>Get assigned incidents by username</td>
+	        <td>username (string)</td>
 	        <td>200-success 400-user not found</td>
 	        <td></td>
 	    </tr>
@@ -100,6 +113,7 @@
 	        <td>POST</td>
 	        <td>/user/new</td>
 	        <td>User sign up</td>
+	        <td>last_name (string), use_rname (string), phone<sup>*</sup> (string), emailphone<sup>**</sup> (string), group_id (integer), pwphone<sup>***</sup> (string)</td>
 	        <td>200-success 409-confict</td>
 	        <td></td>
 	    </tr>
@@ -107,10 +121,16 @@
 	        <td>PUT</td>
 	        <td>/user/{id}</td>
 	        <td>Update an user information</td>
+	        <td>id (integer), last_name (string), use_rname (string), phone<sup>*</sup> (string), email<sup>**</sup> (string), group_id (integer), pw<sup>***</sup> (string)</td>
+	        <td>200-success 409-confict</td>
 	        <td>200-success 409-conflict</td>
 	        <td></td>
 	    </tr>
 	</table>
+	<p>* phone has to be in the correct form (numbers only or with '-' between the numbers or with (area code) before).</p>
+	<p>** email has to be in the correct form (e.g. abc@def.ghi)</p>
+	<p>*** pw has to be in the correct form (must be between 6 to 50 characters, including letters, numbers and special characters)</p>
+	<br>
 
 	<h4> Group </h4>
   	<table>
@@ -118,6 +138,7 @@
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
+	        <td>Required Params</td>
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>	    
@@ -125,10 +146,12 @@
 	        <td>GET</td>
 	        <td>/group/{id}</td>
 	        <td>Get group by id</td>
+	        <td>id (integer)</td>
 	        <td>200-success 400-group not found</td>
 	        <td></td>
 	    </tr>
 	</table>
+	<br>
 
 	<h4> Department </h4>
   	<table>
@@ -136,6 +159,7 @@
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
+	        <td>Required Params</td>
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>	    
@@ -143,10 +167,12 @@
 	        <td>GET</td>
 	        <td>/department/groups_in_department</td>
 	        <td>Get groups in a department by department name</td>
+	        <td>department_name (string)</td>
 	        <td>200-success 400-department not found</td>
 	        <td></td>
 	    </tr>
 	</table>
+	<br>
 
 	<h4> Category </h4>
   	<table>
@@ -154,6 +180,7 @@
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
+	        <td>Required Params</td>
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>	    
@@ -161,8 +188,10 @@
 	        <td>GET</td>
 	        <td>/category/{id}</td>
 	        <td>Get category by id</td>
+	        <td>id (integer)</td>
 	        <td>200-success 400-categary not found</td>
 	        <td></td>
 	    </tr>
 	</table>
+	<br>
 </div>
