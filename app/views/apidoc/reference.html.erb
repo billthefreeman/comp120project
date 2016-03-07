@@ -1,3 +1,15 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
 <div class="container col-md-10 col-md-offset-1" style="background-image: url('/images/confectionary.png')">
   	<div class="page-header">
     	<h1>API DOCS: Reference</h1>
@@ -7,8 +19,8 @@
   	<br>
 
   	<h4> Incident </h4>
-  	<table>
-	    <tr>
+  	<table class="table table-bordered table-hover">
+	    <tr class="info">
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
@@ -16,7 +28,7 @@
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/incident/all</td>
 	        <td>List all Incidents</td>
@@ -24,7 +36,7 @@
 	        <td>200-success</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>DELETE</td>
 	        <td>/incident/{id}</td>
 	        <td>Delete an incident</td>
@@ -32,7 +44,7 @@
 	        <td>200-success 404-incident not found</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/incident/{id}</td>
 	        <td>Get incidents by id</td>
@@ -40,7 +52,7 @@
 	        <td>200-success 400-incident not found</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>PUT</td>
 	        <td>/incident/{id}</td>
 	        <td>update an incident information</td>
@@ -48,7 +60,7 @@
 	        <td>200-success 409-invalid input</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/incident/incident_severity</td>
 	        <td>Get incidents by severity</td>
@@ -56,7 +68,7 @@
 	        <td>200-success 400-incident not found</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/incident/incident_cate_id</td>
 	        <td>Get incidents by category</td>
@@ -64,7 +76,7 @@
 	        <td>200-success 400-incident not found</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>POST</td>
 	        <td>/incident/new</td>
 	        <td>Creat an incident</td>
@@ -76,8 +88,8 @@
 	<br>
 
 	<h4> User </h4>
-  	<table>
-	    <tr>
+  	<table class="table table-bordered table-hover">
+	    <tr class="info">
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
@@ -85,7 +97,7 @@
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/user/all</td>
 	        <td>List all Users</td>
@@ -93,7 +105,7 @@
 	        <td>200-success</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/user/user_reported_incidents</td>
 	        <td>Get reported incidents by username</td>
@@ -101,7 +113,7 @@
 	        <td>200-success 400-user not found</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/user/user_assigned_incidents</td>
 	        <td>Get assigned incidents by username</td>
@@ -109,7 +121,7 @@
 	        <td>200-success 400-user not found</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>POST</td>
 	        <td>/user/new</td>
 	        <td>User sign up</td>
@@ -117,7 +129,7 @@
 	        <td>200-success 409-confict</td>
 	        <td></td>
 	    </tr>
-	    <tr>
+	    <tr class="active">
 	        <td>PUT</td>
 	        <td>/user/{id}</td>
 	        <td>Update an user information</td>
@@ -133,8 +145,8 @@
 	<br>
 
 	<h4> Group </h4>
-  	<table>
-	    <tr>
+  	<table class="table table-bordered table-hover">
+	    <tr class="info">
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
@@ -142,7 +154,7 @@
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>	    
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/group/{id}</td>
 	        <td>Get group by id</td>
@@ -154,8 +166,8 @@
 	<br>
 
 	<h4> Department </h4>
-  	<table>
-	    <tr>
+  	<table class="table table-bordered table-hover">
+	    <tr class="info">
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
@@ -163,7 +175,7 @@
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>	    
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/department/groups_in_department</td>
 	        <td>Get groups in a department by department name</td>
@@ -175,8 +187,8 @@
 	<br>
 
 	<h4> Category </h4>
-  	<table>
-	    <tr>
+  	<table class="table table-bordered table-hover">
+	    <tr class="info">
 	        <td>Method</td>
 	        <td>Relative URL</td>
 	        <td>Function</td>
@@ -184,7 +196,7 @@
 	        <td>Response/Status Code </td>
 	        <td>Authentication</td>
 	    </tr>	    
-	    <tr>
+	    <tr class="active">
 	        <td>GET</td>
 	        <td>/category/{id}</td>
 	        <td>Get category by id</td>
@@ -194,4 +206,7 @@
 	    </tr>
 	</table>
 	<br>
+
+	<%= link_to t('.back', :default => t("helpers.links.back")),
+                apidoc_menu_path, :class => 'btn btn-default'  %>
 </div>
