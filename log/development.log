@@ -32642,3 +32642,16 @@ Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:18:10 -0500
 Processing by ApidocController#menu as HTML
   Rendered apidoc/menu.html.erb within layouts/application (0.8ms)
 Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:21:57 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 208ms (Views: 198.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:22:42 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.0ms)
