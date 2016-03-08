@@ -1,13 +1,23 @@
 <div class="container col-md-10 col-md-offset-1" style="background-image: url('/images/confectionary.png')">
-  <div class="page-header">
-    <h1>API DOCS: 
-    	Overview</h1>
-  </div>
+  	<div class="page-header">
+    	<h1>API DOCS: 
+    		Overview</h1>
+  	</div>
 
-  <div> 
-      <p> This Application Protocol Interface (API) was created by the Tufts University Comp120 Team 8 for use by developers to build  website or application for reporting incidents. This user friendly interface provides several RESTful endpoints that allow for different actions on Incident and User class, including GET, POST, PUT and DELETE.</p>
-  </div>
+  	<div> 
+		<p> This Application Protocol Interface (API) was created by the Tufts University Comp120 Team 8 for use by developers to build  website or application for reporting incidents. This user friendly interface provides several RESTful endpoints that allow for different actions on Incident and User class, including GET, POST, PUT and DELETE.</p>
 
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+		<h4> Grape </h4>
+		<p>We used framework Grape to build our API.
+		<p>Grape is a REST-like API micro-framework built to easily and quickly produce APIs for Ruby-rooted web applications on top of Rack. It is a framework that is lightweight but still has out-of-the-box API support. Besides, getting started with Grape is as simple as installing the gem, creating an API class that inherits from Grape::API.</p>
+		<p>Another reason we chose Grape instead of Rails::API is that the default configuration for Rails::API is 99% the same as Rails, chances are there’s a lot of cruft that’s included are not needed for a pure API. These extras are likely a lot of what is slowing Rails down.</p>
+
+		<h4> Security </h4>
+		<p> Authentication and authorization plan for which endpoints are shown in the Reference part. This will be implement in our next leg.</p>
+		<p>Authentication: know who the user is and are his/her credentials valid.</p>
+		<p>Authorization: provide access only to the incidents a particular logged-in user is authorized to modify/see.</p>
+  	</div>
+
+  	<%= link_to t('.back', :default => t("helpers.links.back")),
                 apidoc_menu_path, :class => 'btn btn-default'  %>
 </div>
