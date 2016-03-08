@@ -32655,3 +32655,534 @@ Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:22:42 -0500
 Processing by ApidocController#menu as HTML
   Rendered apidoc/menu.html.erb within layouts/application (1.2ms)
 Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:23:34 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 17:23:38 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:23:41 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/sample" for ::1 at 2016-03-07 17:23:42 -0500
+Processing by ApidocController#sample as HTML
+  Rendered apidoc/sample.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:23:45 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/overview" for ::1 at 2016-03-07 17:23:46 -0500
+Processing by ApidocController#overview as HTML
+  Rendered apidoc/overview.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:23:47 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/start" for ::1 at 2016-03-07 17:23:48 -0500
+Processing by ApidocController#start as HTML
+  Rendered apidoc/start.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:23:53 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-07 17:24:30 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:24:34 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:25:45 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:25:46 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:26:19 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:26:22 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:26:30 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:26:50 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-07 17:27:33 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (1.0ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (1.5ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (93.6ms)
+Completed 200 OK in 112ms (Views: 89.9ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:27:58 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:29:27 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:29:29 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:30:56 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:31:54 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:32:14 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:32:41 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-07 17:32:43 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-08 11:12:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (14.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (4.6ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.9ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (2.1ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (1.4ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (2.6ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (138.8ms)
+Completed 200 OK in 416ms (Views: 355.0ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/" for ::1 at 2016-03-08 11:12:05 -0500
+Processing by IncidentsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCate Load (0.3ms)[0m  SELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents`[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 29ms (Views: 25.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:12:08 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/overview" for ::1 at 2016-03-08 11:12:09 -0500
+Processing by ApidocController#overview as HTML
+  Rendered apidoc/overview.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:12:14 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:14:33 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:14:48 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:15:27 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:21:37 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:22:14 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:22:34 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:24:14 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:24:56 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/overview" for ::1 at 2016-03-08 11:26:11 -0500
+Processing by ApidocController#overview as HTML
+  Rendered apidoc/overview.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:26:12 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:27:31 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:27:49 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:28:40 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:28:48 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:28:49 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:28:54 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:29:03 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:29:14 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 10ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:29:28 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:30:29 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:34:50 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:35:03 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:35:43 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:36:03 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:36:21 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:36:43 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:37:09 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:37:38 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:38:01 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:39:24 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:40:36 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:45:48 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:46:43 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 17ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:46:43 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:46:59 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:48:12 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:48:35 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:48:48 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:48:54 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:48:59 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:49:28 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 13ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 11:54:41 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-08 11:54:42 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/apidoc/reference" for ::1 at 2016-03-08 11:55:13 -0500
+Processing by ApidocController#reference as HTML
+  Rendered apidoc/reference.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-08 12:22:48 -0500
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.4ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.3ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 37ms (Views: 32.4ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/apidoc/menu" for ::1 at 2016-03-08 12:22:50 -0500
+Processing by ApidocController#menu as HTML
+  Rendered apidoc/menu.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
