@@ -272,7 +272,7 @@ module IncidentV1
 			    optional  :other_cate_description, type: String
 			    optional  :incident_description,   type: String
 			    requires  :reporter_id,            type: Integer
-			    requires  :cover,                  type: Rack::Multipart::UploadedFile
+			    optional  :cover,                  type: Rack::Multipart::UploadedFile
 			end
 			post '/incident/new' do
 				begin
@@ -305,9 +305,7 @@ module IncidentV1
 						incident.incident_description = params[:incident_description]
 						incident.reporter_id = params[:reporter_id]
 						incident.cover = ActionDispatch::Http::UploadedFile.new(params[:cover])
-						# easy
-        				incident.save
-        						 
+        				incident.save			 
 						return {
 							status: 200,
 							message: "Incident successfully created",
