@@ -96,6 +96,7 @@ module IncidentV1
 				end
 			end
 
+
 			desc 'Get reported incidents by username'
 			params do
 				requires :username , type: String , desc: 'user_name'
@@ -260,6 +261,7 @@ module IncidentV1
 				end
 			end
 
+
 			desc 'Create incident' do
 				success Entities::Incident
 			end
@@ -270,6 +272,7 @@ module IncidentV1
 			    optional  :other_cate_description, type: String
 			    optional  :incident_description,   type: String
 			    requires  :reporter_id,            type: Integer
+			    requires  :cover,                  type: Rack::Multipart::UploadedFile
 			end
 			post '/incident/new' do
 				begin
@@ -294,14 +297,17 @@ module IncidentV1
 							message: "Invalid reporter id"
 						}
 					else 
-						Incident.create!({
-							:location => params[:location],
-							:severity => params[:severity],
-							:cate_id => params[:cate_id],
-							:other_cate_description => params[:other_cate_description],
-							:incident_description => params[:incident_description],
-							:reporter_id => params[:reporter_id]
-						}) 
+						incident = Incident.new
+						incident.location = params[:location]
+						incident.severity = params[:severity]
+						incident.cate_id  = params[:cate_id]
+						incident.other_cate_description = params[:other_cate_description]
+						incident.incident_description = params[:incident_description]
+						incident.reporter_id = params[:reporter_id]
+						incident.cover = ActionDispatch::Http::UploadedFile.new(params[:cover])
+						# easy
+        				incident.save
+        						 
 						return {
 							status: 200,
 							message: "Incident successfully created",
