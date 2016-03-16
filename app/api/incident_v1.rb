@@ -254,8 +254,7 @@ module IncidentV1
 							:phone => params[:phone],
 							:second_phone => params[:second_phone],
 							:email => params[:email],
-							:group_id => params[:group_id],
-							:pw => params[:pw]}		
+							:group_id => params[:group_id]}		
 						}
 					end
 				end
@@ -272,7 +271,6 @@ module IncidentV1
 			    optional  :other_cate_description, type: String
 			    optional  :incident_description,   type: String
 			    requires  :reporter_id,            type: Integer
-			    optional  :cover,                  type: Rack::Multipart::UploadedFile
 			end
 			post '/incident/new' do
 				begin
@@ -304,7 +302,6 @@ module IncidentV1
 						incident.other_cate_description = params[:other_cate_description]
 						incident.incident_description = params[:incident_description]
 						incident.reporter_id = params[:reporter_id]
-						incident.cover = ActionDispatch::Http::UploadedFile.new(params[:cover])
         				incident.save			 
 						return {
 							status: 200,
@@ -373,8 +370,7 @@ module IncidentV1
 						:phone => params[:phone],
 						:second_phone => params[:second_phone],
 						:email => params[:email],
-						:group_id => params[:group_id],
-						:pw => params[:pw]}		
+						:group_id => params[:group_id]	
 					}
 				end
 			end
