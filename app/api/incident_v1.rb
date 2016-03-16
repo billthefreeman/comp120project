@@ -370,7 +370,7 @@ module IncidentV1
 						:phone => params[:phone],
 						:second_phone => params[:second_phone],
 						:email => params[:email],
-						:group_id => params[:group_id]	
+						:group_id => params[:group_id]}	
 					}
 				end
 			end

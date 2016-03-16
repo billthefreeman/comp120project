@@ -75,6 +75,8 @@ select{border:1px solid #ccc;}
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           
           <%= link_to t('.new',:default => t("helpers.links.new")),new_incident_path, :class => 'btn btn-default navbar-btn'%>
+          <%= link_to "Explore the API", "http://comp120team8reporter.herokuapp.com/swagger", :class => 'btn btn-default navbar-btn'%>
+          <%= link_to "API Document", apidoc_menu_path, :class => 'btn btn-default navbar-btn'%>
           
         </div>
       </div>
