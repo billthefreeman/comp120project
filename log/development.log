@@ -37808,3 +37808,152 @@ Processing by IncidentsController#index as HTML
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1[0m  [["id", 1]]
   Rendered incidents/index.html.erb within layouts/application (26.4ms)
 Completed 200 OK in 36ms (Views: 31.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for ::1 at 2016-03-16 13:57:45 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.4ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (0.5ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (1.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (106.3ms)
+Completed 200 OK in 307ms (Views: 274.5ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-16 13:57:48 -0400
+
+
+Started GET "/v1/doc/upload" for ::1 at 2016-03-16 13:57:48 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-16 13:57:48 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-16 13:57:48 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-16 13:57:48 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-16 13:57:48 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-16 13:57:48 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-16 13:57:48 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-16 13:58:49 -0400
+
+
+Started GET "/v1/doc/upload" for ::1 at 2016-03-16 13:58:50 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-16 13:58:50 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-16 13:58:50 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-16 13:58:50 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-16 13:58:50 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-16 13:58:50 -0400
+
+
+Started GET "/v1/doc/cover" for ::1 at 2016-03-16 13:58:50 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-16 13:58:50 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-16 14:00:54 -0400
+
+SyntaxError (/Users/yefanying/Desktop/comp120-spring2016-team8/app/api/incident_v1.rb:506: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/api/incident_v1.rb:506: syntax error, unexpected keyword_end, expecting end-of-input
+  config/routes.rb:3:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.1ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (45.5ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (110.3ms)
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-16 14:01:29 -0400
+
+NameError (undefined local variable or method `image' for IncidentV1::Rule::API:Class):
+  app/api/incident_v1.rb:266:in `<class:API>'
+  app/api/incident_v1.rb:27:in `<module:Rule>'
+  app/api/incident_v1.rb:4:in `<module:IncidentV1>'
+  app/api/incident_v1.rb:3:in `<top (required)>'
+  config/routes.rb:3:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (42.0ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yefanying/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (92.0ms)
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-16 14:05:48 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-16 14:05:49 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-16 14:05:49 -0400
+
+
+Started GET "/v1/doc/cover" for ::1 at 2016-03-16 14:05:49 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-16 14:05:49 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-16 14:05:49 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-16 14:05:49 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-16 14:05:49 -0400
+
+
+Started POST "/v1/cover" for ::1 at 2016-03-16 14:06:00 -0400
