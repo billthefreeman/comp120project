@@ -260,19 +260,6 @@ module IncidentV1
 				end
 			end
 
-			desc "Update image"
-		    params do
-			    requires :id, :type => Integer, :desc => "ID."
-			    requires :cover, :type => Rack::Multipart::UploadedFile, :desc => "Image file."
-		    end
-		    post :cover do
-			    new_file = ActionDispatch::Http::UploadedFile.new(params[:cover])
-			    object = Incident.find(params[:id])
-			    object.cover = new_file
-			    object.save
-		    end
-
-
 			desc 'Create incident' do
 				success Entities::Incident
 			end

@@ -37957,3 +37957,82 @@ Started GET "/v1/doc/doc" for ::1 at 2016-03-16 14:05:49 -0400
 
 
 Started POST "/v1/cover" for ::1 at 2016-03-16 14:06:00 -0400
+
+
+Started GET "/" for ::1 at 2016-03-16 14:27:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by IncidentsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `incidents` WHERE `incidents`.`status_id` = 4[0m
+  [1m[35mIncident Load (0.3ms)[0m  SELECT  `incidents`.* FROM `incidents`  ORDER BY id DESC LIMIT 5 OFFSET 0
+  [1m[36mCate Load (1.6ms)[0m  [1mSELECT `cates`.* FROM `cates` WHERE `cates`.`id` IN (7, 6, 1, 3, 2)[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `incidents`
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 2 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 2 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 3 LIMIT 1[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered incidents/index.html.erb within layouts/application (110.3ms)
+Completed 200 OK in 296ms (Views: 270.9ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-16 14:27:38 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-16 14:27:39 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-16 14:27:39 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-16 14:27:39 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-16 14:27:39 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-16 14:27:39 -0400
+
+
+Started GET "/v1/doc/cover" for ::1 at 2016-03-16 14:27:39 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-16 14:27:39 -0400
+
+
+Started POST "/v1/cover" for ::1 at 2016-03-16 14:27:49 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-16 14:30:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-16 14:30:38 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-16 14:30:38 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-16 14:30:38 -0400
+
+
+Started GET "/v1/doc/cover" for ::1 at 2016-03-16 14:30:38 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-16 14:30:38 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-16 14:30:38 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-16 14:30:38 -0400
+
+
+Started POST "/v1/cover" for ::1 at 2016-03-16 14:30:45 -0400
