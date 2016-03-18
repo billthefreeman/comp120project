@@ -38468,3 +38468,16 @@ Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:24:12 -0400
 Started GET "/v1/incident/cate_id/2" for ::1 at 2016-03-18 00:24:17 -0400
   [1m[35mIncident Load (0.2ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`cate_id` = 2  ORDER BY `incidents`.`id` ASC LIMIT 1
   [1m[36mIncident Load (0.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`cate_id` = 2[0m
+
+
+Started POST "/v1/user/new" for ::1 at 2016-03-18 00:43:19 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mPerson Load (0.4ms)[0m  SELECT  `people`.* FROM `people` WHERE `people`.`user_name` = 'weri3yeigri2g'  ORDER BY `people`.`id` ASC LIMIT 1
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  `people`.* FROM `people` WHERE `people`.`email` = '123@1234.com'  ORDER BY `people`.`id` ASC LIMIT 1[0m
+  [1m[35mGroup Load (0.3ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1  ORDER BY `groups`.`id` ASC LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mGroup Load (0.3ms)[0m  SELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1
+  [1m[36mPerson Exists (3.8ms)[0m  [1mSELECT  1 AS one FROM `people` WHERE `people`.`user_name` = BINARY 'weri3yeigri2g' LIMIT 1[0m
+  [1m[35mPerson Exists (0.3ms)[0m  SELECT  1 AS one FROM `people` WHERE `people`.`email` = BINARY '123@1234.com' LIMIT 1
+  [1m[36mSQL (11.1ms)[0m  [1mINSERT INTO `people` (`last_name`, `user_name`, `phone`, `email`, `group_id`, `pw`, `created_at`, `updated_at`) VALUES ('webg2rygr', 'weri3yeigri2g', '1234536777', '123@1234.com', 1, '45637877w', '2016-03-18 04:43:19', '2016-03-18 04:43:19')[0m
+  [1m[35m (3.2ms)[0m  COMMIT

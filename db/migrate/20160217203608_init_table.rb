@@ -23,7 +23,6 @@ class InitTable < ActiveRecord::Migration
 	    t.string   "phone",        limit: 255
 	    t.string   "second_phone", limit: 255
 	    t.string   "email",        limit: 255
-      t.string   "pw",        limit: 255
 	    t.integer  "group_id",     limit: 4
 	    t.datetime "created_at",               null: false
 	    t.datetime "updated_at",               null: false
