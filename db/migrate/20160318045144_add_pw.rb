@@ -1,5 +1,5 @@
 class AddPw < ActiveRecord::Migration
   def change
-  	add_column :People, :pw, :string
+  	add_column :people, :pw, :string
   end
 end
