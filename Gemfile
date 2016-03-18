@@ -19,8 +19,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'grape'
 gem 'grape-swagger'
 gem 'grape-entity'
-gem 'rest_client'
-gem 'hashie-forbidden_attributes'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

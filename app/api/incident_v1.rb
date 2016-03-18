@@ -139,7 +139,7 @@ module IncidentV1
 
 			desc 'Get incidents by id'
 			params do
-				requires :id , type: Integer , desc: 'incident_id'
+				requires :id, type: Integer , desc: 'incident_id'
 			end
 			get '/incident/:id' do
 				incident = Incident.where(:id => params[:id]).first
@@ -159,7 +159,7 @@ module IncidentV1
 
 			desc 'Get incidents by severity'
 			params do
-				requires :severity , type: Integer , desc: 'incident_severity'
+				requires :severity, type: Integer, desc: 'incident_severity'
 			end
 			get '/incident/incident_severity' do
 				incident = Incident.where(:severity => params[:severity]).first
@@ -179,7 +179,7 @@ module IncidentV1
 
 			desc 'Get incidents by category'
 			params do
-				requires :cate_id , type: Integer , desc: 'incident_category'
+				requires :cate_id, type: Integer, desc: 'incident_category_id'
 			end
 			get '/incident/incident_cate_id' do
 				incident = Incident.where(:cate_id => params[:cate_id]).first
