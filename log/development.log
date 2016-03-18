@@ -38258,3 +38258,213 @@ Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:09:00 -0400
 
 
 Started GET "/v1/incident/incident_severity?severity=1" for ::1 at 2016-03-18 00:09:03 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-18 00:13:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-18 00:13:55 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-18 00:13:55 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-18 00:13:55 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-18 00:13:55 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:13:55 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:13:55 -0400
+
+
+Started GET "/v1/incident/incident_severity?severity=1" for ::1 at 2016-03-18 00:14:05 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-18 00:14:27 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-18 00:14:27 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-18 00:14:27 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:14:27 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:14:27 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-18 00:14:27 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-18 00:14:27 -0400
+
+
+Started GET "/v1/incident/incident_severity?severity=1" for ::1 at 2016-03-18 00:14:30 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-18 00:14:41 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-18 00:14:41 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-18 00:14:41 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-18 00:14:41 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:14:41 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-18 00:14:41 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:14:41 -0400
+
+
+Started GET "/v1/incident/incident_severity?severity=1" for ::1 at 2016-03-18 00:14:47 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-18 00:15:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-18 00:15:18 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:15:18 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-18 00:15:18 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:15:18 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-18 00:15:18 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-18 00:15:18 -0400
+
+
+Started GET "/v1/incident/incident_severity?severity=1" for ::1 at 2016-03-18 00:15:21 -0400
+
+
+Started GET "/v1/incident/incident_severity?severity=1" for ::1 at 2016-03-18 00:15:43 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-18 00:16:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-18 00:16:44 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:16:44 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-18 00:16:44 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-18 00:16:44 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:16:44 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-18 00:16:44 -0400
+
+
+Started GET "/v1/incident/incident_severity?severity=1" for ::1 at 2016-03-18 00:16:48 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-18 00:18:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-18 00:18:52 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-18 00:18:52 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-18 00:18:52 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:18:52 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:18:52 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-18 00:18:52 -0400
+
+
+Started GET "/v1/incident/incident_severity?severity=1" for ::1 at 2016-03-18 00:18:55 -0400
+
+
+Started GET "/v1/incident/incident_cate_id?cate_id=1" for ::1 at 2016-03-18 00:19:03 -0400
+
+
+Started GET "/v1/incident/incident_cate_id?cate_id=1" for ::1 at 2016-03-18 00:19:24 -0400
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-18 00:23:30 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-18 00:23:30 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-18 00:23:30 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-18 00:23:30 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-18 00:23:30 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:23:30 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:23:30 -0400
+
+
+Started GET "/v1/incident/severity/1" for ::1 at 2016-03-18 00:23:36 -0400
+  [1m[35mIncident Load (0.7ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`severity` = 1  ORDER BY `incidents`.`id` ASC LIMIT 1
+  [1m[36mIncident Load (0.7ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`severity` = 1[0m
+
+
+Started GET "/v1/doc" for ::1 at 2016-03-18 00:24:12 -0400
+
+
+Started GET "/v1/doc/incident" for ::1 at 2016-03-18 00:24:12 -0400
+
+
+Started GET "/v1/doc/user" for ::1 at 2016-03-18 00:24:12 -0400
+
+
+Started GET "/v1/doc/department" for ::1 at 2016-03-18 00:24:12 -0400
+
+
+Started GET "/v1/doc/category" for ::1 at 2016-03-18 00:24:12 -0400
+
+
+Started GET "/v1/doc/doc" for ::1 at 2016-03-18 00:24:12 -0400
+
+
+Started GET "/v1/doc/group" for ::1 at 2016-03-18 00:24:12 -0400
+
+
+Started GET "/v1/incident/cate_id/2" for ::1 at 2016-03-18 00:24:17 -0400
+  [1m[35mIncident Load (0.2ms)[0m  SELECT  `incidents`.* FROM `incidents` WHERE `incidents`.`cate_id` = 2  ORDER BY `incidents`.`id` ASC LIMIT 1
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT `incidents`.* FROM `incidents` WHERE `incidents`.`cate_id` = 2[0m

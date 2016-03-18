@@ -159,9 +159,9 @@ module IncidentV1
 
 			desc 'Get incidents by severity'
 			params do
-				requires :severity, type: Integer, desc: 'incident_severity'
+				requires :severity, desc: 'incident_severity'
 			end
-			get '/incident/incident_severity' do
+			get '/incident/severity/:severity' do
 				incident = Incident.where(:severity => params[:severity]).first
 				if incident != nil
 					{
@@ -179,9 +179,9 @@ module IncidentV1
 
 			desc 'Get incidents by category'
 			params do
-				requires :cate_id, type: Integer, desc: 'incident_category_id'
+				requires :cate_id, desc: 'incident_category_id'
 			end
-			get '/incident/incident_cate_id' do
+			get '/incident/cate_id/:cate_id' do
 				incident = Incident.where(:cate_id => params[:cate_id]).first
 				if incident != nil
 					{

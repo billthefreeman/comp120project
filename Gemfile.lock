@@ -107,8 +107,6 @@ GEM
       grape (>= 0.8.0)
       grape-entity (< 0.5.0)
     hashie (3.4.3)
-    hashie-forbidden_attributes (0.1.1)
-      hashie (>= 3.0)
     heroku_rails_deflate (1.0.3)
       actionpack (>= 3.2.13)
       activesupport (>= 3.2.13)
@@ -136,7 +134,6 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     mysql2 (0.4.2)
-    netrc (0.7.9)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     paperclip (4.3.5)
@@ -185,8 +182,6 @@ GEM
     rake (10.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
-    rest_client (1.8.3)
-      netrc (~> 0.7.7)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -265,7 +260,6 @@ DEPENDENCIES
   grape
   grape-entity
   grape-swagger
-  hashie-forbidden_attributes
   heroku_rails_deflate
   jbuilder (~> 2.0)
   jquery-rails
@@ -275,7 +269,6 @@ DEPENDENCIES
   pg
   rails (= 4.2.5.1)
   rails_12factor
-  rest_client
   rspec-rails (~> 3.1.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
