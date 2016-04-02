@@ -4,7 +4,9 @@ class IncidentsController < ApplicationController
   # GET /incidents
   # GET /incidents.json
   def index
-    @incidents = @paginate = Incident.includes(:cate).order('id DESC').paginate(:page => params[:page], :per_page => 5)
+    #@incidents = @paginate = Incident.includes(:cate).order('id DESC').paginate(:page => params[:page], :per_page => 5)
+    @incidents = @paginate = Incident.where("created_at > ?", Time.at(params[:after].to_i + 1)).order('id DESC').paginate(:page => params[:page], :per_page => 5)
+    @added  = @incidents.count;
   end
 
   def update_group 

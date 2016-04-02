@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "incidents#index"
   
   get "/update_group" => "incidents#update_group"
+  get "/index" => "incidents#index"
   get 'apidoc/menu'
   get 'apidoc/overview'
   get 'apidoc/start'

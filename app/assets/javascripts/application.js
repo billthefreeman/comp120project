@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+    setTimeout(updateIncidents, 3000);
+});
+
+function updateIncidents () {
+	if ($(".timeline").children().length > 0) {
+	    var after = $(".timeline").children().first().attr("data-time");
+	} else {
+	    var after = "0";
+	}
+	$.getScript("/incidents.js?after=" + after)
+	setTimeout(updateIncidents,3000)
+}

@@ -1,0 +1,10 @@
+<% unless @incidents.empty? %>
+
+$("#show_incidents").show();
+$("#reported").text("<%= Incident.where(:status => 1).count%>");
+<% end %>
+
+$("#show_incidents a").click(function(){
+	$(".timeline").prepend("<%=raw escape_javascript(render(@incidents)) %>");
+	$("#show_incidents").hide();
+})

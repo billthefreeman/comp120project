@@ -9,13 +9,13 @@
     <div style="float: left; width: 50%; height: 100%;">
       <div style="margin-left: 5%; float: left;"> 
         <button class="btn btn-primary" type="button">
-          Total Reported Incidents:<span class="badge"><%= Incident.where(:status => 1).count%></span>
+          Total Reported Incidents:<span id="reported" class="badge"><%= Incident.where(:status => 1).count%></span>
         </button>   
       </div>
 
       <div style="margin-left: 5%;float: left;"> 
         <button class="btn btn-danger" type="button">
-          Total Processing Incidents:<span class="badge"><%= Incident.where(:status => 2).count%></span>
+          Total Processing Incidents:<span id="processing" class="badge"><%= Incident.where(:status => 2).count%></span>
         </button>
       </div>
 
@@ -24,13 +24,13 @@
     <div style="float: left; width: 50%; height: 100%;">
       <div style="margin-left: 5%;float: left;"> 
         <button class="btn btn-success" type="button">
-          Total Solved Incidents:<span class="badge"><%= Incident.where(:status => 3).count%></span>
+          Total Solved Incidents:<span id="solved" class="badge"><%= Incident.where(:status => 3).count%></span>
         </button>   
       </div>
 
       <div style="margin-left: 5%;float: left;"> 
         <button class="btn btn-default" type="button">
-          Total Closed Incidents:<span class="badge"><%= Incident.where(:status => 4).count%></span>
+          Total Closed Incidents:<span id="closed" class="badge"><%= Incident.where(:status => 4).count%></span>
         </button>
       </div>
     </div>
@@ -40,121 +40,13 @@
 
 
   </div>
+ 
+ <p id="show_incidents" style="display: none">
+    New incidents have been posted. <a href="#">Show Incidents</a>
+ </p>
 
   <ul class="timeline">
-    <% @incidents.each do |incident| %>
-      <% if incident.status_id < 3%>
-      <li > 
-        <% puts case incident.status.id%>
-          <%when 1%>
-            <div class="timeline-badge primary"><span class="glyphicon glyphicon-bullhorn"></span></div>
-          <%when 2%>
-            <div class="timeline-badge warning"><span class="glyphicon glyphicon-eye-open"></span></div>
-          <%when 3%>
-            <div class="timeline-badge success"><span class="glyphicon glyphicon-check"></span></div>
-          <%when 4%>
-            <div class="timeline-badge"><span class="glyphicon glyphicon-ban-circle"></span></div>  
-          <% end %>
-        
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <div style="width:95%"> 
-            <h4 class="timeline-title" style="word-break:break-all">Location: <%= incident.location %></h4>
-            </div>
-            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Report at: <%= incident.created_at %></small></p>
-          </div>
-          <% puts case incident.severity%>
-            <%when 1%>
-              <div class="timeline-body" style="background-color:rgba(255,50,0,0.9)">
-            <%when 2%>
-              <div class="timeline-body" style="background-color:rgba(255,102,0,0.7)">
-            <%when 3%>
-              <div class="timeline-body" style="background-color:rgba(255,255,0,0.5)">
-            <%when 4%>
-              <div class="timeline-body" style="background-color:rgba(0,158,255,0.3)">
-            <%when 5%>
-              <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
-          <% end %>
-          
-            <b>Severity: </b><%= incident.severity %><br>
-            <b>Category: </b><%= incident.cate.cate_name %><br>
-            <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
-            <b>Status:</b>
-            <% puts case incident.status.id%>
-              <%when 1%>
-                <font color="blue"><b><%= incident.status.status_name%></b></font>
-              <%when 2%>
-                <font color="orange"><b><%= incident.status.status_name%></b></font>
-              <%when 3%>
-                <font color="green"><b><%= incident.status.status_name%></b></font>
-              <%when 4%>
-                <font color="gray"><b><%= incident.status.status_name%></b></font>
-              <% end %><br>
-             </div> 
-
-            <div style="padding-top:10px"></div>
-              <%= link_to t('.show', :default => t("helpers.links.show")),
-                          incident_path(incident), :class => 'btn btn-info btn-xs'%>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_incident_path(incident), :class => 'btn btn-primary btn-xs' %> 
-        </div>
-      </li>
-      <% else %>
-      <li class="timeline-inverted">
-        <% puts case incident.status.id%>
-          <%when 1%>
-            <div class="timeline-badge primary"><span class="glyphicon glyphicon-bullhorn"></span></div>
-          <%when 2%>
-            <div class="timeline-badge warning"><span class="glyphicon glyphicon-eye-open"></span></div>
-          <%when 3%>
-            <div class="timeline-badge success"><span class="glyphicon glyphicon-check"></span></div>
-          <%when 4%>
-            <div class="timeline-badge"><span class="glyphicon glyphicon-ban-circle"></span></div>      
-          <% end %>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <div style="width:95%"> 
-            <h4 class="timeline-title" style="word-break:break-all">Location: <%= incident.location %></h4>
-          </div>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Report date and time:<%= incident.created_at %></small></p>
-        </div>
-       <% puts case incident.severity%>
-            <%when 1%>
-              <div class="timeline-body" style="background-color:rgba(255,50,0,0.9)">
-            <%when 2%>
-              <div class="timeline-body" style="background-color:rgba(255,102,0,0.7)">
-            <%when 3%>
-              <div class="timeline-body" style="background-color:rgba(255,255,0,0.5)">
-            <%when 4%>
-              <div class="timeline-body" style="background-color:rgba(0,158,255,0.3)">
-            <%when 5%>
-              <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
-          <% end %>
-            <b>Severity: </b><%= incident.severity %><br>
-            <b>Category: </b><%= incident.cate.cate_name %><br>
-            <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
-            <b>Status:</b>
-            <% puts case incident.status.id%>
-              <%when 1%>
-                <font color="blue"><b><%= incident.status.status_name%></b></font>
-              <%when 2%>
-                <font color="red"><b><%= incident.status.status_name%></b></font>
-              <%when 3%>
-                <font color="green"><b><%= incident.status.status_name%></b></font>
-              <%when 4%>
-                <font color="gray"><b><%= incident.status.status_name%></b></font>
-              <% end %><br>
-              </div>
-            <div style="padding-top:10px"></div>
-            <%= link_to t('.show', :default => t("helpers.links.show")),
-                        incident_path(incident), :class => 'btn btn-info btn-xs'%>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_incident_path(incident), :class => 'btn btn-primary btn-xs' %>
-        
-      </div>
-    </li>
-      <% end %>
-    <% end %>
+    <%= render @incidents %>
   </ul>
   
 </div>
