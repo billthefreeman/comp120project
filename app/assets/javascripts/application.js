@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(function() {
-    setTimeout(updateIncidents, 3000);
+    setTimeout(updateIncidents, 10000);
 });
 
 function updateIncidents () {
@@ -26,5 +26,6 @@ function updateIncidents () {
 	    var after = "0";
 	}
 	$.getScript("/incidents.js?after=" + after)
-	setTimeout(updateIncidents,3000)
+	setTimeout(updateIncidents,10000)
 }
+

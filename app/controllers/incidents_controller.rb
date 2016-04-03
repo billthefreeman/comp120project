@@ -5,8 +5,17 @@ class IncidentsController < ApplicationController
   # GET /incidents.json
   def index
     #@incidents = @paginate = Incident.includes(:cate).order('id DESC').paginate(:page => params[:page], :per_page => 5)
-    @incidents = @paginate = Incident.where("created_at > ?", Time.at(params[:after].to_i + 1)).order('id DESC').paginate(:page => params[:page], :per_page => 5)
-    @added  = @incidents.count;
+    #incidents = Incident.where("created_at > ?", Time.at(params[:after].to_i + 1)).order('id DESC').paginate(:page => params[:page], :per_page => 5)
+    
+    after = params[:after].to_i
+    arr = []
+    $redis.zrangebyscore("incidents" , after + 1 , (Time.now.to_f * 1).to_i , {withscores: true}).each do |source|
+      inc = source[0]
+      new_i = JSON.load inc
+      arr << Incident.new(new_i)
+    end 
+    @incidents = @paginate = Incident.where(id: arr.map(&:id)).order('id DESC').paginate(:page => params[:page], :per_page => 5)
+    @added  = @incidents.count; 
   end
 
   def update_group 
@@ -39,6 +48,8 @@ class IncidentsController < ApplicationController
     @incident = Incident.new(incident_params)
     respond_to do |format|
       if @incident.save
+        inc = @incident.to_json
+        $redis.zadd('incidents', @incident.created_at.to_i, inc)
         format.html { redirect_to :action => :index}
         format.json { render :show, status: :created, location: @artile }
       else

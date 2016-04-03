@@ -1,10 +1,15 @@
 <% unless @incidents.empty? %>
-
-$("#show_incidents").show();
-$("#reported").text("<%= Incident.where(:status => 1).count%>");
+//$(".timeline").prepend("<%=raw escape_javascript(render(@incidents)) %>");
+	if($("#show_incidents").is(":hidden")) {
+		$("#show_incidents").show();
+		$("#reported").text("<%= Incident.where(:status => 1).count%>");
+		//console.log("show link");
+	}
 <% end %>
 
-$("#show_incidents a").click(function(){
+$("#show_incidents a").unbind("click").click(function(){
+	//console.log("In click function");
 	$(".timeline").prepend("<%=raw escape_javascript(render(@incidents)) %>");
+	//console.log("render complete");
 	$("#show_incidents").hide();
 })
