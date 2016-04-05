@@ -88,6 +88,6 @@ Rails.application.configure do
   }
 
   config.static_cache_control = "public, max-age=31536000"
-  config.cache_store = :redis_store if ENV['REDIS_URL']
+  #config.cache_store = :redis_store if ENV['REDIS_URL']
 
 end
