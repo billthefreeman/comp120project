@@ -15,19 +15,4 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-	console.log("in function");
-    setTimeout(updateIncidents, 10000);
-});
-
-function updateIncidents () {
-	if ($(".timeline").children().length > 0) {
-	    var after = $(".timeline").children().first().attr("data-time");
-	} else {
-	    var after = "0";
-	}
-	console.log(after);
-	$.getScript("/incidents.js?after=" + after)
-	setTimeout(updateIncidents,10000)
-}
 
