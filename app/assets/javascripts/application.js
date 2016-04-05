@@ -25,6 +25,7 @@ function updateIncidents () {
 	} else {
 	    var after = "0";
 	}
+	console.log(after);
 	$.getScript("/incidents.js?after=" + after)
 	setTimeout(updateIncidents,10000)
 }
