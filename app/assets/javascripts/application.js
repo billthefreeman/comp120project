@@ -16,6 +16,7 @@
 //= require_tree .
 
 $(function() {
+	console.log("in function");
     setTimeout(updateIncidents, 10000);
 });
 
