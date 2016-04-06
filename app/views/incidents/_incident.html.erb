@@ -100,6 +100,10 @@
                 <font color="gray"><b><%= incident.status.status_name%></b></font>
               <% end %><br>
               </div>
+              <b>Image:</b> 
+              <div style="float: left; width: 30%;">
+              <center style="width: 100%"> <%= image_tag @incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
+              </div>
             <div style="padding-top:10px"></div>
             <%= link_to t('.show', :default => t("helpers.links.show")),
                         incident_path(incident), :class => 'btn btn-info btn-xs'%>
