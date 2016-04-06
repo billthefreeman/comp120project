@@ -45,7 +45,7 @@
                 <font color="gray"><b><%= incident.status.status_name%></b></font>
               <% end %><br>
              </div> 
-             <div style="float: right; width: 50%">
+             <div style="float: right; width: 40%">
               <center style="width: 100%"> <%= image_tag incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
             </div>
 
@@ -78,17 +78,16 @@
         </div>
        <% puts case incident.severity%>
             <%when 1%>
-              <div class="timeline-body" style="background-color:rgba(255,50,0,0.9)">
+              <div class="timeline-body" style="float: left;background-color:rgba(255,50,0,0.9)">
             <%when 2%>
-              <div class="timeline-body" style="background-color:rgba(255,102,0,0.7)">
+              <div class="timeline-body" style="float: left;background-color:rgba(255,102,0,0.7)">
             <%when 3%>
-              <div class="timeline-body" style="background-color:rgba(255,255,0,0.5)">
+              <div class="timeline-body" style="float: left;background-color:rgba(255,255,0,0.5)">
             <%when 4%>
-              <div class="timeline-body" style="background-color:rgba(0,158,255,0.3)">
+              <div class="timeline-body" style="float: left;background-color:rgba(0,158,255,0.3)">
             <%when 5%>
-              <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
+              <div class="timeline-body" style="float: left;background-color:rgba(0,255,0,0.1)">
           <% end %>
-            Img????: Hello there should be something here!!!!
             <b>Severity: </b><%= incident.severity %>, ....<br>
             <b>Category: </b><%= incident.cate.cate_name %><br>
             <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
@@ -104,11 +103,16 @@
                 <font color="gray"><b><%= incident.status.status_name%></b></font>
               <% end %><br>
               </div>
-            <div style="padding-top:10px"></div>
-            <%= link_to t('.show', :default => t("helpers.links.show")),
-                        incident_path(incident), :class => 'btn btn-info btn-xs'%>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_incident_path(incident), :class => 'btn btn-primary btn-xs' %>
+            <<div style="float: right; width: 40%">
+              <center style="width: 100%"> <%= image_tag incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
+            </div>
+
+            <div style="float: left;padding-top:10px">
+              <%= link_to t('.show', :default => t("helpers.links.show")),
+                          incident_path(incident), :class => 'btn btn-info btn-xs'%>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_incident_path(incident), :class => 'btn btn-primary btn-xs' %> 
+            </div>
         
       </div>
     </li>
