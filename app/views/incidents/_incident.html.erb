@@ -53,14 +53,12 @@
               </div>  
           </div>
 
-            <div style="padding-top:10px"></div>
+            <div style="padding-top:10px;float: left;">
               <%= link_to t('.show', :default => t("helpers.links.show")),
                           incident_path(incident), :class => 'btn btn-info btn-xs'%>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_incident_path(incident), :class => 'btn btn-primary btn-xs' %> 
-            
-           
-            
+                          edit_incident_path(incident), :class => 'btn btn-primary btn-xs' %>
+            </div>       
         </div>
       </li>
       <% else %>
