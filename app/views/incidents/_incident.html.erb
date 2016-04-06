@@ -85,10 +85,7 @@
             <%when 5%>
               <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
           <% end %>
-          <b>Image:</b> 
-          <div style="float: right; width: 30%;">
-          <center style="width: 100%"> <%= image_tag incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
-          </div>
+            <b>Image:    </b> <%= incident.cover.url %><br>
             <b>Severity: </b><%= incident.severity %><br>
             <b>Category: </b><%= incident.cate.cate_name %><br>
             <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
