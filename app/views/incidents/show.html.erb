@@ -7,6 +7,7 @@
   <div style="float: left; width: 30%;">
     <center style="width: 100%"> <%= image_tag @incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
   </div>
+  <%= @incident.cover.url %>
 
   <div style="float: left; width: 70%;">
     <dl class="dl-horizontal">
