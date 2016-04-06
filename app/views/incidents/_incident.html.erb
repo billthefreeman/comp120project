@@ -31,7 +31,7 @@
               <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
           <% end %>
           
-            <b>Severity!!!!!!!!!!!!!!aaaaa: </b><%= incident.severity %><br>
+            <b>Severity: </b><%= incident.severity %><br>
             <b>Category: </b><%= incident.cate.cate_name %><br>
             <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
             <b>Status:</b>
