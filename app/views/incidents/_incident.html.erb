@@ -44,11 +44,10 @@
               <%when 4%>
                 <font color="gray"><b><%= incident.status.status_name%></b></font>
               <% end %><br>
-              <div style="float: right; width: 30%;">
+             </div> 
+             <div style="float: right; width: 30%;">
               <center style="width: 100%"> <%= image_tag incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
               </div>
-
-             </div> 
 
             <div style="padding-top:10px"></div>
               <%= link_to t('.show', :default => t("helpers.links.show")),
