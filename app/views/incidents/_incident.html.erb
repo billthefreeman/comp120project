@@ -85,6 +85,10 @@
             <%when 5%>
               <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
           <% end %>
+          <b>Image:</b> 
+          <div style="float: right; width: 30%;">
+          <center style="width: 100%"> <%= image_tag incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
+          </div>
             <b>Severity: </b><%= incident.severity %><br>
             <b>Category: </b><%= incident.cate.cate_name %><br>
             <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
@@ -99,10 +103,6 @@
               <%when 4%>
                 <font color="gray"><b><%= incident.status.status_name%></b></font>
               <% end %><br>
-              </div>
-              <b>Image:</b> 
-              <div style="float: right; width: 30%;">
-              <center style="width: 100%"> <%= image_tag @incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
               </div>
             <div style="padding-top:10px"></div>
             <%= link_to t('.show', :default => t("helpers.links.show")),
