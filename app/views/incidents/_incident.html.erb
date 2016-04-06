@@ -85,7 +85,7 @@
             <%when 5%>
               <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
           <% end %>
-            <b>Image:    </b> <%= incident.cover.url %><br>
+            <b>Image:    </b> Hello there should be something here!!!!<br>
             <b>Severity: </b><%= incident.severity %><br>
             <b>Category: </b><%= incident.cate.cate_name %><br>
             <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
@@ -100,6 +100,8 @@
               <%when 4%>
                 <font color="gray"><b><%= incident.status.status_name%></b></font>
               <% end %><br>
+
+              Hello there should be something here!!!!<br>
               </div>
             <div style="padding-top:10px"></div>
             <%= link_to t('.show', :default => t("helpers.links.show")),
