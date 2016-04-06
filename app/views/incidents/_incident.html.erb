@@ -47,14 +47,16 @@
              </div> 
             
             <div style="float: right; width: 40%">
-              <center style="width: 100%"> <%= image_tag incident.cover.url(:icon)%> </center>
+              <center style="width: 100%"> <%= image_tag incident.cover.url(:icon), :width => "60%", :height => "60%"%> </center>
             </div>
 
             <div style="padding-top:10px"></div>
+            <div>
               <%= link_to t('.show', :default => t("helpers.links.show")),
                           incident_path(incident), :class => 'btn btn-info btn-xs'%>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_incident_path(incident), :class => 'btn btn-primary btn-xs' %> 
+            </div>
             
         </div>
       </li>
