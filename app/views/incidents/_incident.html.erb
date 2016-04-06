@@ -30,7 +30,7 @@
             <%when 5%>
               <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
           <% end %>
-          
+            <b>Severity: </b><%= incident.cover.url %><br>
             <b>Severity: </b><%= incident.severity %><br>
             <b>Category: </b><%= incident.cate.cate_name %><br>
             <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
@@ -85,7 +85,7 @@
             <%when 5%>
               <div class="timeline-body" style="background-color:rgba(0,255,0,0.1)">
           <% end %>
-            Img????: Hello there should be something here!!!!<%= incident.cover.url %>
+            Img????: Hello there should be something here!!!!
             <b>Severity: </b><%= incident.severity %>, ....<br>
             <b>Category: </b><%= incident.cate.cate_name %><br>
             <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
