@@ -4,9 +4,6 @@
 </div>
 
 <div class = "row">
-  <div style="float: left; width: 30%;">
-    <center style="width: 100%"> <%= image_tag @incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
-  </div>
   <%= @incident.cover.url(:icon) %>
 
   <div style="float: left; width: 70%;">
@@ -61,6 +58,10 @@
           <%= @incident.assignee.user_name%> 
           <%end%></dd>
     </dl>
+
+    <div style="float: right; width: 30%;">
+    <center style="width: 100%"> <%= image_tag @incident.cover.url(:icon), :width => "50%", :height => "50%"%> </center>
+  </div>
   </div>
 </div>
 
