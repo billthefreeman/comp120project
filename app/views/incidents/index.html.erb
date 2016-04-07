@@ -56,6 +56,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+var wait = 1000;
+var minWait = 1000;
+var maxWait = 30000;
+var changeMode = 1; // 1 binary, 2 increment
+var direction = 1; // 1 increase, -1 decrease
+
   $(function() {
     //console.log($(".timeline").is(':visible'));
     //console.log($("#groupDiv").is(':visible'));
@@ -76,7 +82,8 @@ function updateIncidents () {
     //console.log(after);
     $.getScript("/incidents.js?after=" + after)
     //console.log("<%= $redis.hget('new_incidents','number').to_i%>");
-    setTimeout(updateIncidents,10000)
+    console.log(wait);
+    setTimeout(updateIncidents,wait)
   }
 }
 

@@ -1,3 +1,43 @@
+
+if (changeMode == 1) {
+    <% if (@added>0) %> {
+      wait = Math.max(minWait, wait / 2);
+      if (direction == 1) {
+        direction = -1;
+        changeMode = 2;
+      }
+    }
+    <% else %> {
+      wait = Math.min(maxWait, wait * 2); 
+      if (direction == -1) {
+        direction = 1;
+        changeMode = 2;
+      }  
+    }
+    <% end %>
+}
+else {
+	<% if (@added>0) %> {
+	  wait = Math.max(minWait, wait - 5000);
+	  if (direction == -1) {
+	    changeMode = 1;
+	  }
+	  else {
+	    direction = -1;
+	  }
+	}
+	<% else %> {
+	  wait = Math.max(minWait, wait + 5000);
+	  if (direction == 1) {
+	    changeMode = 1;
+	  }
+	  else {
+	    direction = 1;
+	  }
+	}
+	<% end %>
+}
+
 <% if (@added>0) %>
 	if($("#show_incidents").is(":hidden")) {
 		//console.log("in index.js.erb")
