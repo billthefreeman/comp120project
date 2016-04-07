@@ -1,14 +1,10 @@
       <% if incident.status_id < 3%>
       <li class="incident" data-time="<%= incident.created_at.to_i %>"> 
-        <% puts case incident.status.id%>
+        <% puts case incident.status_id%>
           <%when 1%>
             <div class="timeline-badge primary"><span class="glyphicon glyphicon-bullhorn"></span></div>
           <%when 2%>
             <div class="timeline-badge warning"><span class="glyphicon glyphicon-eye-open"></span></div>
-          <%when 3%>
-            <div class="timeline-badge success"><span class="glyphicon glyphicon-check"></span></div>
-          <%when 4%>
-            <div class="timeline-badge"><span class="glyphicon glyphicon-ban-circle"></span></div>  
           <% end %>
         
         <div class="timeline-panel" data-time="<%= incident.created_at.to_i %>">
@@ -33,18 +29,18 @@
                 <div class="timeline-body" style="float: left; width: 60%;background-color:rgba(0,255,0,0.1)">
             <% end %>
               <b>Severity: </b><%= incident.severity %><br>
-              <b>Category: </b><%= incident.cate.cate_name %><br>
-              <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
+              <b>Category: </b><%= $redis.hget('cates', incident.cate_id) %><br>
+              <b>Reporter: </b><%= $redis.hget('people', incident.reporter_id) %> <br>
               <b>Status:</b>
-              <% puts case incident.status.id%>
+              <% puts case incident.status_id%>
                 <%when 1%>
-                  <font color="blue"><b><%= incident.status.status_name%></b></font>
+                  <font color="blue"><b><%= $redis.hget('statuses', incident.status_id) %></b></font>
                 <%when 2%>
-                  <font color="orange"><b><%= incident.status.status_name%></b></font>
+                  <font color="orange"><b><%= $redis.hget('statuses', incident.status_id)%></b></font>
                 <%when 3%>
-                  <font color="green"><b><%= incident.status.status_name%></b></font>
+                  <font color="green"><b><%= $redis.hget('statuses', incident.status_id)%></b></font>
                 <%when 4%>
-                  <font color="gray"><b><%= incident.status.status_name%></b></font>
+                  <font color="gray"><b><%= $redis.hget('statuses', incident.status_id)%></b></font>
                 <% end %><br>
                </div> 
               
@@ -65,11 +61,7 @@
       </li>
       <% else %>
       <li class="timeline-inverted">
-        <% puts case incident.status.id%>
-          <%when 1%>
-            <div class="timeline-badge primary"><span class="glyphicon glyphicon-bullhorn"></span></div>
-          <%when 2%>
-            <div class="timeline-badge warning"><span class="glyphicon glyphicon-eye-open"></span></div>
+        <% puts case incident.status_id%>
           <%when 3%>
             <div class="timeline-badge success"><span class="glyphicon glyphicon-check"></span></div>
           <%when 4%>
@@ -96,18 +88,18 @@
                 <div class="timeline-body" style="float: left; width: 60%;background-color:rgba(0,255,0,0.1)">
             <% end %>
               <b>Severity: </b><%= incident.severity %><br>
-              <b>Category: </b><%= incident.cate.cate_name %><br>
-              <b>Reporter: </b><%= Person.find(incident.reporter_id).user_name %> <br>
+              <b>Category: </b><%= $redis.hget('cates', incident.cate_id) %><br>
+              <b>Reporter: </b><%= $redis.hget('people', incident.reporter_id) %> <br>
               <b>Status:</b>
-              <% puts case incident.status.id%>
+              <% puts case incident.status_id%>
                 <%when 1%>
-                  <font color="blue"><b><%= incident.status.status_name%></b></font>
+                  <font color="blue"><b><%= $redis.hget('statuses', incident.status_id) %></b></font>
                 <%when 2%>
-                  <font color="orange"><b><%= incident.status.status_name%></b></font>
+                  <font color="orange"><b><%= $redis.hget('statuses', incident.status_id)%></b></font>
                 <%when 3%>
-                  <font color="green"><b><%= incident.status.status_name%></b></font>
+                  <font color="green"><b><%= $redis.hget('statuses', incident.status_id)%></b></font>
                 <%when 4%>
-                  <font color="gray"><b><%= incident.status.status_name%></b></font>
+                  <font color="gray"><b><%= $redis.hget('statuses', incident.status_id)%></b></font>
                 <% end %><br>
                </div> 
               

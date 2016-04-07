@@ -35,7 +35,7 @@
                                 <div class="form-group col-md-7">
                                     <label class="control-label" >* Reporter Name</label>
                                     <div id="slc" class="col-lg-10">
-                                      <%= f.select(:reporter_id , options_for_select(Person.all.map{|c|[c.user_name , c.id]},f.object.reporter_id),{:class => 'col-lg-10 form-control'})%>
+                                      <%= f.select(:reporter_id , options_for_select($redis.hgetall("people").map{|key,value| [value,key]},f.object.reporter_id),{:class => 'col-lg-10 form-control'})%>
                                     </div>
                                 </div>
                             </div>
@@ -159,8 +159,8 @@
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label">*Category</label>
                                         <div class="col-lg-10">
-                                          <% cates_array = Cate.all.map { |c| [c.cate_name, c.id] } %>
-                                          <%= f.select(:cate_id, options_for_select(Cate.all.map { |c| [c.cate_name, c.id]},f.object.reporter_id),
+                                          
+                                          <%= f.select(:cate_id, options_for_select($redis.hgetall("cates").map{|key,value| [value,key]},f.object.cate_id),
                                           {:include_blank => 'Select Category'},{:onChange => 'javascript:doit();', :class => 'form-control'})%>
                                         </div>
                                 </div>
@@ -214,7 +214,9 @@
       {getID(a).style.display="inline"}
     function hidden(a){getID(a).style.display="none"}
     function doit()
-      {console.log("do doit");"<%=Cate.last.id%>"!=getID("incident_cate_id").value?(hidden("a1"),hidden("incident_other_cate_description"),console.log("do hidden")):(show("a1"),show("incident_other_cate_description"),console.log("do show"))}
+      {console.log("do doit");
+      "<%= $redis.hgetall('cates').map{|key,value| [value,key]}.last[1]%>"!=getID("incident_cate_id").value?(hidden("a1"),hidden("incident_other_cate_description"),console.log("do hidden")):(show("a1"),show("incident_other_cate_description"),console.log("do show"))
+    }
 
 $(document).ready(function()
   {$("#incident_reporter_id").change(function()

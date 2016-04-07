@@ -55,3 +55,28 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+  $(function() {
+    console.log($(".timeline").is(':visible'));
+    console.log($("#groupDiv").is(':visible'));
+
+    if($(".timeline").is(':visible')) {
+      console.log("in function");
+      setTimeout(updateIncidents, 10000);
+    } 
+});
+
+function updateIncidents () {
+  if($(".timeline").is(':visible')) {
+    if ($(".timeline").children().length > 0) {
+        var after = $(".timeline").children().first().attr("data-time");
+    } else {
+        var after = "0";
+    }
+    console.log(after);
+    $.getScript("/incidents.js?after=" + after)
+    setTimeout(updateIncidents,10000)
+  }
+}
+</script>
+

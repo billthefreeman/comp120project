@@ -1,15 +1,19 @@
-<% unless @incidents.empty? %>
-//$(".timeline").prepend("<%=raw escape_javascript(render(@incidents)) %>");
+<% if (@added>0) %>
 	if($("#show_incidents").is(":hidden")) {
-		$("#show_incidents").show();
-		$("#reported").text("<%= Incident.where(:status => 1).count%>");
-		//console.log("show link");
+		$("#show_incidents").show();  
+		var old = $("#reported").text();
+		console.log(old);
+		var current = Number(old) + Number("<%= @added %>");
+		$("#reported").text(current);
 	}
 <% end %>
 
 $("#show_incidents a").unbind("click").click(function(){
 	//console.log("In click function");
-	$(".timeline").prepend("<%=raw escape_javascript(render(@incidents)) %>");
-	//console.log("render complete");
-	$("#show_incidents").hide();
+	<%if (@added>0)%>
+		<% @incidents = @paginate = Incident.where(id: @arr.map(&:id)).order('id DESC').paginate(:page => params[:page], :per_page => 5) %>
+		$(".timeline").prepend("<%=raw escape_javascript(render(@incidents)) %>");
+		//console.log("render complete");
+		$("#show_incidents").hide();
+	<%end%>
 })
