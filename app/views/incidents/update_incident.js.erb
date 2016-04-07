@@ -1,0 +1,6 @@
+$(".timeline").prepend("<%=raw escape_javascript(render(@incidents)) %>");
+  //console.log("render complete");
+$("#show_incidents").hide();
+//<% $redis.hset('new_incidents', 'number', 1)%>
+//console.log("in on click");
+//console.log("<%= $redis.hget('new_incidents','number').to_i%>");

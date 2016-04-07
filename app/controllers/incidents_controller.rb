@@ -11,13 +11,7 @@ class IncidentsController < ApplicationController
     if (after == 0)
       @incidents = Incident.all.order('id DESC').paginate(:page => params[:page], :per_page => 5)
     end  
-    @arr = []
-    $redis.zrangebyscore("incidents" , after + 1 , (Time.now.to_f * 1).to_i , {withscores: true}).each do |source|
-      inc = source[0]
-      new_i = JSON.load inc
-      @arr << Incident.new(new_i)
-    end  
-    @added  = @arr.length
+    @added = $redis.zrangebyscore("incidents" , after + 1 , (Time.now.to_f * 1).to_i , {withscores: true}).length 
   end
 
   def update_group 
@@ -25,6 +19,20 @@ class IncidentsController < ApplicationController
     @department = $redis.hget('group_department', @group)
     @phone = $redis.hget('phone', params[:reporter_id])
     @email = $redis.hget('email', params[:reporter_id])
+  end
+
+  def update_incident 
+    after = params[:after].to_i
+    if (after == 0)
+      @incidents = Incident.all.order('id DESC').paginate(:page => params[:page], :per_page => 5)
+    end  
+    @arr = []
+    $redis.zrangebyscore("incidents" , after + 1 , (Time.now.to_f * 1).to_i , {withscores: true}).each do |source|
+      inc = source[0]
+      new_i = JSON.load inc
+      @arr << Incident.new(new_i)
+    end  
+    @incidents = @paginate = Incident.where(id: @arr.map(&:id)).order('id DESC').paginate(:page => params[:page], :per_page => 5)   
   end
 
   # GET /incidents/1

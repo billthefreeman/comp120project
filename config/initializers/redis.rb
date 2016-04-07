@@ -33,3 +33,6 @@ Status.all.each do |source|
 	$redis.hset('statuses', source.id, source.status_name)
 end 
 
+$redis.hset('new_incidents', 'number', 0)
+
+

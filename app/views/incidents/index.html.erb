@@ -57,11 +57,11 @@
 
 <script type="text/javascript">
   $(function() {
-    console.log($(".timeline").is(':visible'));
-    console.log($("#groupDiv").is(':visible'));
+    //console.log($(".timeline").is(':visible'));
+    //console.log($("#groupDiv").is(':visible'));
 
     if($(".timeline").is(':visible')) {
-      console.log("in function");
+      //console.log("in function");
       setTimeout(updateIncidents, 10000);
     } 
 });
@@ -73,10 +73,20 @@ function updateIncidents () {
     } else {
         var after = "0";
     }
-    console.log(after);
+    //console.log(after);
     $.getScript("/incidents.js?after=" + after)
+    //console.log("<%= $redis.hget('new_incidents','number').to_i%>");
     setTimeout(updateIncidents,10000)
   }
 }
+
+$("#show_incidents a").click(function()
+  {
+    $.ajax({
+      url:"<%= update_incident_path %>", 
+      data:{after:$(".timeline").children().first().attr("data-time")},
+      dataType:"script"
+    })
+  })
 </script>
 
