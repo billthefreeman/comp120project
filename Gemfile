@@ -20,8 +20,8 @@ gem 'grape'
 gem 'grape-swagger'
 gem 'grape-entity'
 gem 'redis'
-#gem 'pg'
-#gem 'rails_12factor'
+gem 'pg'
+gem 'rails_12factor'
 
 
 # Use jquery as the JavaScript library
