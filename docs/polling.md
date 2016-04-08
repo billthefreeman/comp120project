@@ -1,21 +1,21 @@
 ##**Leg 6: Polling and Memory Caching**
 
 ###**1. Design for polling:**
-####**1.1 Two options:**
-    We considered two options to accomplish this task: One is to send an AJAX request to the server at a regular interval to see if the number of incidents has changed (the polling method). The other option is to use WebSockets to provide a permanent connection to the server and to push any changes to the user as soon as they become available. 
+####**1.1 Two options**
+We considered two options to accomplish this task: One is to send an AJAX request to the server at a regular interval to see if the number of incidents has changed (the polling method). The other option is to use WebSockets to provide a permanent connection to the server and to push any changes to the user as soon as they become available. 
 
 ####**1.2 Our choice and the reason**
-    We decided to choose the first approach (the polling method) for the following reasons: First, polling is the easier as WebSockets are not supported by all browsers yet and would require more coding along with a library such as Cramp to get working. Second, we don’t need instant updates when a new comment is posted, a delay of a few seconds is perfectly acceptable. 
+We decided to choose the first approach (the polling method) for the following reasons: First, polling is the easier as WebSockets are not supported by all browsers yet and would require more coding along with a library such as Cramp to get working. Second, we don’t need instant updates when a new comment is posted, a delay of a few seconds is perfectly acceptable. 
 
 ####**1.3 Details of our design**
-    When a new incident is created, after a certain amount of time(which is dynamic, the algorithm will be talked later), a message will shown at the top of the page saying :”New incidents have been posted. Show Incidents.” And the count for total reported incidents on the top will also be changed according to the new counts of incidents. When the user click the ”Show Incidents” link, new incidents will display at the top of our timeline, sorted by date and time in descending order. In this way, we will not interrupt the users when they are reading some information from our page.
+When a new incident is created, after a certain amount of time(which is dynamic, the algorithm will be talked later), a message will shown at the top of the page saying :”New incidents have been posted. Show Incidents.” And the count for total reported incidents on the top will also be changed according to the new counts of incidents. When the user click the ”Show Incidents” link, new incidents will display at the top of our timeline, sorted by date and time in descending order. In this way, we will not interrupt the users when they are reading some information from our page.
 
 ####**1.4 The dynamic polling algorithm**
-    Our program waits a varying amount of time before each polling. The waiting time is depend on whether or not new incidents were created during the previous interval. If there were some new incidents created, it must have waited too long last time, so we decrease the current wait time. If there was no new incident, we increase the current wait time.
-    There are two modes to change the waiting time. One is power-of-two algorithm, e.g. 1s,2s,4s,8s,16s,32s….This algorithm has the best learning time, but it may bounce around between times. The other is increment/decrement algorithm, e.g. 10s,15s,20s,25s,30s….This algorithm keeps the waiting time very stable but it takes a long time to obtain the optimal waiting time.
-    We used the combination of the two algorithms. We switch from the increment/decrement mode to the power-of-two mode when the waiting time has to be changed twice in the same direction (for example, when the waiting time increases twice successively); and we switch from the power-of-two mode to the increment/decrement mode when the change of waiting time changes direction.(for example, when the waiting time increase, then decrease)
-    The upper and lower limit of our waiting time is 128s and 1s, respectively.
-    The pseudo code of this algorithm is as follows:
+Our program waits a varying amount of time before each polling. The waiting time is depend on whether or not new incidents were created during the previous interval. If there were some new incidents created, it must have waited too long last time, so we decrease the current wait time. If there was no new incident, we increase the current wait time.
+There are two modes to change the waiting time. One is power-of-two algorithm, e.g. 1s,2s,4s,8s,16s,32s….This algorithm has the best learning time, but it may bounce around between times. The other is increment/decrement algorithm, e.g. 10s,15s,20s,25s,30s….This algorithm keeps the waiting time very stable but it takes a long time to obtain the optimal waiting time.
+We used the combination of the two algorithms. We switch from the increment/decrement mode to the power-of-two mode when the waiting time has to be changed twice in the same direction (for example, when the waiting time increases twice successively); and we switch from the power-of-two mode to the increment/decrement mode when the change of waiting time changes direction.(for example, when the waiting time increase, then decrease)
+The upper and lower limit of our waiting time is 128s and 1s, respectively.
+The pseudo code of this algorithm is as follows:
 
     wait = 1s
     minWait = 1s
