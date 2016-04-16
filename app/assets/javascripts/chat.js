@@ -11,6 +11,8 @@
 var chatboxFocus = new Array();
 var chatBoxes = new Array();
 
+console.log("in chat.js");
+
 var ready = function () {
 
     chatBox = {
