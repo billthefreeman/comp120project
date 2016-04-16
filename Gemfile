@@ -24,8 +24,8 @@ gem 'devise'
 
 gem 'private_pub'
 gem 'thin'
-#gem 'pg'
-#gem 'rails_12factor'
+gem 'pg'
+gem 'rails_12factor'
 
 
 # Use jquery as the JavaScript library
@@ -72,7 +72,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  #gem 'pg'
+  #gem 'rails_12factor'
 end
 
