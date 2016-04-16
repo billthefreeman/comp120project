@@ -4,13 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content='<%= person_signed_in? ? current_person.id : "" %>' name='person-id'/>
     <title><%= content_for?(:title) ? yield(:title) : "Mvp" %></title>
-    <%= csrf_meta_tags %>
+    
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag "application" %>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+    <%= csrf_meta_tags %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -64,6 +69,181 @@ form{margin: 20px; border-radius: 15px; background: -webkit-linear-gradient(bott
 .button{margin-left: auto; margin-right: auto;}
 .left_col{margin-top: 30px}
 select{border:1px solid #ccc;}
+/**
+ * GMAIL Like chat css
+ * CREDITS: http://css-tricks.com/replicating-google-hangouts-chat/
+ *
+ */
+
+.chatbox {
+    position: fixed;
+    position: expression("absolute");
+    width: 280px;
+    display: none;
+}
+
+.chatboxhead {
+    background: #666;
+    color: white;
+    padding: 0.5rem;
+    overflow: hidden;
+
+    border-right: 1px solid rgba(85, 85, 85, 0.87);
+    border-left: 1px solid rgba(85, 85, 85, 0.87);
+}
+
+.chatboxhead h1 {
+    display: inline;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.chatboxblink {
+    background-color: #176689;
+    border-right: 1px solid #176689;
+    border-left: 1px solid #176689;
+}
+
+.chatboxcontent {
+    font-family: arial, sans-serif;
+    height: 280px;
+    width: 280px;
+    overflow-y: auto;
+    padding: 7px;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #eeeeee;
+    background: #e5e5e5;
+    line-height: 1.3em;
+    list-style: none;
+}
+
+.chatboxcontent li {
+    padding: 0.5rem;
+    overflow: hidden;
+    display: flex;
+}
+
+.chatboxcontent .avatar {
+    width: 40px;
+    position: relative;
+}
+
+.chatboxcontent .avatar img {
+    display: block;
+    width: 100%;
+}
+
+.other .avatar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border: 5px solid white;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.self {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.self .chatboxmessagecontent {
+    order: 1;
+    border-bottom-right-radius: 0;
+}
+
+.self .avatar {
+    order: 2;
+}
+
+.self .avatar:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 5px solid white;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.chatboxmessagecontent {
+    background: white;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.chatboxmessagecontent p {
+    font-size: 12px;
+    margin: 0 0 0.2rem 0;
+    -ms-word-break: break-all;
+
+    /* Non standard for webkit */
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+.chatboxmessagecontent time {
+    font-size: 9px;
+    color: #ccc;
+}
+
+.chatboxinput {
+    padding: 5px;
+    background-color: #ffffff;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.chatboxtextarea {
+    width: 194px;
+    height: 44px;
+    padding: 3px 0pt 3px 3px;
+    border: 1px solid #eeeeee;
+    margin: 1px;
+    overflow: hidden;
+    resize: none !important;
+}
+
+.chatboxtextareaselected {
+    border: 2px solid #878787;
+    margin: 0;
+}
+
+.chatboxmessage {
+    margin-left: 1em;
+}
+
+.chatboxinfo {
+    margin-left: -1em;
+    color: #666666;
+
+}
+
+.chatboxoptions {
+    float: right;
+}
+
+.chatboxoptions a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.chatboxtitle {
+    float: left;
+}
 </style>
     
   </head>
@@ -85,6 +265,28 @@ select{border:1px solid #ccc;}
     </div>
 
     <div class="container" >
+    <%if current_person %>
+        Hi ! <%= current_person.user_name %> , <%= link_to "Log out" , destroy_person_session_path , :method => 'delete'%> 
+       <% else %>
+          <%= link_to 'Log in' , new_person_session_path %> , <%= link_to 'Sign up' , new_person_registration_path %> 
+        <% end %>
+
+        </br>
+        <% Person.all.each_with_index do |user, index| %>
+            <%if current_person != nil%>
+            <% if current_person.id != user.id%>
+            <tr>
+              <td><%= user.user_name %></td>
+              <td>
+                <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                            "data-sid" => current_person.id, "data-rip" => user.id %>
+                            </br>
+              </td>
+            </tr>
+            <%end%>
+            <%end%>
+        <% end %>
+
         <%flash.each do |location , msg| %>
         <div class="alert alert-<%= location == :notice ? "success" : "error" %>">
         <%=msg%>
@@ -93,7 +295,9 @@ select{border:1px solid #ccc;}
             <div class="span9"><%= yield %></div>
                
         </div>
-       <%= will_paginate @paginate if @paginate %>
+
+        
+        <%= will_paginate @paginate if @paginate %>
        <hr/>
 
       <footer>
@@ -101,7 +305,7 @@ select{border:1px solid #ccc;}
       </footer>
 
     </div>
-
+    <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio>
   </body>
 </html>
 

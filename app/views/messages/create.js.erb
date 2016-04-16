@@ -1,0 +1,39 @@
+<% publish_to @path do %>
+    var id = "<%= @conversation.id %>";
+    var chatbox = $("#chatbox_" + id + " .chatboxcontent");
+    var sender_id = "<%= @message.person.id %>";
+    var reciever_id = $('meta[name=person-id]').attr("content");
+
+    chatbox.append("<%= raw escape_javascript(render(@message)) %>");
+
+    var chatboxtextarea = $("#chatbox_" + id + " .chatboxtextarea");
+
+    message = chatboxtextarea.val();
+    message = message.replace(/^\s+|\s+$/g, "");
+
+    if (message != '') {
+        $(chatboxtextarea).val('');
+        $(chatboxtextarea).focus();
+        $(chatboxtextarea).css('height', '44px');
+    }
+            
+    var adjustedHeight = chatboxtextarea.clientHeight;
+    var maxHeight = 94;
+
+    if (maxHeight > adjustedHeight) {
+        adjustedHeight = Math.max(chatboxtextarea.scrollHeight, adjustedHeight);
+        if (maxHeight)
+            adjustedHeight = Math.min(maxHeight, adjustedHeight);
+        if (adjustedHeight > chatboxtextarea.clientHeight)
+            $(chatboxtextarea).css('height', adjustedHeight + 8 + 'px');
+    } else {
+        $(chatboxtextarea).css('overflow', 'auto');
+    }
+
+    if(sender_id != reciever_id){
+    	chatBox.chatWith(id);
+        chatbox.children().last().removeClass("self").addClass("other");        
+    	chatbox.scrollTop(chatbox[0].scrollHeight);
+        chatBox.notify();
+    }
+<% end %>

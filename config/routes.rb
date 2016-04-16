@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
 
+  devise_for :managers
+  devise_for :people
   mount IncidentV1::GrapeAPI => '/v1'
   resources :incidents
   root "incidents#index"
-  
+
+  namespace :dashboard do
+    namespace :admin do
+      resources :people
+      resources :incidents
+      resources :cates
+    end  
+  end
+
+  resources :conversations do
+    resources :messages
+  end
+   
   get "/update_group" => "incidents#update_group"
   get "/update_incident" => "incidents#update_incident"
   get "/index" => "incidents#index"
