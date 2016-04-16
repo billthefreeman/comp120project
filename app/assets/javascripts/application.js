@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require chat
-//= require people
 //= require turbolinks
 //= require_tree .
 //= require private_pub
