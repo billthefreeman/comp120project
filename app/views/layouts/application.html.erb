@@ -273,20 +273,32 @@ select{border:1px solid #ccc;}
         <% end %>
 
         </br>
-        <% Person.all.each_with_index do |user, index| %>
-            <%if current_person != nil%>
-            <% if current_person.id != user.id%>
-            <tr>
-              <td><%= user.user_name %></td>
-              <td>
-                <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                            "data-sid" => current_person.id, "data-rip" => user.id %>
-                            </br>
-              </td>
-            </tr>
-            <%end%>
-            <%end%>
-        <% end %>
+
+        <div>
+        <a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Chat with registered user
+        </a>
+        </div>
+
+        <div class="collapse col-md-2" id="collapseExample">
+          <table class="table">
+            <% Person.all.each_with_index do |user, index| %>
+              <%if current_person != nil%>
+                <% if current_person.id != user.id%>
+                  <tr>
+                    <td><%= user.user_name %></td>
+                    <td>
+                    <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                                  "data-sid" => current_person.id, "data-rip" => user.id %>              
+                    </td>
+                  </tr>
+                  </br>
+                <%end%>
+              <%end%>
+            <% end %>
+          </table>
+        </div>
+        
 
         <%flash.each do |location , msg| %>
         <div class="alert alert-<%= location == :notice ? "success" : "error" %>">
@@ -506,7 +518,7 @@ var ready = function () {
                 return;
             }
 
-            $("body").append('<div id="chatbox_' + conversation_id + '" class="chatbox"></div>')
+            $("body").append('<div id="chatbox_' + conversation_id + '" class="chatbox" style="z-index:98;"></div>')
 
             $.get("conversations/" + conversation_id, function (data) {
                 $('#chatbox_' + conversation_id).html(data);

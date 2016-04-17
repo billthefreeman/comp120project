@@ -2,9 +2,9 @@
       <li class="incident" data-time="<%= incident.created_at.to_i %>"> 
         <% puts case incident.status_id%>
           <%when 1%>
-            <div class="timeline-badge primary"><span class="glyphicon glyphicon-bullhorn"></span></div>
+            <div class="timeline-badge primary" style="position:relative; z-index:1;"><span class="glyphicon glyphicon-bullhorn"></span></div>
           <%when 2%>
-            <div class="timeline-badge warning"><span class="glyphicon glyphicon-eye-open"></span></div>
+            <div class="timeline-badge warning" style="position:relative; z-index:1;"><span class="glyphicon glyphicon-eye-open"></span></div>
           <% end %>
         
         <div class="timeline-panel" data-time="<%= incident.created_at.to_i %>">
@@ -63,9 +63,9 @@
       <li class="timeline-inverted">
         <% puts case incident.status_id%>
           <%when 3%>
-            <div class="timeline-badge success"><span class="glyphicon glyphicon-check"></span></div>
+            <div class="timeline-badge success" style="position:relative; z-index:1;"><span class="glyphicon glyphicon-check"></span></div>
           <%when 4%>
-            <div class="timeline-badge"><span class="glyphicon glyphicon-ban-circle"></span></div>      
+            <div class="timeline-badge" style="position:relative; z-index:1;"><span class="glyphicon glyphicon-ban-circle"></span></div>      
           <% end %>
       <div class="timeline-panel">
         <div class="timeline-heading">
