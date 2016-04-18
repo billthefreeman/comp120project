@@ -6,6 +6,11 @@
 
     chatbox.append("<%= raw escape_javascript(render(@message)) %>");
 
+    <% if @conversation.recipient_id == Person.first.id %>
+        <% new_message = Message.create(:body=>"I don't know.",:person_id=>Person.first.id,:conversation_id=>@conversation.id) %>
+        chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
+    <%end%>
+
     var chatboxtextarea = $("#chatbox_" + id + " .chatboxtextarea");
 
     message = chatboxtextarea.val();
