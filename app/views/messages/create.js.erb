@@ -7,11 +7,24 @@
     chatbox.append("<%= raw escape_javascript(render(@message)) %>");
 
     <% if @conversation.recipient_id == Person.first.id %>
-        <% response = RestClient.post 'https://aiaas.pandorabots.com/talk/1409612569916/irsys', :input => @message.body, :user_key => 'f5177b0cc4541a012d2f1a1f606c6e22'%>
-        <% res = JSON.load(response)%>
-        <% new_body = res["responses"][0] %>
-        <% new_message = Message.create(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id) %>
-        chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
+        <% if @message.body  =~ /(\b[c|C]ustomer\b.*\b[s|S]ervice\b)/%>
+            <% new_body = "Please Call Customer Service at xxx-xxx-xxxx or click Customer Service button to start a live chat with one of our agents." %>
+            <% new_message = Message.create(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id) %>
+            chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
+        <% elsif @message.body  =~ /(\bwhere\b.*\bfire\b|\bfire\b.*\bwhere\b)|(\blocation.*\bfire\b|\bfire\b.*\blocation)/%>
+            <% new_body = "" %>
+            <% Incident.where(:cate_id=>14).each do |inc| %>
+                <% new_body << inc.location << "\n" %>
+            <% end %>
+            <% new_message = Message.create(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id) %>
+            chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
+        <% else %>
+            <% response = RestClient.post 'https://aiaas.pandorabots.com/talk/1409612569916/irsys', :input => @message.body, :user_key => 'f5177b0cc4541a012d2f1a1f606c6e22'%>
+            <% res = JSON.load(response)%>
+            <% new_body = res["responses"][0] %>
+            <% new_message = Message.create(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id) %>
+            chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
+        <% end %>
     <%end%>
 
     var chatboxtextarea = $("#chatbox_" + id + " .chatboxtextarea");
