@@ -24,6 +24,9 @@ gem 'devise'
 
 gem 'private_pub'
 gem 'thin'
+gem "pandorabots"
+gem 'rest-client'
+
 gem 'pg'
 gem 'rails_12factor'
 
