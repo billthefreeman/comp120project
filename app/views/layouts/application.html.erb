@@ -311,8 +311,16 @@ select{border:1px solid #ccc;}
                   <tr>
                     <td><%= user.user_name %></td>
                     <td>
-                    <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                                  "data-sid" => current_person.id, "data-rip" => user.id %>              
+                    <%if user.id == Person.first.id %>
+                    <%= link_to "Send Message", "#", class: "btn btn-info btn-xs start-conversation",
+                                  "data-sid" => current_person.id, "data-rip" => user.id %> 
+                    <%elsif user.id == Person.second.id%> 
+                    <%= link_to "Send Message", "#", class: "btn btn-warning btn-xs start-conversation",
+                                  "data-sid" => current_person.id, "data-rip" => user.id %> 
+                    <% else %> 
+                     <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                                  "data-sid" => current_person.id, "data-rip" => user.id %>   
+                    <%end%>         
                     </td>
                   </tr>
                   </br>
