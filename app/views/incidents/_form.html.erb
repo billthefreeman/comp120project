@@ -35,7 +35,7 @@
                                 <div class="form-group col-md-7">
                                     <label class="control-label" >* Reporter Name</label>
                                     <div id="slc" class="col-lg-10">
-                                      <%= f.select(:reporter_id , options_for_select($redis.hgetall("people").map{|key,value| [value,key]},f.object.reporter_id),{:class => 'col-lg-10 form-control'})%>
+                                      <%= current_person.user_name %>
                                     </div>
                                 </div>
                             </div>
@@ -43,12 +43,12 @@
                             <div class="row">
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label">Group</label>
-                                    <input id="groupDiv" type="text" class="form-control">
+                                    <%= current_person.group.group_name %>
                                 </div>
 
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label">Department</label>
-                                    <input id="departmentDiv" type="text" class="form-control" >
+                                    <%= current_person.group.department.department_name %>
                                 </div>
                                 
                             </div>
@@ -56,11 +56,11 @@
                             <div class="row">
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label">Phone</label>
-                                    <input id="phoneDiv" type="text" class="form-control" >
+                                    <%= current_person.phone %>
                                 </div>
                                 <div class="form-group  col-md-6 col-sm-12">
                                     <label class="control-label" >Email</label>
-                                    <input id="emailDiv" type="text" class="form-control">
+                                    <%= current_person.email %>
                                 </div>
                             </div>
                         </fieldset>

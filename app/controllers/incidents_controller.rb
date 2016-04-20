@@ -54,6 +54,7 @@ class IncidentsController < ApplicationController
   # POST /incidents.json
   def create
     @incident = Incident.new(incident_params)
+    @incident.reporter_id = current_person.id
     respond_to do |format|
       if @incident.save
         inc = @incident.to_json

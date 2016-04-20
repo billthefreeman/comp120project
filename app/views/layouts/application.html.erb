@@ -77,20 +77,20 @@ select{border:1px solid #ccc;}
  */
 
 .chatbox {
-    position: fixed;
-    position: expression("absolute");
-    width: 280px;
-    display: none;
+  position: fixed;
+  position: expression("absolute");
+  width: 280px;
+  display: none;
 }
 
 .chatboxhead {
-    background: #666;
-    color: white;
-    padding: 0.5rem;
-    overflow: hidden;
+  background: #006699;
+  color: white;
+  padding: 0.5rem;
+  overflow: hidden;
 
-    border-right: 1px solid rgba(85, 85, 85, 0.87);
-    border-left: 1px solid rgba(85, 85, 85, 0.87);
+  border-right: 1px solid rgba(85, 85, 85, 0.87);
+  border-left: 1px solid rgba(85, 85, 85, 0.87);
 }
 
 .chatboxhead h1 {
@@ -114,7 +114,7 @@ select{border:1px solid #ccc;}
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #eeeeee;
-    background: #e5e5e5;
+    background: #E8E8E8;
     line-height: 1.3em;
     list-style: none;
 }
@@ -157,28 +157,51 @@ select{border:1px solid #ccc;}
     border-bottom-right-radius: 0;
 }
 
-.self .avatar {
-    order: 2;
-}
-
-.self .avatar:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border: 5px solid white;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
 .chatboxmessagecontent {
-    background: white;
-    padding: 10px;
-    border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: #F8F8F8;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    vertical-align: top;
+}
+
+.chatboxmessagecontent::before {
+    background-color: #F8F8F8;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 11px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+}
+
+.self .chatboxmessagecontent {
+    float: right;   
+    margin: 5px 15px 5px 20px; 
+    background-color: #BADDF5;        
+}
+
+.self .chatboxmessagecontent::before {
+    background-color: #BADDF5; 
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -9px;          
+}
+
+.other .chatboxmessagecontent  {
+    float: left;    
+    margin: 5px 20px 5px 15px;         
+}
+
+.other .chatboxmessagecontent::before  { 
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -9px;   
 }
 
 .chatboxmessagecontent p {
@@ -285,16 +308,6 @@ select{border:1px solid #ccc;}
             <% Person.all.each_with_index do |user, index| %>
               <%if current_person != nil%>
                 <% if current_person.id != user.id%>
-                  <%if user.id == Person.first.id%>
-                  <tr>
-                    <td><%= user.user_name %></td>
-                    <td>
-                    <%= link_to "Send Message", "#", class: "btn btn-info btn-xs start-conversation",
-                                  "data-sid" => current_person.id, "data-rip" => user.id %>              
-                    </td>
-                  </tr>
-                  </br>
-                  <%else%>
                   <tr>
                     <td><%= user.user_name %></td>
                     <td>
@@ -303,7 +316,6 @@ select{border:1px solid #ccc;}
                     </td>
                   </tr>
                   </br>
-                  <%end%>
                 <%end%>
               <%end%>
             <% end %>
