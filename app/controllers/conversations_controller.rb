@@ -18,6 +18,7 @@ class ConversationsController < ApplicationController
     #@messages = @conversation.messages
 
     @arr = Message.where(:id=>0)
+    
     $redis.zrangebyscore("conversation_"+params[:conversation_id].to_s ,0,(Time.now.to_f * 1).to_i , {withscores: true}).each do |source|
       mes = source[0]
       new_m = JSON.load mes
