@@ -13,9 +13,14 @@
             chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
         <% elsif @message.body  =~ /(\bwhere\b.*\bfire\b|\bfire\b.*\bwhere\b)|(\blocation.*\bfire\b|\bfire\b.*\blocation)/%>
             <% new_body = "" %>
-            <% Incident.where(:cate_id=>14).each do |inc| %>
-                <% new_body << inc.location << "\n" %>
+            <% if Incident.where(:cate_id=>14).exists? %>
+                <% Incident.where(:cate_id=>14).each do |inc| %>
+                    <% new_body << inc.location << "\n" %>
+                <% end %>
+            <% else %>
+                <% new_body << "There is no incident reported in category of fire." %>
             <% end %>
+
             <% new_message = Message.new(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id,:created_at=>DateTime.now) %>
             chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
         <% else %>
