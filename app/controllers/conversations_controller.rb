@@ -22,7 +22,7 @@ class ConversationsController < ApplicationController
     $redis.zrangebyscore("conversation_"+params[:conversation_id].to_s ,0,(Time.now.to_f * 1).to_i , {withscores: true}).each do |source|
       mes = source[0]
       new_m = JSON.load mes
-      @arr << Incident.new(new_m)
+      @arr << Message.new(new_m)
     end  
     @messages = @arr
 
