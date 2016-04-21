@@ -10,6 +10,7 @@
     console.log("recipient_id"+recipient_id);
     var first_id = "<%= Person.first.id %>";
     console.log("first_id"+first_id);
+    console.log("<%= Person.first.user_name%>")
 
     <% if @conversation.recipient_id == Person.first.id %>
         console.log("First person!");
