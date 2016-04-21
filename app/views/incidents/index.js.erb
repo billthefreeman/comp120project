@@ -57,6 +57,8 @@ else {
 			<% new_body = "Alert! Critical Incident(s) created! " %>
 			<% new_message = Message.new(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>conversation_id,:created_at=>DateTime.now) %>
 			chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
+			chatBox.notify();
+			chatbox.scrollTop(chatbox[0].scrollHeight);
 		<% end %>
 	}
 
