@@ -5,6 +5,7 @@
     var reciever_id = $('meta[name=person-id]').attr("content");
 
     chatbox.append("<%= raw escape_javascript(render(@message)) %>");
+    chatbox.scrollTop(chatbox[0].scrollHeight);
 
     <% if @conversation.recipient_id == Person.first.id %>
         <% if @message.body  =~ /(\b[c|C]ustomer\b.*\b[s|S]ervice\b)/%>
@@ -29,6 +30,8 @@
             <% new_message = Message.new(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id,:created_at=>DateTime.now) %>
             chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
         <% end %>
+        chatBox.notify();
+        chatbox.scrollTop(chatbox[0].scrollHeight);
     <%end%>
 
     var chatboxtextarea = $("#chatbox_" + id + " .chatboxtextarea");
@@ -54,11 +57,11 @@
     } else {
         $(chatboxtextarea).css('overflow', 'auto');
     }
-
+    
     if(sender_id != reciever_id){
+        console.log("in if");
     	chatBox.chatWith(id);
         chatbox.children().last().removeClass("self").addClass("other");        
-    	chatbox.scrollTop(chatbox[0].scrollHeight);
         chatBox.notify();
     }
 <% end %>
