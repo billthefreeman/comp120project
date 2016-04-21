@@ -8,9 +8,7 @@ class IncidentsController < ApplicationController
     #incidents = Incident.where("created_at > ?", Time.at(params[:after].to_i + 1)).order('id DESC').paginate(:page => params[:page], :per_page => 5)
     
     after = params[:after].to_i
-    if (after == 0)
-      @incidents = @paginate = Incident.all.order('id DESC').paginate(:page => params[:page], :per_page => 5)
-    end  
+     
     @added = $redis.zrangebyscore("incidents" , after + 1 , (Time.now.to_f * 1).to_i , {withscores: true}).length 
     num = 0
      $redis.zrangebyscore("incidents" , after + 1 , (Time.now.to_f * 1).to_i , {withscores: true}).each do |s|
