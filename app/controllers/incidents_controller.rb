@@ -9,7 +9,7 @@ class IncidentsController < ApplicationController
     
     after = params[:after].to_i
     if (after == 0)
-      @incidents = @paginate = Incident.all.order('id DESC').paginate(:page => params[:page], :per_page => 5)
+      @incidents = Incident.all.order('id DESC')
     end  
     @added = $redis.zrangebyscore("incidents" , after + 1 , (Time.now.to_f * 1).to_i , {withscores: true}).length 
     num = 0
@@ -33,7 +33,7 @@ class IncidentsController < ApplicationController
   def update_incident 
     after = params[:after].to_i
     if (after == 0)
-      @incidents = Incident.all.order('id DESC').paginate(:page => params[:page], :per_page => 5)
+      @incidents = Incident.all.order('id DESC')
     end  
     @arr = []
     $redis.zrangebyscore("incidents" , after + 1 , (Time.now.to_f * 1).to_i , {withscores: true}).each do |source|
@@ -41,7 +41,7 @@ class IncidentsController < ApplicationController
       new_i = JSON.load inc
       @arr << Incident.new(new_i)
     end  
-    @incidents = @paginate = Incident.where(id: @arr.map(&:id)).order('id DESC').paginate(:page => params[:page], :per_page => 5)   
+    @incidents  = Incident.where(id: @arr.map(&:id)).order('id DESC')  
   end
 
   # GET /incidents/1
