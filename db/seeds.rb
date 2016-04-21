@@ -60,14 +60,6 @@ when "production"
 	Person.create(:last_name => "Huo",:user_name => "Yan",:group_id => 2,:phone=>"8672729667",:email=>"234@tufts.edu",:encrypted_password=>"$2a$10$IKISercM6.3Fp/yeM9vxsuRCScC2z8QB3OjV5nwX7lwYMoMyQo5e.")
 	Person.create(:last_name => "Bu",:user_name => "Min",:group_id => 3,:phone=>"8672729668",:email=>"345@tufts.edu",:encrypted_password=>"$2a$10$IKISercM6.3Fp/yeM9vxsuRCScC2z8QB3OjV5nwX7lwYMoMyQo5e.")
 	Person.create(:last_name => "Lu",:user_name => "Feiyu",:group_id => 4,:phone=>"8672729669",:email=>"456@tufts.edu",:encrypted_password=>"$2a$10$IKISercM6.3Fp/yeM9vxsuRCScC2z8QB3OjV5nwX7lwYMoMyQo5e.")
-
-	Incident.create(:location =>"Halligan",:reporter_id=>Person.last.id,:cate_id=>4,:severity=>3,:status_id=>2)
-	Incident.create(:location =>"Anderson",:reporter_id=>Person.last.id,:cate_id=>5,:severity=>5,:status_id=>3)
-	Incident.create(:location =>"Lane",:reporter_id=>Person.last.id,:cate_id=>2,:severity=>1,:status_id=>1)
-	Incident.create(:location =>"Dowling",:reporter_id=>Person.last.id,:cate_id=>3,:severity=>4,:status_id=>1)
-	Incident.create(:location =>"Tisch",:reporter_id=>Person.last.id,:cate_id=>1,:severity=>3,:status_id=>4)
-	Incident.create(:location =>"Barnum",:reporter_id=>Person.last.id,:cate_id=>6,:severity=>2,:status_id=>3)
-	Incident.create(:location =>"Braker",:reporter_id=>Person.last.id,:cate_id=>7,:severity=>5,:status_id=>2)
 	
 when "development"
 	Status.create(:status_name => "reported")
