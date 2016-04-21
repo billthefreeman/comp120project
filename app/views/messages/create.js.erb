@@ -8,7 +8,7 @@
 
     var recipient_id = "<%= @conversation.recipient_id %>";
     console.log("recipient_id"+recipient_id);
-    var first_id = "<%= @Person.first.id %>";
+    var first_id = "<%= Person.first.id %>";
     console.log("first_id"+first_id);
 
     <% if @conversation.recipient_id == Person.first.id %>
