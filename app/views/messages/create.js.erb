@@ -7,6 +7,7 @@
     chatbox.append("<%= raw escape_javascript(render(@message)) %>");
 
     <% if @conversation.recipient_id == Person.first.id %>
+        console.log("First person!");
         <% if @message.body  =~ /(\b[c|C]ustomer\b.*\b[s|S]ervice\b)/%>
             <% new_body = "Please Call Customer Service at xxx-xxx-xxxx or click Customer Service button to start a live chat with one of our agents." %>
             <% new_message = Message.new(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id,:created_at=>DateTime.now) %>
