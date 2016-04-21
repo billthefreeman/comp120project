@@ -11,7 +11,7 @@
             <% new_body = "Please Call Customer Service at xxx-xxx-xxxx or click Customer Service button to start a live chat with one of our agents." %>
             <% new_message = Message.new(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id,:created_at=>DateTime.now) %>
             chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
-        <% elsif @message.body  =~ /(\b[w|W]here\b.*\bfire\b|\b[f|F]ire\b.*\bwhere\b)|(\blocation.*\bfire\b|\bfire\b.*\blocation)/%>
+        <% elsif @message.body  =~ /(\b[W|w]here\b.*\bfire\b|\b[F|f]ire\b.*\bwhere\b)|(\b[L|l]ocation.*\bfire\b|\b[F|f]ire\b.*\blocation)/%>
             <% new_body = "" %>
             <% if Incident.where(:cate_id=>14).exists? %>
                 <% Incident.where(:cate_id=>14).each do |inc| %>
@@ -20,7 +20,6 @@
             <% else %>
                 <% new_body << "There is no incident reported in category of fire." %>
             <% end %>
-
             <% new_message = Message.new(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id,:created_at=>DateTime.now) %>
             chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
         <% else %>
