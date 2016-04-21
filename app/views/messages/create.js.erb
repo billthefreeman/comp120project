@@ -6,20 +6,12 @@
 
     chatbox.append("<%= raw escape_javascript(render(@message)) %>");
 
-    var recipient_id = "<%= @conversation.recipient_id %>";
-    console.log("recipient_id"+recipient_id);
-    var first_id = "<%= Person.first.id %>";
-    console.log("first_id"+first_id);
-    console.log("<%= Person.first.to_json%>")
-    console.log("<%= Person.find(@conversation.recipient_id).to_json%>")
-
     <% if @conversation.recipient_id == Person.first.id %>
-        console.log("First person!");
         <% if @message.body  =~ /(\b[c|C]ustomer\b.*\b[s|S]ervice\b)/%>
             <% new_body = "Please Call Customer Service at xxx-xxx-xxxx or click Customer Service button to start a live chat with one of our agents." %>
             <% new_message = Message.new(:body=>new_body,:person_id=>Person.first.id,:conversation_id=>@conversation.id,:created_at=>DateTime.now) %>
             chatbox.append("<%= raw escape_javascript(render(new_message)) %>");
-        <% elsif @message.body  =~ /(\bwhere\b.*\bfire\b|\bfire\b.*\bwhere\b)|(\blocation.*\bfire\b|\bfire\b.*\blocation)/%>
+        <% elsif @message.body  =~ /(\b[w|W]here\b.*\bfire\b|\b[f|F]ire\b.*\bwhere\b)|(\blocation.*\bfire\b|\bfire\b.*\blocation)/%>
             <% new_body = "" %>
             <% if Incident.where(:cate_id=>14).exists? %>
                 <% Incident.where(:cate_id=>14).each do |inc| %>
